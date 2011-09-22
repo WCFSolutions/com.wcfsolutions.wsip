@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/acp-menu.xsd">
+	<import>
+		<acpmenuitem name="wsip.acp.menu.link.content.category">
+			<parent>wcf.acp.menu.link.content</parent>
+			<showorder>1</showorder>
+		</acpmenuitem>	
+		<acpmenuitem name="wsip.acp.menu.link.content.category.view">
+			<parent>wsip.acp.menu.link.content.category</parent>
+			<showorder>1</showorder>
+			<link>index.php?page=CategoryList</link>
+			<icon>icon/categoryM.png</icon>
+			<permissions>admin.portal.canEditCategory,admin.portal.canDeleteCategory</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wsip.acp.menu.link.content.category.add">
+			<parent>wsip.acp.menu.link.content.category</parent>
+			<showorder>2</showorder>
+			<link>index.php?form=CategoryAdd</link>
+			<permissions>admin.portal.canAddCategory</permissions> 
+		</acpmenuitem>
+		<acpmenuitem name="wsip.acp.menu.link.content.contentItem">
+			<parent>wcf.acp.menu.link.content</parent>
+			<showorder>2</showorder>
+		</acpmenuitem>	
+		<acpmenuitem name="wsip.acp.menu.link.content.contentItem.view">
+			<parent>wsip.acp.menu.link.content.contentItem</parent>
+			<showorder>1</showorder>
+			<link>index.php?page=ContentItemList</link>
+			<icon>icon/contentItemM.png</icon>
+			<permissions>admin.portal.canEditContentItem,admin.portal.canDeleteContentItem</permissions>
+		</acpmenuitem>
+		<acpmenuitem name="wsip.acp.menu.link.content.contentItem.add">
+			<parent>wsip.acp.menu.link.content.contentItem</parent>
+			<showorder>2</showorder>
+			<link>index.php?form=ContentItemAdd</link>
+			<permissions>admin.portal.canAddContentItem</permissions> 
+		</acpmenuitem>
+		<acpmenuitem name="wsip.acp.menu.link.content.contentItem.boxAssignment">
+			<parent>wsip.acp.menu.link.content.contentItem</parent>
+			<showorder>3</showorder>
+			<link>index.php?page=ContentItemBoxAssignment</link>
+			<permissions>admin.portal.canEditContentItem</permissions>
+		</acpmenuitem>
+	</import>
+</data>

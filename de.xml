@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/language.xsd" languagecode="de">
+	<category name="wcf.acp.box">
+		<item name="wcf.acp.box.tab.add.success"><![CDATA[Der Boxtab wurde erfolgreich hinzugefügt.]]></item>
+		<item name="wcf.acp.box.tab.edit.success"><![CDATA[Der Boxtab wurde erfolgreich bearbeitet.]]></item>
+		<item name="wcf.acp.box.tab.option.articles.categoryIDs"><![CDATA[Kategorien]]></item>
+		<item name="wcf.acp.box.tab.option.articles.categoryIDs.description"><![CDATA[Aus welchen Kategorien sollen die Artikel angezeigt werden? Mehrfache Markierungen sind durch zusätzliches Drücken der Taste &raquo;Strg/Ctrl&laquo; (Windows) oder &raquo;Befehl/Command&laquo; (Mac OS) möglich.]]></item>
+		<item name="wcf.acp.box.tab.option.articles.displayType"><![CDATA[Ansicht]]></item>
+		<item name="wcf.acp.box.tab.option.articles.displayType.description"><![CDATA[Welche Ansicht soll für die Auflistung der Artikel verwendet werden?]]></item>
+		<item name="wcf.acp.box.tab.option.articles.maxArticles"><![CDATA[Maximale Artikel]]></item>
+		<item name="wcf.acp.box.tab.option.articles.maxArticles.description"><![CDATA[Wieviele Artikel sollen in der Box angezeigt werden?]]></item>
+		<item name="wcf.acp.box.tab.option.articles.sortField"><![CDATA[Sortierung]]></item>
+		<item name="wcf.acp.box.tab.option.articles.sortField.description"><![CDATA[Geben Sie an, wonach die Nachrichten sortiert werden sollen.]]></item>
+		<item name="wcf.acp.box.tab.option.articles.sortOrder"><![CDATA[Sortierungsreihenfolge]]></item>
+		<item name="wcf.acp.box.tab.option.articles.sortOrder.description"><![CDATA[Geben Sie an, in welcher Reihenfolge die Nachrichten angezeigt werden sollen.]]></item>
+		<item name="wcf.acp.box.tab.option.contentItems.contentItemID"><![CDATA[Übergeordnete Seite]]></item>
+		<item name="wcf.acp.box.tab.option.contentItems.contentItemID.description"><![CDATA[Bestimmen Sie hier, von welcher Seite die Unterseiten angezeigt werden sollen.]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.categoryIDs"><![CDATA[Kategorien]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.categoryIDs.description"><![CDATA[Aus welchen Kategorien sollen die Nachrichten angezeigt werden? Mehrfache Markierungen sind durch zusätzliches Drücken der Taste &raquo;Strg/Ctrl&laquo; (Windows) oder &raquo;Befehl/Command&laquo; (Mac OS) möglich.]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.displayType"><![CDATA[Ansicht]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.displayType.description"><![CDATA[Welche Ansicht soll für die Auflistung der Nachrichten verwendet werden?]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.maxEntries"><![CDATA[Maximale Nachrichten]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.maxEntries.description"><![CDATA[Wieviele Nachrichten sollen in der Box angezeigt werden?]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.sortField"><![CDATA[Sortierung]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.sortField.description"><![CDATA[Geben Sie an, wonach die Nachrichten sortiert werden sollen.]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.sortOrder"><![CDATA[Sortierungsreihenfolge]]></item>
+		<item name="wcf.acp.box.tab.option.newsEntries.sortOrder.description"><![CDATA[Geben Sie an, in welcher Reihenfolge die Nachrichten angezeigt werden sollen.]]></item>
+		<item name="wcf.acp.box.tab.type.articles"><![CDATA[Artikel]]></item>
+		<item name="wcf.acp.box.tab.type.articles.displayType.large"><![CDATA[Ausführliche Auflistung]]></item>
+		<item name="wcf.acp.box.tab.type.articles.displayType.small"><![CDATA[Kompakte Auflistung]]></item>
+		<item name="wcf.acp.box.tab.type.articles.sortField.comments"><![CDATA[Kommentare]]></item>
+		<item name="wcf.acp.box.tab.type.articles.sortField.rating"><![CDATA[Bewertung]]></item>
+		<item name="wcf.acp.box.tab.type.articles.sortField.time"><![CDATA[Erstellungszeit]]></item>
+		<item name="wcf.acp.box.tab.type.articles.sortField.views"><![CDATA[Aufrufe]]></item>
+		<item name="wcf.acp.box.tab.type.contentItems"><![CDATA[Seiten]]></item>
+		<item name="wcf.acp.box.tab.type.newsEntries"><![CDATA[Nachrichten]]></item>
+		<item name="wcf.acp.box.tab.type.newsEntries.displayType.large"><![CDATA[Ausführliche Auflistung]]></item>
+		<item name="wcf.acp.box.tab.type.newsEntries.displayType.small"><![CDATA[Kompakte Auflistung]]></item>
+		<item name="wcf.acp.box.tab.type.newsEntries.sortField.comments"><![CDATA[Kommentare]]></item>
+		<item name="wcf.acp.box.tab.type.newsEntries.sortField.rating"><![CDATA[Bewertung]]></item>
+		<item name="wcf.acp.box.tab.type.newsEntries.sortField.time"><![CDATA[Erstellungszeit]]></item>
+		<item name="wcf.acp.box.tab.type.newsEntries.sortField.views"><![CDATA[Aufrufe]]></item>
+	</category>
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.category.user.portal.contentItem"><![CDATA[Seiten]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.contentItem.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewContentItem"><![CDATA[Kann Seiten sehen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewContentItem.description"><![CDATA[Mitglieder dieser Benutzergruppe können Seiten sehen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEnterContentItem"><![CDATA[Kann Seiten betreten]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEnterContentItem.description"><![CDATA[Mitglieder dieser Benutzergruppe können Seiten betreten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewHiddenContentItem"><![CDATA[Kann nicht veröffentlichte Seiten sehen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewHiddenContentItem.description"><![CDATA[Mitglieder dieser Benutzergruppe können nicht veröffentlichte Seiten sehen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canStartNewsPoll"><![CDATA[Kann Umfragen starten]]></item>
+		<item name="wcf.acp.group.option.user.portal.canStartNewsPoll.description"><![CDATA[Mitglieder dieser Benutzergruppe können selbst Umfragen starten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canStartPublicNewsPoll"><![CDATA[Kann öffentliche Umfragen erstellen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canStartPublicNewsPoll.description"><![CDATA[Mitglieder dieser Benutzergruppe können öffentliche Umfragen erstellen. Hier kann jeder Benutzer sehen, wer für was abgestimmt hat.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canVoteNewsPoll"><![CDATA[Kann an Umfragen teilnehmen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canVoteNewsPoll.description"><![CDATA[Mitglieder dieser Benutzergruppe können an Umfragen teilnehmen.]]></item>		
+		<item name="wcf.acp.group.option.admin.portal.canAddCategory"><![CDATA[Kann Kategorien erstellen]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canAddCategory.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kategorien erstellen.]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canAddContentItem"><![CDATA[Kann Seiten erstellen]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canAddContentItem.description"><![CDATA[Mitglieder dieser Benutzergruppe können Seiten erstellen.]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canDeleteCategory"><![CDATA[Kann Kategorien löschen]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canDeleteCategory.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kategorien löschen.]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canDeleteContentItem"><![CDATA[Kann Seiten löschen]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canDeleteContentItem.description"><![CDATA[Mitglieder dieser Benutzergruppe können Seiten löschen.]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canEditCategory"><![CDATA[Kann Kategorien bearbeiten]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canEditCategory.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kategorien bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canEditContentItem"><![CDATA[Kann Seiten bearbeiten]]></item>
+		<item name="wcf.acp.group.option.admin.portal.canEditContentItem.description"><![CDATA[Mitglieder dieser Benutzergruppe können Seiten bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.category.admin.portal"><![CDATA[Portal]]></item>
+		<item name="wcf.acp.group.option.category.admin.portal.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal"><![CDATA[Portal]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal.article"><![CDATA[Artikel]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal.article.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal.comment"><![CDATA[Kommentare]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal.comment.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal.news"><![CDATA[Nachrichten]]></item>
+		<item name="wcf.acp.group.option.category.mod.portal.news.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.user.portal"><![CDATA[Portal]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.article"><![CDATA[Artikel]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.article.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.comment"><![CDATA[Kommentare]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.comment.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.general.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.news"><![CDATA[Nachrichten]]></item>
+		<item name="wcf.acp.group.option.category.user.portal.news.description"><![CDATA[]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteArticle"><![CDATA[Kann Artikel löschen]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteArticle.description"><![CDATA[Mitglieder dieser Benutzergruppe können Artikel löschen.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteComment"><![CDATA[Kann Kommentare löschen]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteComment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kommentare löschen.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteNewsEntry"><![CDATA[Kann Nachrichten löschen]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten löschen. Je nach Einstellung befinden sich die gelöschten Nachrichten dann erst im Papierkorb.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteNewsEntryCompletely"><![CDATA[Kann Nachrichten endgültig löschen]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canDeleteNewsEntryCompletely.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten, die sich je nach Einstellung zuerst noch im Papierkorb befinden, endgültig löschen.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEditArticle"><![CDATA[Kann Artikel bearbeiten]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEditArticle.description"><![CDATA[Mitglieder dieser Benutzergruppe können Artikel bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEditComment"><![CDATA[Kann Kommentare bearbeiten]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEditComment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kommentare bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEditNewsEntry"><![CDATA[Kann Nachrichten bearbeiten]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEditNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEnableNewsEntry"><![CDATA[Kann Nachrichten freischalten]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canEnableNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten freischalten.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canMoveNewsEntry"><![CDATA[Kann Nachrichten verschieben]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canMoveNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten von einer Kategorie in eine andere verschieben.]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canReadDeletedNewsEntry"><![CDATA[Kann gelöschte Nachrichten sehen]]></item>
+		<item name="wcf.acp.group.option.mod.portal.canReadDeletedNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten sehen, die sich im Papierkorb befinden.]]></item>
+		<item name="wcf.acp.group.option.user.portal.allowedArticleSectionAttachmentExtensions"><![CDATA[Erlaubte Dateiendungen]]></item>
+		<item name="wcf.acp.group.option.user.portal.allowedArticleSectionAttachmentExtensions.description"><![CDATA[Erlaubte Endungen für Dateianhänge. Pro Zeile eine Dateiendung angeben.]]></item>
+		<item name="wcf.acp.group.option.user.portal.allowedNewsAttachmentExtensions"><![CDATA[Erlaubte Dateiendungen]]></item>
+		<item name="wcf.acp.group.option.user.portal.allowedNewsAttachmentExtensions.description"><![CDATA[Erlaubte Endungen für Dateianhänge. Pro Zeile eine Dateiendung angeben.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canAddArticle"><![CDATA[Kann Artikel hinzufügen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canAddArticle.description"><![CDATA[Mitglieder dieser Benutzergruppe können Artikel hinzufügen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canAddNewsEntry"><![CDATA[Kann Nachrichten hinzufügen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canAddNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten hinzufügen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canAddNewsEntryWithoutModeration"><![CDATA[Kann Nachrichten ohne Moderation hinzufügen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canAddNewsEntryWithoutModeration.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten ohne Moderation hinzufügen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canComment"><![CDATA[Kann Objekte kommentieren]]></item>
+		<item name="wcf.acp.group.option.user.portal.canComment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Objekte kommentieren.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteComment"><![CDATA[Kann Kommentare in eigenen Objekten löschen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteComment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kommentare in eigenen Objekten löschen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteOwnArticle"><![CDATA[Kann eigene Artikel löschen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteOwnArticle.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Artikel löschen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteOwnComment"><![CDATA[Kann eigene Kommentare löschen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteOwnComment.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Kommentare löschen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteOwnNewsEntry"><![CDATA[Kann eigene Nachrichten löschen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDeleteOwnNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Nachrichten löschen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDownloadArticleSectionAttachment"><![CDATA[Kann Dateianhänge herunterladen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDownloadArticleSectionAttachment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Dateianhänge herunterladen/betrachten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDownloadNewsAttachment"><![CDATA[Kann Dateianhänge herunterladen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canDownloadNewsAttachment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Dateianhänge herunterladen/betrachten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditComment"><![CDATA[Kann Kommentare in eigenen Objekten bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditComment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kommentare in eigenen Objekten bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditOwnArticle"><![CDATA[Kann eigene Artikel bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditOwnArticle.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Artikel bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditOwnComment"><![CDATA[Kann eigene Kommentare bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditOwnComment.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Kommentare bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditOwnNewsEntry"><![CDATA[Kann eigene Nachrichten bearbeiten]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEditOwnNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Nachrichten bearbeiten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEnterCategory"><![CDATA[Kann Kategorien betreten]]></item>
+		<item name="wcf.acp.group.option.user.portal.canEnterCategory.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kategorien betreten.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadArticle"><![CDATA[Kann Artikel lesen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadArticle.description"><![CDATA[Mitglieder dieser Benutzergruppe können Artikel lesen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadNewsEntry"><![CDATA[Kann Nachrichten lesen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können Nachrichten lesen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadOwnArticle"><![CDATA[Kann eigene Artikel lesen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadOwnArticle.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Artikel lesen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadOwnNewsEntry"><![CDATA[Kann eigene Nachrichten lesen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canReadOwnNewsEntry.description"><![CDATA[Mitglieder dieser Benutzergruppe können eigene Nachrichten lesen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canSetArticleTags"><![CDATA[Kann Tags festlegen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canSetArticleTags.description"><![CDATA[Mitglieder dieser Benutzergruppe können Tags für Artikel festlegen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canSetNewsTags"><![CDATA[Kann Tags festlegen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canSetNewsTags.description"><![CDATA[Mitglieder dieser Benutzergruppe können Tags für Nachrichten festlegen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canUploadArticleSectionAttachment"><![CDATA[Kann Dateianhänge hochladen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canUploadArticleSectionAttachment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Dateianhänge hochladen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canUploadNewsAttachment"><![CDATA[Kann Dateianhänge hochladen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canUploadNewsAttachment.description"><![CDATA[Mitglieder dieser Benutzergruppe können Dateianhänge hochladen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewArticleSectionAttachmentPreview"><![CDATA[Kann Dateianhangs-Vorschau sehen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewArticleSectionAttachmentPreview.description"><![CDATA[Mitglieder dieser Benutzergruppe können die Vorschau von Dateianhängen sehen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewCategory"><![CDATA[Kann Kategorien sehen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewCategory.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kategorien sehen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewNewsAttachmentPreview"><![CDATA[Kann Dateianhangs-Vorschau sehen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewNewsAttachmentPreview.description"><![CDATA[Mitglieder dieser Benutzergruppe können die Vorschau von Dateianhängen sehen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewPortalOffline"><![CDATA[Kann Portal im Offline-Modus sehen]]></item>
+		<item name="wcf.acp.group.option.user.portal.canViewPortalOffline.description"><![CDATA[Mitglieder dieser Benutzergruppe können das Portal im Offline-Modus sehen.]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxArticleSectionAttachmentCount"><![CDATA[Maximale Dateianhänge pro Artikel]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxArticleSectionAttachmentCount.description"><![CDATA[Wieviele Dateianhänge sollen Mitglieder dieser Benutzergruppe pro Artikel hochladen können?]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxArticleSectionAttachmentSize"><![CDATA[Maximale Dateianhangsgröße]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxArticleSectionAttachmentSize.description"><![CDATA[Maximale Größe pro Dateianhang in Byte.]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxCommentLength"><![CDATA[Maximale Kommentarlänge]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxCommentLength.description"><![CDATA[Geben Sie hier die maximale Anzahl an Zeichen an, die ein Kommentar enthalten darf.]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxNewsAttachmentCount"><![CDATA[Maximale Dateianhänge pro Nachrichten]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxNewsAttachmentCount.description"><![CDATA[Wieviele Dateianhänge sollen Mitglieder dieser Benutzergruppe pro Nachricht hochladen können?]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxNewsAttachmentSize"><![CDATA[Maximale Dateianhangsgröße]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxNewsAttachmentSize.description"><![CDATA[Maximale Größe pro Dateianhang in Byte.]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxNewsEntryLength"><![CDATA[Maximale Nachrichtenlänge]]></item>
+		<item name="wcf.acp.group.option.user.portal.maxNewsEntryLength.description"><![CDATA[Geben Sie hier die maximale Anzahl an Zeichen an, die eine Nachricht enthalten darf.]]></item>
+	</category>
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.activity_points_per_news_entry"><![CDATA[Aktivitätspunkte pro Nachricht]]></item>
+		<item name="wcf.acp.option.activity_points_per_news_entry.description"><![CDATA[Wieviele Aktivitätspunkte soll ein Benutzer für das Erstellen von Nachrichten erhalten?]]></item>
+		<item name="wcf.acp.option.article_box_layout"><![CDATA[Boxlayout]]></item>
+		<item name="wcf.acp.option.article_box_layout.description"><![CDATA[Welches Boxlayout soll verwendet werden?]]></item>
+		<item name="wcf.acp.option.article_enable_comments"><![CDATA[Kommentare aktivieren]]></item>
+		<item name="wcf.acp.option.article_enable_comments.description"><![CDATA[Sollen Kommentare aktiviert werden?]]></item>
+		<item name="wcf.acp.option.article_enable_rating"><![CDATA[Bewertungen aktivieren]]></item>
+		<item name="wcf.acp.option.article_enable_rating.description"><![CDATA[Sollen Artikelbewertungen aktiviert werden?]]></item>
+		<item name="wcf.acp.option.article_enable_stats"><![CDATA[Kategoriespezifische Statistik anzeigen]]></item>
+		<item name="wcf.acp.option.article_enable_stats.description"><![CDATA[Soll eine kategoriespezifische Statistik angezeigt werden?]]></item>
+		<item name="wcf.acp.option.article_enable_tags"><![CDATA[Tagging von Artikeln aktivieren]]></item>
+		<item name="wcf.acp.option.article_enable_tags.description"><![CDATA[Benutzer können Artikeln Tags zuweisen, die in Tag-Wolken zusammengefasst werden.]]></item>
+		<item name="wcf.acp.option.articles_per_page"><![CDATA[Artikel pro Seite]]></item>
+		<item name="wcf.acp.option.articles_per_page.description"><![CDATA[Wieviele Artikel sollen pro Seite aufgelistet werden?]]></item>
+		<item name="wcf.acp.option.category.offline.general"><![CDATA[Portal temporär deaktivieren]]></item>
+		<item name="wcf.acp.option.category.offline.general.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal"><![CDATA[Portal]]></item>
+		<item name="wcf.acp.option.category.portal.article"><![CDATA[Artikel]]></item>
+		<item name="wcf.acp.option.category.portal.article.articles"><![CDATA[Artikel]]></item>
+		<item name="wcf.acp.option.category.portal.article.articles.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.article.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.article.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.acp.option.category.portal.article.general.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.index"><![CDATA[Startseite]]></item>
+		<item name="wcf.acp.option.category.portal.index.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.index.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.acp.option.category.portal.index.general.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.news"><![CDATA[Nachrichten]]></item>
+		<item name="wcf.acp.option.category.portal.news.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.news.entry"><![CDATA[Nachrichten]]></item>
+		<item name="wcf.acp.option.category.portal.news.entry.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.category.portal.news.general"><![CDATA[Allgemein]]></item>
+		<item name="wcf.acp.option.category.portal.news.general.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.index_box_layout"><![CDATA[Boxlayout]]></item>
+		<item name="wcf.acp.option.index_box_layout.description"><![CDATA[Welches Boxlayout soll verwendet werden?]]></item>
+		<item name="wcf.acp.option.module_article"><![CDATA[Artikel]]></item>
+		<item name="wcf.acp.option.module_article.description"><![CDATA[Aktiviert die Artikel.]]></item>
+		<item name="wcf.acp.option.module_comment"><![CDATA[Kommentare]]></item>
+		<item name="wcf.acp.option.module_comment.description"><![CDATA[Aktiviert die Möglichkeit, Objekte zu kommentieren.]]></item>
+		<item name="wcf.acp.option.module_news"><![CDATA[Nachrichten]]></item>
+		<item name="wcf.acp.option.module_news.description"><![CDATA[Aktiviert die Nachrichten.]]></item>
+		<item name="wcf.acp.option.news_box_layout"><![CDATA[Boxlayout]]></item>
+		<item name="wcf.acp.option.news_box_layout.description"><![CDATA[Welches Boxlayout soll verwendet werden?]]></item>
+		<item name="wcf.acp.option.news_enable_stats"><![CDATA[Kategoriespezifische Statistik anzeigen]]></item>
+		<item name="wcf.acp.option.news_enable_stats.description"><![CDATA[Soll eine kategoriespezifische Statistik angezeigt werden?]]></item>
+		<item name="wcf.acp.option.news_entries_per_page"><![CDATA[Nachrichten pro Seite]]></item>
+		<item name="wcf.acp.option.news_entries_per_page.description"><![CDATA[Wieviele Nachrichten sollen pro Seite aufgelistet werden?]]></item>
+		<item name="wcf.acp.option.news_entry_add_use_captcha"><![CDATA[Erstellung von Nachrichten im Portal]]></item>
+		<item name="wcf.acp.option.news_entry_add_use_captcha.description"><![CDATA[]]></item>
+		<item name="wcf.acp.option.news_entry_empty_recycle_bin_cycle"><![CDATA[Papierkorb automatisch leeren]]></item>
+		<item name="wcf.acp.option.news_entry_empty_recycle_bin_cycle.description"><![CDATA[Nach wievielen Tagen sollen die Nachrichten im Papierkorb automatisch gelöscht werden?]]></item>
+		<item name="wcf.acp.option.news_entry_enable_comments"><![CDATA[Kommentare aktivieren]]></item>
+		<item name="wcf.acp.option.news_entry_enable_comments.description"><![CDATA[Sollen Kommentare aktiviert werden?]]></item>
+		<item name="wcf.acp.option.news_entry_enable_rating"><![CDATA[Bewertungen aktivieren]]></item>
+		<item name="wcf.acp.option.news_entry_enable_rating.description"><![CDATA[Sollen Nachrichtenbewertungen aktiviert werden?]]></item>
+		<item name="wcf.acp.option.news_entry_enable_recycle_bin"><![CDATA[Papierkorb aktivieren]]></item>
+		<item name="wcf.acp.option.news_entry_enable_recycle_bin.description"><![CDATA[Soll ein Papierkorb für gelöschte Nachrichten aktiviert werden? Sie können diese dann bis zur eingestellten endgültigen Löschung wiederherstellen.]]></item>
+		<item name="wcf.acp.option.news_entry_enable_tags"><![CDATA[Tagging von Nachrichten aktivieren]]></item>
+		<item name="wcf.acp.option.news_entry_enable_tags.description"><![CDATA[Benutzer können Nachrichten Tags zuweisen, die in Tag-Wolken zusammengefasst werden.]]></item>
+		<item name="wcf.acp.option.offline"><![CDATA[Portal deaktivieren]]></item>
+		<item name="wcf.acp.option.offline.description"><![CDATA[Hier kann das Portal vorübergehend deaktiviert werden (z.B. für Wartungsarbeiten).]]></item>
+		<item name="wcf.acp.option.offline_message"><![CDATA[Deaktivierungsnachricht]]></item>
+		<item name="wcf.acp.option.offline_message.description"><![CDATA[Eine Nachricht, die während der Deaktivierung des Portals angezeigt wird.]]></item>
+		<item name="wcf.acp.option.offline_message_allow_html"><![CDATA[HTML-Code in Deaktivierungsnachricht verwenden]]></item>
+		<item name="wcf.acp.option.offline_message_allow_html.description"><![CDATA[Durch Aktivierung dieser Option können Sie zur Formatierung des Textes auch HTML verwenden.]]></item>
+		<item name="wcf.acp.option.profile_show_last_articles"><![CDATA[Letzte Artikel eines Benutzers im Profil anzeigen]]></item>
+		<item name="wcf.acp.option.profile_show_last_articles.description"><![CDATA[Sollen die fünf letzten Artikel eines Benutzers in seinem Profil angezeigt werden?]]></item>
+		<item name="wcf.acp.option.profile_show_last_news_entries"><![CDATA[Letzte Nachrichten eines Benutzers im Profil anzeigen]]></item>
+		<item name="wcf.acp.option.profile_show_last_news_entries.description"><![CDATA[Sollen die fünf letzten Nachrichten eines Benutzers in seinem Profil angezeigt werden?]]></item>
+		<item name="wcf.acp.option.show_clock"><![CDATA[Aktuelle Uhrzeit im Fußbereich des Portals anzeigen]]></item>
+		<item name="wcf.acp.option.show_clock.description"><![CDATA[Soll die aktuelle Uhrzeit im Fußbereich angezeigt des Portals angezeigt werden?]]></item>
+		<item name="wcf.acp.option.show_style_chooser"><![CDATA[Stil-Auswahl anzeigen]]></item>
+		<item name="wcf.acp.option.show_style_chooser.description"><![CDATA[Soll im Fußteil der Seite eine Liste aller Stile zur Auswahl angezeigt werden?]]></item>
+		<item name="wcf.acp.option.show_version_number"><![CDATA[Versionsnummer des Portals im Copyright-Hinweis anzeigen]]></item>
+		<item name="wcf.acp.option.show_version_number.description"><![CDATA[Durch Aktivierung dieser Option wird die Versionsnummer im Copyright-Hinweis angezeigt.]]></item>
+	</category>
+	<category name="wcf.attachment">
+		<item name="wcf.attachment.containerType.articleSection"><![CDATA[Artikelabschnitt]]></item>
+		<item name="wcf.attachment.containerType.newsEntry"><![CDATA[Nachricht]]></item>
+	</category>
+	<category name="wcf.box">
+		<item name="wcf.box.position.bottom"><![CDATA[Unter dem Inhaltsbereich]]></item>
+		<item name="wcf.box.position.index"><![CDATA[Inhaltsbereich auf Startseite]]></item>
+		<item name="wcf.box.position.left"><![CDATA[Links vom Inhaltsbereich]]></item>
+		<item name="wcf.box.position.right"><![CDATA[Rechts vom Inhaltsbereich]]></item>
+		<item name="wcf.box.position.top"><![CDATA[Über dem Inhaltsbereich]]></item>
+		<item name="wcf.box.position.userMessages"><![CDATA[Benutzer-Benachrichtigungen]]></item>
+	</category>
+	<category name="wcf.moderation">
+		<item name="wcf.moderation.deletedNewsEntries"><![CDATA[Nachrichten-Papierkorb]]></item>
+		<item name="wcf.moderation.hiddenNewsEntries"><![CDATA[Freizuschaltende Nachrichten]]></item>
+		<item name="wcf.moderation.markedNewsEntries"><![CDATA[Markierte Nachrichten]]></item>
+		<item name="wcf.moderation.menu.link.deletedNewsEntries"><![CDATA[Papierkorb]]></item>
+		<item name="wcf.moderation.menu.link.hiddenNewsEntries"><![CDATA[Freizuschaltende Nachrichten]]></item>
+		<item name="wcf.moderation.menu.link.markedNewsEntries"><![CDATA[Markierte Nachrichten]]></item>
+		<item name="wcf.moderation.menu.link.newsEntries"><![CDATA[Nachrichten]]></item>
+	</category>
+	<category name="wcf.user.notification">
+		<item name="wcf.user.notification.object.type.publicationObjectComment"><![CDATA[Kommentare]]></item>                
+	</category>
+	<category name="wcf.search">
+		<item name="wcf.search.type.article"><![CDATA[Artikel]]></item>
+		<item name="wcf.search.type.newsEntry"><![CDATA[Nachrichten]]></item>
+	</category>
+	<category name="wcf.tagging">
+		<item name="wcf.tagging.taggable.all.com.wcfsolutions.wsip.article"><![CDATA[Alle Artikel]]></item>
+		<item name="wcf.tagging.taggable.all.com.wcfsolutions.wsip.news.entry"><![CDATA[Alle Nachrichten]]></item>
+		<item name="wcf.tagging.taggable.com.wcfsolutions.wsip.article"><![CDATA[Artikel]]></item>
+		<item name="wcf.tagging.taggable.com.wcfsolutions.wsip.news.entry"><![CDATA[Nachrichten]]></item>
+	</category>
+	<category name="wcf.user.profile">
+		<item name="wcf.user.profile.allArticles"><![CDATA[Alle Artikel anzeigen]]></item>
+		<item name="wcf.user.profile.allNewsEntries"><![CDATA[Alle Nachrichten anzeigen]]></item>
+		<item name="wcf.user.profile.lastArticles"><![CDATA[Artikel]]></item>
+		<item name="wcf.user.profile.lastNewsEntries"><![CDATA[Nachrichten]]></item>
+	</category>
+	<category name="wsip.acp">
+		<item name="wsip.acp.jumpToPortal"><![CDATA[Zum Portal]]></item>
+	</category>
+	<category name="wsip.acp.category">
+		<item name="wsip.acp.category.add"><![CDATA[Kategorie hinzufügen]]></item>
+		<item name="wsip.acp.category.add.success"><![CDATA[Die Kategorie wurde erfolgreich hinzugefügt.]]></item>
+		<item name="wsip.acp.category.allowDescriptionHtml"><![CDATA[HTML-Code in Beschreibung verwenden]]></item>
+		<item name="wsip.acp.category.classification"><![CDATA[Einordnung]]></item>
+		<item name="wsip.acp.category.count.noCategories"><![CDATA[Derzeit sind keine Kategorien vorhanden.]]></item>
+		<item name="wsip.acp.category.delete"><![CDATA[Kategorie löschen]]></item>
+		<item name="wsip.acp.category.delete.success"><![CDATA[Die Kategorie wurde erfolgreich gelöscht.]]></item>
+		<item name="wsip.acp.category.delete.sure"><![CDATA[Wollen Sie diese Kategorie wirklich löschen?]]></item>
+		<item name="wsip.acp.category.description"><![CDATA[Beschreibung]]></item>
+		<item name="wsip.acp.category.edit"><![CDATA[Kategorie bearbeiten]]></item>
+		<item name="wsip.acp.category.edit.success"><![CDATA[Die Kategorie wurde erfolgreich bearbeitet.]]></item>
+		<item name="wsip.acp.category.general"><![CDATA[Allgemeine Daten]]></item>
+		<item name="wsip.acp.category.language"><![CDATA[Sprache]]></item>
+		<item name="wsip.acp.category.language.description"><![CDATA[Bitte wählen Sie hier die Sprache der folgenden Texte aus.]]></item>
+		<item name="wsip.acp.category.list"><![CDATA[Kategorien]]></item>
+		<item name="wsip.acp.category.moderators"><![CDATA[Moderatoren]]></item>
+		<item name="wsip.acp.category.parentID"><![CDATA[Übergeordnete Kategorie]]></item>
+		<item name="wsip.acp.category.parentID.description"><![CDATA[Bestimmen Sie hier, welcher Kategorie die aktuelle Kategorie untergeordnet werden soll.]]></item>
+		<item name="wsip.acp.category.permissions"><![CDATA[Zugriffsrechte für Benutzer und Gruppen]]></item>
+		<item name="wsip.acp.category.permissions.add"><![CDATA[Hinzufügen]]></item>
+		<item name="wsip.acp.category.permissions.allow"><![CDATA[Zulassen]]></item>
+		<item name="wsip.acp.category.permissions.canAddArticle"><![CDATA[Kann Artikel hinzufügen]]></item>
+		<item name="wsip.acp.category.permissions.canAddNewsEntry"><![CDATA[Kann Nachrichten hinzufügen]]></item>
+		<item name="wsip.acp.category.permissions.canAddNewsEntryWithoutModeration"><![CDATA[Kann Nachrichten ohne Moderation hinzufügen]]></item>
+		<item name="wsip.acp.category.permissions.canDeleteArticle"><![CDATA[Kann Artikel löschen]]></item>
+		<item name="wsip.acp.category.permissions.canDeleteNewsEntry"><![CDATA[Kann Nachrichten löschen]]></item>
+		<item name="wsip.acp.category.permissions.canDeleteNewsEntryCompletely"><![CDATA[Kann Nachrichten endgültig löschen]]></item>
+		<item name="wsip.acp.category.permissions.canDeleteOwnArticle"><![CDATA[Kann eigene Artikel löschen]]></item>
+		<item name="wsip.acp.category.permissions.canDeleteOwnNewsEntry"><![CDATA[Kann eigene Nachrichten löschen]]></item>
+		<item name="wsip.acp.category.permissions.canDownloadArticleSectionAttachment"><![CDATA[Kann Artikel-Dateianhänge herunterladen]]></item>
+		<item name="wsip.acp.category.permissions.canDownloadNewsAttachment"><![CDATA[Kann Nachrichten-Dateianhänge herunterladen]]></item>
+		<item name="wsip.acp.category.permissions.canEditArticle"><![CDATA[Kann Artikel bearbeiten]]></item>
+		<item name="wsip.acp.category.permissions.canEditNewsEntry"><![CDATA[Kann Nachrichten bearbeiten]]></item>
+		<item name="wsip.acp.category.permissions.canEditOwnArticle"><![CDATA[Kann eigene Artikel bearbeiten]]></item>
+		<item name="wsip.acp.category.permissions.canEditOwnNewsEntry"><![CDATA[Kann eigene Nachrichten bearbeiten]]></item>
+		<item name="wsip.acp.category.permissions.canEnableNewsEntry"><![CDATA[Kann Nachrichten freischalten]]></item>
+		<item name="wsip.acp.category.permissions.canEnterCategory"><![CDATA[Kann Kategorie betreten]]></item>
+		<item name="wsip.acp.category.permissions.canMoveNewsEntry"><![CDATA[Kann Nachrichten verschieben]]></item>
+		<item name="wsip.acp.category.permissions.canReadArticle"><![CDATA[Kann Artikel lesen]]></item>
+		<item name="wsip.acp.category.permissions.canReadDeletedNewsEntry"><![CDATA[Kann gelöschte Nachrichten sehen]]></item>
+		<item name="wsip.acp.category.permissions.canReadNewsEntry"><![CDATA[Kann Nachrichten lesen]]></item>
+		<item name="wsip.acp.category.permissions.canReadOwnArticle"><![CDATA[Kann eigene Artikel lesen]]></item>
+		<item name="wsip.acp.category.permissions.canReadOwnNewsEntry"><![CDATA[Kann eigene Nachrichten lesen]]></item>
+		<item name="wsip.acp.category.permissions.canSetArticleTags"><![CDATA[Kann Artikel-Tags festlegen]]></item>
+		<item name="wsip.acp.category.permissions.canSetNewsTags"><![CDATA[Kann Nachrichten-Tags festlegen]]></item>
+		<item name="wsip.acp.category.permissions.canStartNewsPoll"><![CDATA[Kann Nachrichten-Umfragen starten]]></item>
+		<item name="wsip.acp.category.permissions.canUploadArticleSectionAttachment"><![CDATA[Kann Artikel-Dateianhänge hochladen]]></item>
+		<item name="wsip.acp.category.permissions.canUploadNewsAttachment"><![CDATA[Kann Nachrichten-Dateianhänge hochladen]]></item>
+		<item name="wsip.acp.category.permissions.canViewArticleSectionAttachmentPreview"><![CDATA[Kann Artikel-Dateianhangs-Vorschau sehen]]></item>
+		<item name="wsip.acp.category.permissions.canViewCategory"><![CDATA[Kann Kategorie sehen]]></item>
+		<item name="wsip.acp.category.permissions.canViewNewsAttachmentPreview"><![CDATA[Kann Nachrichten-Dateianhangs-Vorschau sehen]]></item>
+		<item name="wsip.acp.category.permissions.canVoteNewsPoll"><![CDATA[Kann an Nachrichten-Umfragen teilnehmen]]></item>
+		<item name="wsip.acp.category.permissions.deny"><![CDATA[Verweigern]]></item>
+		<item name="wsip.acp.category.permissions.fullControl"><![CDATA[Vollzugriff]]></item>
+		<item name="wsip.acp.category.permissions.permissionsFor"><![CDATA[Berechtigungen für {$name}]]></item>
+		<item name="wsip.acp.category.permissions.title"><![CDATA[Gruppen- oder Benutzernamen]]></item>
+		<item name="wsip.acp.category.position"><![CDATA[Position]]></item>
+		<item name="wsip.acp.category.position.description"><![CDATA[Geben Sie hier eine Ordnungsnummer an. Diese Nummer gibt an, wie die Kategorie in Bezug auf andere Kategorien sortiert werden soll.]]></item>
+		<item name="wsip.acp.category.publicationTypes"><![CDATA[Veröffentlichungs-Typen]]></item>
+		<item name="wsip.acp.category.publicationTypes.description"><![CDATA[Geben Sie an, für welche Veröffentlichungs-Typen die Kategorie aktiviert sein soll.]]></item>
+		<item name="wsip.acp.category.showOrder"><![CDATA[Reihenfolge]]></item>
+		<item name="wsip.acp.category.showOrder.description"><![CDATA[Geben Sie hier eine Ordnungsnummer an. Diese Nummer gibt an, wie die Kategorie in Bezug auf andere Kategorien sortiert werden soll.]]></item>
+		<item name="wsip.acp.category.sort.success"><![CDATA[Die Kategorien wurden erfolgreich sortiert.]]></item>
+		<item name="wsip.acp.category.title"><![CDATA[Titel]]></item>
+	</category>
+	<category name="wsip.acp.contentItem">
+		<item name="wsip.acp.contentItem.add"><![CDATA[Seite hinzufügen]]></item>
+		<item name="wsip.acp.contentItem.add.success"><![CDATA[Die Seite wurde erfolgreich hinzugefügt.]]></item>
+		<item name="wsip.acp.contentItem.allowSpidersToIndexThisPage"><![CDATA[Indexierung erlauben]]></item>
+		<item name="wsip.acp.contentItem.allowSpidersToIndexThisPage.description"><![CDATA[Bestimmen Sie hier, ob Suchmaschinen diese Seite indexieren dürfen.]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment"><![CDATA[Boxenzuordnung]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box"><![CDATA[Box]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.add"><![CDATA[Box hinzufügen]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.box"><![CDATA[Name]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.boxID"><![CDATA[Box-ID]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.button.add"><![CDATA[Hinzufügen]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.invalid"><![CDATA[Die gewählte Box ist ungültig.]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.remove"><![CDATA[Box entfernen]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.remove.success"><![CDATA[Die Box wurde von dieser Seite entfernt.]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.remove.sure"><![CDATA[Wollen Sie diese Box wirklich von dieser Seite entfernen?]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.showOrder"><![CDATA[Reihenfolge]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.box.sort.success"><![CDATA[Die Boxen wurden erfolgreich sortiert.]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.boxes"><![CDATA[Boxen]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.contentItem"><![CDATA[Seite]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.contentItem.description"><![CDATA[Wählen Sie die Seite aus, deren Boxen Sie verwalten möchten.]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.count.noBoxes"><![CDATA[Derzeit sind dieser Seite keine Boxen zugeordnet.]]></item>
+		<item name="wsip.acp.contentItem.boxAssignment.count.noContentItems"><![CDATA[Derzeit sind keine Seiten vorhanden, denen Boxen zugeordnet werden könnten.]]></item>
+		<item name="wsip.acp.contentItem.boxLayoutID"><![CDATA[Boxlayout]]></item>
+		<item name="wsip.acp.contentItem.boxLayoutID.description"><![CDATA[Bestimmen Sie hier ein spezielles Boxlayout für die Seite.]]></item>
+		<item name="wsip.acp.contentItem.classification"><![CDATA[Einordnung]]></item>
+		<item name="wsip.acp.contentItem.contentItemType"><![CDATA[Typ der Seite]]></item>
+		<item name="wsip.acp.contentItem.contentItemType.0"><![CDATA[Seite]]></item>
+		<item name="wsip.acp.contentItem.contentItemType.1"><![CDATA[Externer Link]]></item>
+		<item name="wsip.acp.contentItem.contentItemType.2"><![CDATA[Box-Container]]></item>
+		<item name="wsip.acp.contentItem.count.noContentItems"><![CDATA[Derzeit sind keine Seiten vorhanden.]]></item>
+		<item name="wsip.acp.contentItem.data"><![CDATA[Daten]]></item>
+		<item name="wsip.acp.contentItem.delete"><![CDATA[Seite löschen]]></item>
+		<item name="wsip.acp.contentItem.delete.success"><![CDATA[Die Seite wurde erfolgreich gelöscht.]]></item>
+		<item name="wsip.acp.contentItem.delete.sure"><![CDATA[Wollen Sie diese Seite wirklich löschen?]]></item>
+		<item name="wsip.acp.contentItem.description"><![CDATA[Beschreibung]]></item>
+		<item name="wsip.acp.contentItem.description.description"><![CDATA[Bestimmen Sie hier die Beschreibung der Seite.]]></item>
+		<item name="wsip.acp.contentItem.edit"><![CDATA[Seite bearbeiten]]></item>
+		<item name="wsip.acp.contentItem.edit.success"><![CDATA[Die Seite wurde erfolgreich bearbeitet.]]></item>
+		<item name="wsip.acp.contentItem.enforceStyle"><![CDATA[Benutzereinstellung überschreiben]]></item>
+		<item name="wsip.acp.contentItem.externalURL"><![CDATA[Adresse (URL) des Links]]></item>
+		<item name="wsip.acp.contentItem.externalURL.description"><![CDATA[Bestimmen Sie hier die Adresse (URL) des Links, zu der die Seite weiterleiten soll.]]></item>
+		<item name="wsip.acp.contentItem.icon"><![CDATA[Icon]]></item>
+		<item name="wsip.acp.contentItem.icon.description"><![CDATA[Bestimmen Sie hier das Icon der Seite. Geben Sie dabei nur den Namen des Icons ein, die Größe (S, M, L) und die Dateiendung werden automatisch hinzugefügt.]]></item>
+		<item name="wsip.acp.contentItem.language"><![CDATA[Sprache]]></item>
+		<item name="wsip.acp.contentItem.language.description"><![CDATA[Bitte wählen Sie hier die Sprache der folgenden Texte aus.]]></item>
+		<item name="wsip.acp.contentItem.meta"><![CDATA[Meta-Informationen]]></item>
+		<item name="wsip.acp.contentItem.metaDescription"><![CDATA[Seitenbeschreibung]]></item>
+		<item name="wsip.acp.contentItem.metaDescription.description"><![CDATA[Bestimmen Sie hier die Seitenbeschreibung, die von Suchmaschinen ausgewertet wird.]]></item>
+		<item name="wsip.acp.contentItem.metaKeywords"><![CDATA[Schlüsselwörter]]></item>
+		<item name="wsip.acp.contentItem.metaKeywords.description"><![CDATA[Bestimmen Sie hier Schlüsselwörter der Seite, die von Suchmaschinen ausgewertet werden.]]></item>
+		<item name="wsip.acp.contentItem.parentID"><![CDATA[Übergeordnete Seite]]></item>
+		<item name="wsip.acp.contentItem.parentID.description"><![CDATA[Bestimmen Sie hier, welcher Seite die aktuelle Seite untergeordnet werden soll.]]></item>
+		<item name="wsip.acp.contentItem.permissions"><![CDATA[Zugriffsrechte für Benutzer und Gruppen]]></item>
+		<item name="wsip.acp.contentItem.permissions.add"><![CDATA[Hinzufügen]]></item>
+		<item name="wsip.acp.contentItem.permissions.allow"><![CDATA[Zulassen]]></item>
+		<item name="wsip.acp.contentItem.permissions.canEnterContentItem"><![CDATA[Kann Seite betreten]]></item>
+		<item name="wsip.acp.contentItem.permissions.canViewContentItem"><![CDATA[Kann Seite sehen]]></item>
+		<item name="wsip.acp.contentItem.permissions.canViewHiddenContentItem"><![CDATA[Kann nicht veröffentlichte Seite sehen]]></item>
+		<item name="wsip.acp.contentItem.permissions.deny"><![CDATA[Verweigern]]></item>
+		<item name="wsip.acp.contentItem.permissions.fullControl"><![CDATA[Vollzugriff]]></item>
+		<item name="wsip.acp.contentItem.permissions.permissionsFor"><![CDATA[Berechtigungen für {$name}]]></item>
+		<item name="wsip.acp.contentItem.permissions.title"><![CDATA[Gruppen- oder Benutzernamen]]></item>
+		<item name="wsip.acp.contentItem.publishingEndTime"><![CDATA[Ende]]></item>
+		<item name="wsip.acp.contentItem.publishingEndTime.description"><![CDATA[Wählen Sie hier den Zeitpunkt, ab dem die Seite nicht mehr aufgerufen werden kann.]]></item>
+		<item name="wsip.acp.contentItem.publishingEndTime.error.invalid"><![CDATA[Bitte geben Sie ein gültiges Datum ein.]]></item>
+		<item name="wsip.acp.contentItem.publishingStartTime"><![CDATA[Start]]></item>
+		<item name="wsip.acp.contentItem.publishingStartTime.description"><![CDATA[Wählen Sie hier den Zeitpunkt, ab dem die Seite aufgerufen werden kann.]]></item>
+		<item name="wsip.acp.contentItem.publishingStartTime.error.invalid"><![CDATA[Bitte geben Sie ein gültiges Datum ein.]]></item>
+		<item name="wsip.acp.contentItem.publishingTime"><![CDATA[Veröffentlichungs-Zeitraum]]></item>
+		<item name="wsip.acp.contentItem.publishingTime.from"><![CDATA[von]]></item>
+		<item name="wsip.acp.contentItem.publishingTime.until"><![CDATA[bis]]></item>
+		<item name="wsip.acp.contentItem.showOrder"><![CDATA[Reihenfolge]]></item>
+		<item name="wsip.acp.contentItem.showOrder.description"><![CDATA[Geben Sie hier eine Ordnungsnummer an. Diese Nummer gibt an, wie die Seite in Bezug auf andere Seiten sortiert werden soll.]]></item>
+		<item name="wsip.acp.contentItem.sort.success"><![CDATA[Die Seiten wurden erfolgreich sortiert.]]></item>
+		<item name="wsip.acp.contentItem.style"><![CDATA[Stileinstellungen]]></item>
+		<item name="wsip.acp.contentItem.styleID"><![CDATA[Stil]]></item>
+		<item name="wsip.acp.contentItem.styleID.description"><![CDATA[Bestimmen Sie hier einen speziellen Stil für die Seite und ob der ausgewählte Stil die individuelle Einstellung der Benutzer überschreibt.]]></item>
+		<item name="wsip.acp.contentItem.text"><![CDATA[Text]]></item>
+		<item name="wsip.acp.contentItem.text.description"><![CDATA[Bestimmen Sie hier den Text der Seite.]]></item>
+		<item name="wsip.acp.contentItem.title"><![CDATA[Titel]]></item>
+		<item name="wsip.acp.contentItem.title.description"><![CDATA[Bestimmen Sie hier den Titel der Seite.]]></item>
+		<item name="wsip.acp.contentItem.view"><![CDATA[Seiten]]></item>
+		<item name="wsip.acp.contentItem.view.count.noContentItems"><![CDATA[Derzeit sind keine Seiten vorhanden.]]></item>
+	</category>
+	<category name="wsip.acp.index">
+		<item name="wsip.acp.index"><![CDATA[WCF Solutions Infinite Portal Administrationsoberfläche]]></item>
+		<item name="wsip.acp.index.credits"><![CDATA[Über WCF Solutions Infinite Portal]]></item>
+		<item name="wsip.acp.index.credits.contributor"><![CDATA[Mitwirkende]]></item>
+		<item name="wsip.acp.index.credits.designer"><![CDATA[Design]]></item>
+		<item name="wsip.acp.index.credits.developedBy"><![CDATA[Software entwickelt von]]></item>
+		<item name="wsip.acp.index.credits.developer"><![CDATA[Programmierung]]></item>
+		<item name="wsip.acp.index.credits.icons"><![CDATA[Icons]]></item>
+		<item name="wsip.acp.index.credits.productManager"><![CDATA[Projektleitung]]></item>
+		<item name="wsip.acp.index.credits.translators"><![CDATA[Übersetzung]]></item>
+		<item name="wsip.acp.index.news"><![CDATA[Nachrichten]]></item>
+		<item name="wsip.acp.index.noBoxes"><![CDATA[Sie haben noch keine Boxen erstellt. Erstellen Sie <a href="index.php?form=BoxAdd{@SID_ARG_2ND}">hier</a> Boxen und ordnen Sie diese einer Position eines Boxenlayouts zu, damit sie angezeigt werden.]]></item>
+		<item name="wsip.acp.index.searchUsers"><![CDATA[Schnellsuche nach Benutzern]]></item>
+		<item name="wsip.acp.index.stat"><![CDATA[Statistik]]></item>
+		<item name="wsip.acp.index.stat.attachments"><![CDATA[Dateianhänge]]></item>
+		<item name="wsip.acp.index.stat.database.entries"><![CDATA[Datenbankeinträge]]></item>
+		<item name="wsip.acp.index.stat.database.size"><![CDATA[Datenbankgröße]]></item>
+		<item name="wsip.acp.index.stat.members"><![CDATA[Mitglieder]]></item>
+		<item name="wsip.acp.index.stat.newsEntries"><![CDATA[Einträge]]></item>
+		<item name="wsip.acp.index.stat.newsEntriesPerDay"><![CDATA[({#$newsEntriesPerDay} pro Tag)]]></item>
+		<item name="wsip.acp.index.stat.usersOnline"><![CDATA[Benutzer online]]></item>
+		<item name="wsip.acp.index.system"><![CDATA[System]]></item>
+		<item name="wsip.acp.index.system.cache"><![CDATA[Cache]]></item>
+		<item name="wsip.acp.index.system.exportInformation"><![CDATA[System-Informationen herunterladen]]></item>
+		<item name="wsip.acp.index.system.installationDate"><![CDATA[Installationsdatum]]></item>
+		<item name="wsip.acp.index.system.load"><![CDATA[Aktueller UNIX Load]]></item>
+		<item name="wsip.acp.index.system.os"><![CDATA[Betriebssystem]]></item>
+		<item name="wsip.acp.index.system.php"><![CDATA[PHP Version]]></item>
+		<item name="wsip.acp.index.system.server"><![CDATA[Server]]></item>
+		<item name="wsip.acp.index.system.software"><![CDATA[Software]]></item>
+		<item name="wsip.acp.index.system.sql.type"><![CDATA[Datenbank]]></item>
+		<item name="wsip.acp.index.system.sql.version"><![CDATA[MySQL Version]]></item>
+		<item name="wsip.acp.index.system.wcf.version"><![CDATA[Community Framework&trade; Version]]></item>
+		<item name="wsip.acp.index.system.webserver"><![CDATA[Webserver]]></item>
+		<item name="wsip.acp.index.system.wsip.version"><![CDATA[Infinite Portal Version]]></item>
+		<item name="wsip.acp.index.updates"><![CDATA[Updates]]></item>
+		<item name="wsip.acp.index.minorUpdates"><![CDATA[Wichtige Updates]]></item>
+		<item name="wsip.acp.index.minorUpdates.description"><![CDATA[Es stehen derzeit folgende wichtige Updates zur Verfügung:]]></item>
+		<item name="wsip.acp.index.majorUpdates"><![CDATA[Optionale Updates]]></item>
+		<item name="wsip.acp.index.majorUpdates.description"><![CDATA[Es stehen derzeit folgende optionale Updates zur Verfügung:]]></item>
+		<item name="wsip.acp.index.updates.startUpdate"><![CDATA[Update jetzt durchführen]]></item>
+		<item name="wsip.acp.index.updates.update"><![CDATA[{$update.packageName}{if $update.instanceNo > 1} (#{$update.instanceNo}){/if} Version {$update.version.packageVersion}]]></item>
+	</category>
+	<category name="wsip.acp.menu">
+		<item name="wsip.acp.menu.link.content.category"><![CDATA[Kategorien]]></item>
+		<item name="wsip.acp.menu.link.content.category.add"><![CDATA[Kategorie hinzufügen]]></item>
+		<item name="wsip.acp.menu.link.content.category.view"><![CDATA[Kategorien auflisten]]></item>
+		<item name="wsip.acp.menu.link.content.contentItem"><![CDATA[Seiten]]></item>
+		<item name="wsip.acp.menu.link.content.contentItem.add"><![CDATA[Seite hinzufügen]]></item>
+		<item name="wsip.acp.menu.link.content.contentItem.boxAssignment"><![CDATA[Boxenzuordnung]]></item>
+		<item name="wsip.acp.menu.link.content.contentItem.view"><![CDATA[Seiten auflisten]]></item>
+	</category>
+	<category name="wsip.article">
+		<item name="wsip.article.add"><![CDATA[Artikel hinzufügen]]></item>
+		<item name="wsip.article.allArticles"><![CDATA[Alle Artikel anzeigen]]></item>
+		<item name="wsip.article.articles"><![CDATA[Artikel]]></item>
+		<item name="wsip.article.articles.tagged"><![CDATA[Artikel mit dem Tag &raquo;{$tag->getName()}&laquo;]]></item>
+		<item name="wsip.article.button.add"><![CDATA[Artikel hinzufügen]]></item>
+		<item name="wsip.article.button.move"><![CDATA[Verschieben]]></item>
+		<item name="wsip.article.by"><![CDATA[Von]]></item>
+		<item name="wsip.article.category"><![CDATA[Kategorie]]></item>
+		<item name="wsip.article.categoryID"><![CDATA[Kategorie]]></item>
+		<item name="wsip.article.categoryID.invalid"><![CDATA[Die gewählte Kategorie ist ungültig.]]></item>
+		<item name="wsip.article.comments"><![CDATA[Kommentare]]></item>
+		<item name="wsip.article.creator"><![CDATA[Ersteller]]></item>
+		<item name="wsip.article.enableComments"><![CDATA[Kommentare aktivieren]]></item>
+		<item name="wsip.article.enableComments.description"><![CDATA[Der Artikel kann kommentiert werden.]]></item>
+		<item name="wsip.article.general"><![CDATA[Allgemeine Informationen]]></item>
+		<item name="wsip.article.information"><![CDATA[Artikel-Informationen]]></item>
+		<item name="wsip.article.language"><![CDATA[Sprache]]></item>
+		<item name="wsip.article.link"><![CDATA[Verlinken]]></item>
+		<item name="wsip.article.more"><![CDATA[Weiterlesen]]></item>
+		<item name="wsip.article.move"><![CDATA[Artikel verschieben]]></item>
+		<item name="wsip.article.noArticles"><![CDATA[Es sind keine Artikel vorhanden.]]></item>
+		<item name="wsip.article.numberOfComments"><![CDATA[{#$article->comments} Kommentar{if $article->comments != 1}e{/if}]]></item>
+		<item name="wsip.article.overview"><![CDATA[Artikel]]></item>
+		<item name="wsip.article.permalink"><![CDATA[Permalink zum {#$messageNumber}. Artikel]]></item>
+		<item name="wsip.article.rate"><![CDATA[Artikel bewerten]]></item>
+		<item name="wsip.article.rating"><![CDATA[Bewertung]]></item>
+		<item name="wsip.article.section.add"><![CDATA[Abschnitt hinzufügen]]></item>
+		<item name="wsip.article.section.delete"><![CDATA[Abschnitt löschen]]></item>
+		<item name="wsip.article.section.delete.sure"><![CDATA[Wollen Sie diesen Artikel-Abschnitt wirklich löschen?]]></item>
+		<item name="wsip.article.section.edit"><![CDATA[Abschnitt bearbeiten]]></item>
+		<item name="wsip.article.section.parentSectionID"><![CDATA[Übergeordneter Abschnitt]]></item>
+		<item name="wsip.article.section.sort.success"><![CDATA[Die Abschnitte wurden erfolgreich sortiert.]]></item>
+		<item name="wsip.article.sections"><![CDATA[Inhaltsverzeichnis]]></item>
+		<item name="wsip.article.share"><![CDATA[Verbreiten]]></item>
+		<item name="wsip.article.stats"><![CDATA[Statistik]]></item>
+		<item name="wsip.article.stats.detail"><![CDATA[{#$stats.articles} Artikel (durchschnittlich {#$stats.articlesPerDay} Artikel/Tag)]]></item>
+		<item name="wsip.article.subject"><![CDATA[Titel]]></item>
+		<item name="wsip.article.tags"><![CDATA[Tags]]></item>
+		<item name="wsip.article.teaser"><![CDATA[Teaser]]></item>
+		<item name="wsip.article.teaser.error.tooLong"><![CDATA[Ihr Teaser ist zu lang. Es stehen maximal 255 Zeichen zur Verfügung.]]></item>
+		<item name="wsip.article.text"><![CDATA[Nachricht]]></item>
+		<item name="wsip.article.time"><![CDATA[Erstellungszeit]]></item>
+		<item name="wsip.article.views"><![CDATA[Aufrufe]]></item>
+		<item name="wsip.article.viewsPerDay"><![CDATA[{#$article->getViewsPerDay()} Aufrufe pro Tag]]></item>
+	</category>
+	<category name="wsip.category">
+		<item name="wsip.category.quickJump.title"><![CDATA[Kategorie wählen]]></item>
+	</category>
+	<category name="wsip.contentItem">
+		<item name="wsip.contentItem.overview"><![CDATA[Seitenübersicht]]></item>
+		<item name="wsip.contentItem.overview.noContentItems"><![CDATA[Es sind keine Seiten vorhanden.]]></item>
+		<item name="wsip.contentItem.search"><![CDATA[Seitensuche]]></item>
+		<item name="wsip.contentItem.search.error.noMatches"><![CDATA[Es wurde keine mit Ihrer Suchanfrage &raquo;{$query}&laquo; übereinstimmende Seite gefunden.]]></item>
+		<item name="wsip.contentItem.search.query"><![CDATA[Suchbegriff]]></item>
+		<item name="wsip.contentItem.search.query.error.invalid"><![CDATA[Sie haben einen ungültigen oder zu kurzen Suchbegriff angegeben. Bitte versuchen Sie einen anderen Begriff.]]></item>
+		<item name="wsip.contentItem.search.query.title"><![CDATA[Seiten durchsuchen]]></item>
+		<item name="wsip.contentItem.search.results"><![CDATA[Suchergebnisse]]></item>
+	</category>
+	<category name="wsip.global">
+		<item name="wsip.global.changeStyle"><![CDATA[Stil ändern]]></item>
+		<item name="wsip.global.copyright"><![CDATA[<a href="http://www.wcfsolutions.com">Software: <strong>Infinite Portal{if SHOW_VERSION_NUMBER} {@PACKAGE_VERSION}{/if}</strong>, entwickelt von <strong>WCF Solutions</strong></a>]]></item>
+		<item name="wsip.global.offline"><![CDATA[Das Portal befindet sich zur Zeit {if OFFLINE_MESSAGE != ''}aus folgenden Gründen im Wartungsmodus:{else}im Wartungsmodus.{/if}]]></item>
+	</category>
+	<category name="wsip.header">
+		<item name="wsip.header.login.useCookies"><![CDATA[Dauerhaft angemeldet bleiben?]]></item>
+		<item name="wsip.header.menu.article"><![CDATA[Artikel]]></item>
+		<item name="wsip.header.menu.contentItem"><![CDATA[Seitenübersicht]]></item>
+		<item name="wsip.header.menu.news"><![CDATA[Nachrichten]]></item>
+		<item name="wsip.header.menu.portal"><![CDATA[Startseite]]></item>
+		<item name="wsip.header.search.extended"><![CDATA[Erweiterte Suche]]></item>
+		<item name="wsip.header.search.query"><![CDATA[Suchbegriffe eingeben]]></item>
+		<item name="wsip.header.userMenu.acp"><![CDATA[Administration]]></item>
+		<item name="wsip.header.userMenu.changeLanguage"><![CDATA[Sprache ändern]]></item>
+		<item name="wsip.header.userMenu.login"><![CDATA[Anmelden]]></item>
+		<item name="wsip.header.userMenu.logout"><![CDATA[Abmelden]]></item>
+		<item name="wsip.header.userMenu.moderation"><![CDATA[Moderation]]></item>
+		<item name="wsip.header.userMenu.profile"><![CDATA[Profil bearbeiten]]></item>
+		<item name="wsip.header.userMenu.register"><![CDATA[Registrieren]]></item>
+		<item name="wsip.header.userNote.guest"><![CDATA[Sie sind nicht angemeldet.]]></item>
+		<item name="wsip.header.userNote.user"><![CDATA[Angemeldet als <a href="index.php?page=User&amp;userID={@$this->user->userID}{@SID_ARG_2ND}">{$this->user->username}</a>.]]></item>
+		<item name="wsip.header.welcomeBack"><![CDATA[Willkommen zurück, {$this->user->username}!]]></item>
+	</category>
+	<category name="wsip.index">
+		<item name="wsip.index.title"><![CDATA[Startseite]]></item>
+	</category>
+	<category name="wsip.moderation">
+		<item name="wsip.moderation.deletedNewsEntries"><![CDATA[Papierkorb]]></item>
+		<item name="wsip.moderation.deletedNewsEntries.noEntries"><![CDATA[Es befindet sich keine Nachricht im Papierkorb.]]></item>
+		<item name="wsip.moderation.hiddenNewsEntries"><![CDATA[Freizuschaltende Nachrichten]]></item>
+		<item name="wsip.moderation.hiddenNewsEntries.noEntries"><![CDATA[Es liegt keine freizuschaltende Nachricht vor.]]></item>
+		<item name="wsip.moderation.markedNewsEntries"><![CDATA[Markierte Nachrichten]]></item>
+		<item name="wsip.moderation.markedNewsEntries.noEntries"><![CDATA[Sie haben keine Nachricht markiert.]]></item>
+		<item name="wsip.moderation.news.entries.markAll"><![CDATA[Alle markieren]]></item>
+	</category>
+	<category name="wsip.news">
+		<item name="wsip.news.allEntries"><![CDATA[Alle Nachrichten anzeigen]]></item>
+		<item name="wsip.news.category.feed"><![CDATA[Nachrichten dieser Kategorie abonnieren]]></item>
+		<item name="wsip.news.entries"><![CDATA[Nachrichten]]></item>
+		<item name="wsip.news.entries.button.copy"><![CDATA[Hierher kopieren]]></item>
+		<item name="wsip.news.entries.button.disable"><![CDATA[Deaktivieren]]></item>
+		<item name="wsip.news.entries.button.editTitle"><![CDATA[Titel bearbeiten]]></item>
+		<item name="wsip.news.entries.button.enable"><![CDATA[Aktivieren]]></item>
+		<item name="wsip.news.entries.button.move"><![CDATA[Hierher verschieben]]></item>
+		<item name="wsip.news.entries.button.recover"><![CDATA[Wiederherstellen]]></item>
+		<item name="wsip.news.entries.button.removeReport"><![CDATA[Meldung löschen]]></item>
+		<item name="wsip.news.entries.button.showMarked"><![CDATA[Anzeigen]]></item>
+		<item name="wsip.news.entries.button.stick"><![CDATA[Oben anheften]]></item>
+		<item name="wsip.news.entries.button.unstick"><![CDATA[Lösen]]></item>
+		<item name="wsip.news.entries.delete.reason"><![CDATA[Wollen Sie diese Nachricht wirklich löschen, optional mit folgender Begründung?]]></item>
+		<item name="wsip.news.entries.delete.sure"><![CDATA[Wollen Sie diese Nachricht wirklich löschen?]]></item>
+		<item name="wsip.news.entries.deleteCompletely.sure"><![CDATA[Wollen Sie diese Nachricht wirklich endgültig löschen?]]></item>
+		<item name="wsip.news.entries.deleteMarked.reason"><![CDATA[Wollen Sie die markierten Nachrichten wirklich löschen, optional mit folgender Begründung?]]></item>
+		<item name="wsip.news.entries.deleteMarked.sure"><![CDATA[Wollen Sie die markierten Nachrichten wirklich löschen?]]></item>
+		<item name="wsip.news.entries.deleteNote"><![CDATA[Gelöscht {if $entry->userID == $entry->deletedByID}vom Autor selbst{else}von &raquo;{$entry->deletedBy}&laquo;{/if} ({@$entry->deleteTime|time}){if $entry->deleteReason}: {$entry->deleteReason}{/if}
+		{if NEWS_ENTRY_EMPTY_RECYCLE_BIN_CYCLE > 0}<br />Zeit bis zur endgültigen Löschung: {@$entry->deleteTime+NEWS_ENTRY_EMPTY_RECYCLE_BIN_CYCLE*86400|datediff}{/if}]]></item>
+		<item name="wsip.news.entries.markAll"><![CDATA[Alle markieren]]></item>
+		<item name="wsip.news.entries.markedEntries"><![CDATA[this.count == 1 ? "Eine Nachricht markiert" : this.count+" Nachrichten markiert"]]></item>
+		<item name="wsip.news.entries.tagged"><![CDATA[Nachrichten mit dem Tag &raquo;{$tag->getName()}&laquo;]]></item>
+		<item name="wsip.news.entry"><![CDATA[Nachricht]]></item>
+		<item name="wsip.news.entry.add"><![CDATA[Nachricht hinzufügen]]></item>
+		<item name="wsip.news.entry.add.moderation.redirect"><![CDATA[Ihre Nachricht wurde erfolgreich gespeichert. Sie wird von einem Moderator überprüft und, falls keine Beanstandung vorliegt, für alle anderen Benutzer freigegeben.]]></item>
+		<item name="wsip.news.entry.add.settings.disableEntry"><![CDATA[Nachricht deaktivieren]]></item>
+		<item name="wsip.news.entry.add.settings.disableEntry.description"><![CDATA[Die Nachricht wird nach dem Speichern deaktiviert und muss zunächst von einem Moderator freigeschaltet werden.]]></item>
+		<item name="wsip.news.entry.button.add"><![CDATA[Nachricht hinzufügen]]></item>
+		<item name="wsip.news.entry.button.delete"><![CDATA[Nachricht löschen]]></item>
+		<item name="wsip.news.entry.button.edit"><![CDATA[Nachricht bearbeiten]]></item>
+		<item name="wsip.news.entry.by"><![CDATA[Von]]></item>
+		<item name="wsip.news.entry.category"><![CDATA[Kategorie]]></item>
+		<item name="wsip.news.entry.categoryID"><![CDATA[Kategorie]]></item>
+		<item name="wsip.news.entry.comments"><![CDATA[Kommentare]]></item>
+		<item name="wsip.news.entry.creator"><![CDATA[Ersteller]]></item>
+		<item name="wsip.news.entry.delete"><![CDATA[{if $entry->isDeleted}Eintrag löschen{else}Eintrag in den Papierkorb legen{/if}]]></item>
+		<item name="wsip.news.entry.delete.error"><![CDATA[Löschen bitte durch Anklicken des Feldes bestätigen!]]></item>
+		<item name="wsip.news.entry.delete.reason"><![CDATA[Begründung (optional)]]></item>
+		<item name="wsip.news.entry.delete.sure"><![CDATA[Wollen Sie diese Nachricht wirklich löschen?]]></item>
+		<item name="wsip.news.entry.disableEntry"><![CDATA[Nachricht deaktivieren]]></item>
+		<item name="wsip.news.entry.disableEntry.description"><![CDATA[Die Nachricht wird nach dem Speichern deaktiviert und muss zunächst von einem Moderator freigeschaltet oder zu einer bestimmten Zeit automatisch vom System veröffentlicht werden.]]></item>
+		<item name="wsip.news.entry.edit"><![CDATA[Nachricht bearbeiten]]></item>
+		<item name="wsip.news.entry.enableComments"><![CDATA[Kommentare aktivieren]]></item>
+		<item name="wsip.news.entry.enableComments.description"><![CDATA[Die Nachricht kann kommentiert werden.]]></item>
+		<item name="wsip.news.entry.general"><![CDATA[Allgemeine Informationen]]></item>
+		<item name="wsip.news.entry.information"><![CDATA[Nachricht-Informationen]]></item>
+		<item name="wsip.news.entry.language"><![CDATA[Sprache]]></item>
+		<item name="wsip.news.entry.link"><![CDATA[Verlinken]]></item>
+		<item name="wsip.news.entry.more"><![CDATA[Weiterlesen]]></item>
+		<item name="wsip.news.entry.numberOfComments"><![CDATA[{#$entry->comments} Kommentar{if $entry->comments != 1}e{/if}]]></item>
+		<item name="wsip.news.entry.permalink"><![CDATA[Permalink zur {#$messageNumber}. Nachricht]]></item>
+		<item name="wsip.news.entry.publishing"><![CDATA[Veröffentlichung]]></item>
+		<item name="wsip.news.entry.publishingTime"><![CDATA[Veröffentlichungszeit]]></item>
+		<item name="wsip.news.entry.publishingTime.description"><![CDATA[Wählen Sie hier den Zeitpunkt, an dem die Nachricht automatisch veröffentlicht werden soll.]]></item>
+		<item name="wsip.news.entry.publishingTime.error.invalid"><![CDATA[Bitte geben Sie ein gültiges Datum ein.]]></item>
+		<item name="wsip.news.entry.rate"><![CDATA[Nachricht bewerten]]></item>
+		<item name="wsip.news.entry.rating"><![CDATA[Bewertung]]></item>
+		<item name="wsip.news.entry.share"><![CDATA[Verbreiten]]></item>
+		<item name="wsip.news.entry.subject"><![CDATA[Titel]]></item>
+		<item name="wsip.news.entry.tags"><![CDATA[Tags]]></item>
+		<item name="wsip.news.entry.teaser"><![CDATA[Teaser]]></item>
+		<item name="wsip.news.entry.teaser.error.tooLong"><![CDATA[Ihr Teaser ist zu lang. Es stehen maximal 255 Zeichen zur Verfügung.]]></item>
+		<item name="wsip.news.entry.text"><![CDATA[Nachricht]]></item>
+		<item name="wsip.news.entry.time"><![CDATA[Erstellungszeit]]></item>
+		<item name="wsip.news.entry.views"><![CDATA[Aufrufe]]></item>
+		<item name="wsip.news.entry.viewsPerDay"><![CDATA[{#$entry->getViewsPerDay()} Aufrufe pro Tag]]></item>
+		<item name="wsip.news.feed"><![CDATA[Nachrichten abonnieren]]></item>
+		<item name="wsip.news.feed.description"><![CDATA[Nachrichten aus der Seite: {lang}{PAGE_TITLE}{/lang}]]></item>
+		<item name="wsip.news.feed.title"><![CDATA[{lang}{PAGE_TITLE}{/lang} Feed]]></item>
+		<item name="wsip.news.noEntries"><![CDATA[Es sind keine Nachrichten vorhanden.]]></item>
+		<item name="wsip.news.overview"><![CDATA[Nachrichten]]></item>
+		<item name="wsip.news.stats"><![CDATA[Statistik]]></item>
+		<item name="wsip.news.stats.detail"><![CDATA[{#$stats.newsEntries} Nachricht{if $stats.newsEntries != 1}en{/if} (durchschnittlich {#$stats.newsEntriesPerDay} Nachricht{if $stats.newsEntriesPerDay != 1}en{/if}/Tag)]]></item>
+	</category>
+	<category name="wsip.publication">
+		<item name="wsip.publication.object.subscribe"><![CDATA[Kommentare abonnieren]]></item>
+		<item name="wsip.publication.object.unsubscribe"><![CDATA[Kommentare abbestellen]]></item>
+		<item name="wsip.publication.object.comment.newPublicationObjectComment"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> zu "{$event->additionalData.publicationObjectTitle}" erstellt.]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.accept"><![CDATA[Bestätigen]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.title"><![CDATA[Neuer Kommentar bei eigenen Veröffentlichungsobjekten]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.description"><![CDATA[Sie erhalten eine neue Benachrichtigung, wenn jemand eines Ihrer Veröffentlichungsobjekte kommentiert.]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.short"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> erstellt.]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.medium"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> erstellt.]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.userMessages"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> zu "{$event->additionalData.publicationObjectTitle}" erstellt.]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.mail"><![CDATA[Hallo {$user->username},
+
+{$event->getObject()->username} hat einen neuen Kommentar zu "{$event->additionalData.publicationObjectTitle}" auf der Website: "{PAGE_TITLE}" erstellt.
+
+Den neuen Kommentar erreichen Sie über den folgenden Link:
+{@$pageURL}{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}#comment{@$event->getObject()->commentID}
+
+{$event->getObject()->username} hat folgenden Text geschrieben:
+---------------------------------
+{$event->getObject()->getFormattedComment('text/plain')}
+---------------------------------
+
+Vielen Dank,
+Ihr {PAGE_TITLE} Team]]></item>
+                <item name="wsip.publication.object.comment.newPublicationObjectComment.pm"><![CDATA[Hallo {$user->username},
+
+{$event->getObject()->username} hat einen neuen Kommentar zu "{$event->additionalData.publicationObjectTitle}" erstellt.
+
+Den neuen Kommentar erreichen Sie über den folgenden Link:
+[url]{@$pageURL}{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}#comment{@$event->getObject()->commentID}[/url]
+
+{$event->getObject()->username} hat folgenden Text geschrieben:
+---------------------------------
+{$event->getObject()->getFormattedComment('text/plain')}
+---------------------------------]]></item>
+		<item name="wsip.publication.object.publicationObjectSubscription"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> zu "{$event->additionalData.publicationObjectTitle}" erstellt.]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.accept"><![CDATA[Bestätigen]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.title"><![CDATA[Neuer Kommentar bei Abonnements]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.description"><![CDATA[Sie erhalten eine neue Benachrichtigung, wenn jemand eines Ihrer abonnierten Veröffentlichungsobjekte kommentiert.]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.short"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> erstellt.]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.medium"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> erstellt.]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.userMessages"><![CDATA[{if $event->getObject()->userID}<a href="index.php?page=User&amp;userID={@$event->getObject()->userID}{@SID_ARG_2ND}">{$event->getObject()->username}</a>{else}{$event->getObject()->username}{/if} hat einen neuen <a href="{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}{@SID_ARG_2ND}#comment{@$event->getObject()->commentID}">Kommentar</a> zu "{$event->additionalData.publicationObjectTitle}" erstellt.]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.mail"><![CDATA[Hallo {$user->username},
+
+{$event->getObject()->username} hat einen neuen Kommentar zu "{$event->additionalData.publicationObjectTitle}" auf der Website: "{PAGE_TITLE}" erstellt.
+
+Den neuen Kommentar erreichen Sie über den folgenden Link:
+{@$pageURL}{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}#comment{@$event->getObject()->commentID}
+
+{$event->getObject()->username} hat folgenden Text geschrieben:
+---------------------------------
+{$event->getObject()->getFormattedComment('text/plain')}
+---------------------------------
+
+Vielen Dank,
+Ihr {PAGE_TITLE} Team]]></item>
+                <item name="wsip.publication.object.publicationObjectSubscription.pm"><![CDATA[Hallo {$user->username},
+
+{$event->getObject()->username} hat einen neuen Kommentar zu "{$event->additionalData.publicationObjectTitle}" erstellt.
+
+Den neuen Kommentar erreichen Sie über den folgenden Link:
+[url]{@$pageURL}{@$event->additionalData.publicationObjectURL}&commentID={@$event->getObject()->commentID}#comment{@$event->getObject()->commentID}[/url]
+
+{$event->getObject()->username} hat folgenden Text geschrieben:
+---------------------------------
+{$event->getObject()->getFormattedComment('text/plain')}
+---------------------------------]]></item>
+		<item name="wsip.publication.object.comment"><![CDATA[Kommentar]]></item>
+		<item name="wsip.publication.object.comment.add"><![CDATA[Kommentar hinzufügen]]></item>
+		<item name="wsip.publication.object.comment.by"><![CDATA[Von]]></item>
+		<item name="wsip.publication.object.comment.delete"><![CDATA[Kommentar löschen]]></item>
+		<item name="wsip.publication.object.comment.delete.sure"><![CDATA[Wollen Sie diesen Kommentar wirklich löschen?]]></item>
+		<item name="wsip.publication.object.comment.edit"><![CDATA[Kommentar bearbeiten]]></item>
+		<item name="wsip.publication.object.comment.error.tooLong"><![CDATA[Ihr Kommentar ist zu lang. Es stehen maximal {#$maxTextLength} Zeichen zur Verfügung.]]></item>
+		<item name="wsip.publication.object.comment.permalink"><![CDATA[Permalink zum {#$messageNumber}. Kommentar]]></item>
+		<item name="wsip.publication.object.comments"><![CDATA[Kommentare]]></item>
+		<item name="wsip.publication.type.article"><![CDATA[Artikel]]></item>
+		<item name="wsip.publication.type.news"><![CDATA[Nachrichten]]></item>
+	</category>
+	<category name="wsip.search">
+		<item name="wsip.search.categories"><![CDATA[Folgende Kategorien durchsuchen]]></item>
+		<item name="wsip.search.categories.all"><![CDATA[Alle Kategorien durchsuchen]]></item>
+	</category>
+	<category name="wsip.usersOnline">
+		<item name="wsip.usersOnline.location.articleAdd"><![CDATA[Neuen Artikel in der Kategorie: &raquo;{$category}&laquo; erstellen]]></item>
+		<item name="wsip.usersOnline.location.articleCategory"><![CDATA[Artikel in der Kategorie &raquo;{$category}&laquo;]]></item>
+		<item name="wsip.usersOnline.location.articleOverview"><![CDATA[<a href="index.php?page=ArticleOverview{SID_ARG_2ND}">Artikel</a>]]></item>
+		<item name="wsip.usersOnline.location.articleSection"><![CDATA[Artikel: &raquo;{$article}&laquo;]]></item>
+		<item name="wsip.usersOnline.location.articleSectionAdd"><![CDATA[Abschnitt zum Artikel &raquo;{$entry}&laquo; hinzufügen]]></item>
+		<item name="wsip.usersOnline.location.articleSectionEdit"><![CDATA[Abschnitt des Artikels &raquo;{$entry}&laquo; bearbeiten]]></item>
+		<item name="wsip.usersOnline.location.contentItem"><![CDATA[Seite: &raquo;{$contentItem}&laquo;]]></item>
+		<item name="wsip.usersOnline.location.contentItemOverview"><![CDATA[<a href="index.php?page=ContentItemOverview{SID_ARG_2ND}">Seitenübersicht</a>]]></item>
+		<item name="wsip.usersOnline.location.contentItemSearch"><![CDATA[<a href="index.php?form=ContentItemSearch{SID_ARG_2ND}">Seitensuche</a>]]></item>
+		<item name="wsip.usersOnline.location.index"><![CDATA[<a href="index.php{SID_ARG_1ST}">Startseite</a>]]></item>
+		<item name="wsip.usersOnline.location.newsCategory"><![CDATA[Nachrichten in der Kategorie &raquo;{$category}&laquo;]]></item>
+		<item name="wsip.usersOnline.location.newsEntry"><![CDATA[Nachricht: &raquo;{$entry}&laquo;]]></item>
+		<item name="wsip.usersOnline.location.newsEntryAdd"><![CDATA[Neue Nachricht in der Kategorie: &raquo;{$category}&laquo; erstellen]]></item>
+		<item name="wsip.usersOnline.location.newsEntryEdit"><![CDATA[Nachricht &raquo;{$entry}&laquo; bearbeiten]]></item>
+		<item name="wsip.usersOnline.location.newsOverview"><![CDATA[<a href="index.php?page=NewsOverview{SID_ARG_2ND}">Nachrichten</a>]]></item>
+		<item name="wsip.usersOnline.location.publicationObjectComment"><![CDATA[Kommentar schreiben]]></item>
+	</category>
+</language>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/smt.xsd">
+	<import>
+		<smt name="newsEntry">
+			<classpath>lib/data/news/NewsEntrySearch.class.php</classpath>
+		</smt>
+		<smt name="article">
+			<classpath>lib/data/article/ArticleSearch.class.php</classpath>
+		</smt>
+	</import>
+	<delete>
+		<smt name="guestbookEntry" />
+		<smt name="link" />
+	</delete>
+</data>

@@ -1,0 +1,270 @@
+<?php
+// wsip imports
+require_once(WSIP_DIR.'lib/data/category/CategoryEditor.class.php');
+
+// wcf imports
+require_once(WCF_DIR.'lib/acp/form/ACPForm.class.php');
+
+/**
+ * Shows the category add form.
+ * 
+ * @author	Sebastian Oettl
+ * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
+ * @package	com.wcfsolutions.wsip
+ * @subpackage	acp.form
+ * @category	Infinite Portal
+ */
+class CategoryAddForm extends ACPForm {
+	// system
+	public $templateName = 'categoryAdd';
+	public $activeMenuItem = 'wsip.acp.menu.link.content.category.add';
+	public $neededPermissions = 'admin.portal.canAddCategory';
+	
+	/**
+	 * category editor object
+	 * 
+	 * @var	CategoryEditor
+	 */
+	public $category = null;
+	
+	/**
+	 * list of available publication types
+	 * 
+	 * @var	array
+	 */
+	public $publicationTypeSettings = array();
+	
+	/**
+	 * list of available permisions
+	 * 
+	 * @var	array
+	 */
+	public $permissionSettings = array();
+	
+	/**
+	 * list of available moderator permisions
+	 * 
+	 * @var	array
+	 */
+	public $moderatorSettings = array();
+	
+	/**
+	 * list of available parent categories
+	 * 
+	 * @var	array
+	 */
+	public $categoryOptions = array();
+	
+	// parameters
+	public $parentID = 0;
+	public $title = '';
+	public $description = '';
+	public $allowDescriptionHtml = 0;
+	public $publicationTypes = array();
+	public $permissions = array();
+	public $moderators = array();
+	public $showOrder = 0;
+	
+	/**
+	 * @see Page::readParameters()
+	 */
+	public function readParameters() {
+		parent::readParameters();
+		
+		// get parent id
+		if (isset($_REQUEST['parentID'])) $this->parentID = intval($_REQUEST['parentID']);
+		
+		// get publication types
+		$availablePublicationTypes = Publication::getAvailablePublicationTypes();
+		foreach ($availablePublicationTypes as $publicationType => $publicationTypeObj) {
+			if (!$publicationTypeObj->enableCategorizing() || !$publicationTypeObj->isAccessible()) {
+				unset($availablePublicationTypes[$publicationType]);
+			}
+		}
+		$this->publicationTypeSettings = $availablePublicationTypes;
+		
+		// get permission settings
+		$this->moderatorSettings = Category::getModeratorSettings();
+		$this->permissionSettings = Category::getPermissionSettings();
+	}
+	
+	/**
+	 * @see Form::readFormParameters()
+	 */
+	public function readFormParameters() {
+		parent::readFormParameters();
+		
+		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
+		if (isset($_POST['description'])) $this->description = StringUtil::trim($_POST['description']);
+		if (isset($_POST['allowDescriptionHtml'])) $this->allowDescriptionHtml = intval($_POST['allowDescriptionHtml']);
+		if (isset($_POST['publicationTypes'])) $this->publicationTypes = $_POST['publicationTypes'];
+		if (isset($_POST['permission']) && is_array($_POST['permission'])) $this->permissions = $_POST['permission'];
+		if (isset($_POST['moderator']) && is_array($_POST['moderator'])) $this->moderators = $_POST['moderator'];
+		if (isset($_POST['showOrder'])) $this->showOrder = intval($_POST['showOrder']);
+	}
+	
+	/**
+	 * @see Form::validate()
+	 */
+	public function validate() {
+		parent::validate();
+		
+		// parent id
+		$this->validateParentID();
+		
+		// title
+		if (empty($this->title)) {
+			throw new UserInputException('title');
+		}
+		
+		// publication types
+		$this->validatePublicationTypes();
+		
+		// permissions
+		$this->validatePermissions($this->permissions, array_flip($this->permissionSettings));
+		$this->validatePermissions($this->moderators, array_flip($this->moderatorSettings));
+	}
+	
+	/**
+	 * Validates the parent id.
+	 */
+	protected function validateParentID() {
+		if ($this->parentID) {
+			try {
+				Category::getCategory($this->parentID);
+			}
+			catch (IllegalLinkException $e) {
+				throw new UserInputException('parentID', 'invalid');
+			}
+		}
+	}
+	
+	/**
+	 * Validates the publication types.
+	 */	
+	protected function validatePublicationTypes() {
+		if (!count($this->publicationTypes)) {
+			throw new UserInputException('publicationTypes');
+		}
+		foreach ($this->publicationTypes as $publicationType) {
+			if (!isset($this->publicationTypeSettings[$publicationType])) {
+				throw new UserInputException('publicationTypes', 'invalid');
+			}
+		}
+	}
+	
+	/**
+	 * Validates the given permissions with the given settings.
+	 *
+	 * @param	array		$permissions
+	 * @param	array		$settings
+	 */
+	public function validatePermissions($permissions, $settings) {
+		foreach ($permissions as $permission) {
+			// type
+			if (!isset($permission['type']) || ($permission['type'] != 'user' && $permission['type'] != 'group')) {
+				throw new UserInputException();
+			}
+			
+			// id
+			if (!isset($permission['id'])) {
+				throw new UserInputException();
+			}
+			if ($permission['type'] == 'user') {
+				$user = new User(intval($permission['id']));
+				if (!$user->userID) throw new UserInputException();
+			}
+			else {
+				$group = new Group(intval($permission['id']));
+				if (!$group->groupID) throw new UserInputException();
+			}
+			
+			// settings
+			if (!isset($permission['settings']) || !is_array($permission['settings'])) {
+				throw new UserInputException();
+			}
+			
+			// find invalid settings
+			foreach ($permission['settings'] as $key => $value) {
+				if (!isset($settings[$key]) || ($value != -1 && $value != 0 && $value =! 1)) {
+					throw new UserInputException();
+				}
+			}
+			
+			// find missing settings
+			foreach ($settings as $key => $value) {
+				if (!isset($permission['settings'][$key])) {
+					throw new UserInputException();
+				}
+			}
+		}
+	}
+	
+	/**
+	 * @see Form::save()
+	 */
+	public function save() {
+		parent::save();
+		
+		// save category
+		$this->category = CategoryEditor::create($this->parentID, $this->title, $this->description, $this->allowDescriptionHtml, $this->showOrder, WCF::getLanguage()->getLanguageID());
+		$this->category->assignPublicationTypes($this->publicationTypes);
+		
+		// save permissions
+		$this->permissions = CategoryEditor::getCleanedPermissions($this->permissions);
+		$this->category->addPermissions($this->permissions, $this->permissionSettings);
+		
+		// save moderators
+		$this->moderators = CategoryEditor::getCleanedPermissions($this->moderators);
+		$this->category->addModerators($this->moderators, $this->moderatorSettings);
+		
+		// reset cache
+		Category::resetCache();
+		
+		// reset sessions
+		Session::resetSessions(array(), true, false);
+		$this->saved();
+		
+		// reset values
+		$this->parentID = $this->allowDescriptionHtml = 0;
+		$this->position = $this->title = $this->description = '';
+		$this->publicationTypes = $this->permissions = $this->moderators = array();
+		
+		// show success message
+		WCF::getTPL()->assign('success', true);
+	}
+	
+	/**
+	 * @see Page::readData()
+	 */
+	public function readData() {
+		parent::readData();
+		
+		$this->categoryOptions = Category::getCategorySelect('', array());
+	}
+	
+	/**
+	 * @see Page::assignVariables()
+	 */
+	public function assignVariables() {
+		parent::assignVariables();
+		
+		WCF::getTPL()->assign(array(
+			'action' => 'add',
+			'categoryOptions' => $this->categoryOptions,
+			'publicationTypes' => $this->publicationTypes,
+			'permissions' => $this->permissions,
+			'moderators' => $this->moderators,
+			'publicationTypeSettings' => $this->publicationTypeSettings,
+			'permissionSettings' => $this->permissionSettings,
+			'moderatorSettings' => $this->moderatorSettings,
+			'parentID' => $this->parentID,
+			'showOrder' => $this->showOrder,
+			'title' => $this->title,
+			'description' => $this->description,
+			'allowDescriptionHtml' => $this->allowDescriptionHtml
+		));
+	}
+}
+?>

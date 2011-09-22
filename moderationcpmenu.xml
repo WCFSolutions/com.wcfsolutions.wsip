@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.wcfsolutions.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wcfsolutions.com/XSD/moderationcp-menu.xsd">
+	<import>
+		<moderationmenuitem name="wcf.moderation.menu.link.newsEntries">
+			<icon>newsEntryM.png</icon>
+			<link>index.php?page=ModerationMarkedNewsEntries</link>
+			<showorder>2</showorder>
+			<options>module_news</options>
+		</moderationmenuitem>
+		<moderationmenuitem name="wcf.moderation.menu.link.markedNewsEntries">
+			<parent>wcf.moderation.menu.link.newsEntries</parent>
+			<link>index.php?page=ModerationMarkedNewsEntries</link>
+			<showorder>1</showorder>
+		</moderationmenuitem>
+		<moderationmenuitem name="wcf.moderation.menu.link.hiddenNewsEntries">
+			<parent>wcf.moderation.menu.link.newsEntries</parent>
+			<link>index.php?page=ModerationHiddenNewsEntries</link>
+			<showorder>2</showorder>
+		</moderationmenuitem>
+		<moderationmenuitem name="wcf.moderation.menu.link.deletedNewsEntries">
+			<parent>wcf.moderation.menu.link.newsEntries</parent>
+			<link>index.php?page=ModerationDeletedNewsEntries</link>
+			<showorder>3</showorder>
+		</moderationmenuitem>
+	</import>
+	<delete>
+		<moderationmenuitem name="wcf.moderation.menu.link.guestbookEntries" />
+		<moderationmenuitem name="wcf.moderation.menu.link.markedGuestbookEntries" />
+		<moderationmenuitem name="wcf.moderation.menu.link.hiddenGuestbookEntries" />
+		<moderationmenuitem name="wcf.moderation.menu.link.deletedGuestbookEntries" />
+	</delete>
+</data>

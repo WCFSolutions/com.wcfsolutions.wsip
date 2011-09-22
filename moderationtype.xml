@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.wcfsolutions.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wcfsolutions.com/XSD/moderation-type.xsd">
+	<import>
+		<type>
+			<name>deletedNewsEntries</name>
+			<classfile>lib/data/moderation/type/DeletedNewsEntriesModerationType.class.php</classfile>
+		</type>
+		<type>
+			<name>hiddenNewsEntries</name>
+			<classfile>lib/data/moderation/type/HiddenNewsEntriesModerationType.class.php</classfile>
+		</type>
+		<type>
+			<name>markedNewsEntries</name>
+			<classfile>lib/data/moderation/type/MarkedNewsEntriesModerationType.class.php</classfile>
+		</type>
+	</import>
+	<delete>
+		<type>
+			<name>deletedGuestbookEntries</name>
+		</type>
+		<type>
+			<name>hiddenGuestbookEntries</name>
+		</type>
+		<type>
+			<name>markedGuestbookEntries</name>
+		</type>
+	</delete>
+</data>

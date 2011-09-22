@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/act.xsd">
+	<import>
+		<act name="newsEntry">
+			<url><![CDATA[index.php?page=NewsEntry&entryID=%s%s]]></url>
+		</act>
+		<act name="articleSection">
+			<url><![CDATA[index.php?page=Article&sectionID=%s%s]]></url>
+		</act>
+	</import>
+	<delete>
+		<act name="link" />
+	</delete>
+</data>

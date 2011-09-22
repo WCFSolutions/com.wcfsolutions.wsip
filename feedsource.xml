@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE data SYSTEM "http://www.woltlab.com/DTDs/feedsource.dtd">
+<data>
+	<import>
+		<feedsource name="wcfsolutions-portal-news">
+			<url><![CDATA[http://www.wcfsolutions.com/index.php?page=NewsFeed&format=rss2&categoryID=4]]></url>
+			<cycle>86400</cycle>
+		</feedsource>
+	</import>
+</data>

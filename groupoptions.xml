@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/group-options.xsd">
+	<import>
+		<categories>
+			<category name="user.portal">
+				<parent>user</parent>
+			</category>
+			<category name="user.portal.general">
+				<parent>user.portal</parent>
+			</category>
+			<category name="user.portal.news">
+				<parent>user.portal</parent>
+				<options>module_news</options>
+			</category>
+			<category name="user.portal.article">
+				<parent>user.portal</parent>
+				<options>module_article</options>
+			</category>
+			<category name="user.portal.comment">
+				<parent>user.portal</parent>
+				<options>module_comment</options>
+			</category>
+			<category name="user.portal.contentItem">
+				<parent>user.portal</parent>
+			</category>
+			<category name="mod.portal">
+				<parent>mod</parent>
+			</category>
+			<category name="mod.portal.news">
+				<parent>mod.portal</parent>
+				<options>module_news</options>
+			</category>
+			<category name="mod.portal.article">
+				<parent>mod.portal</parent>
+				<options>module_article</options>
+			</category>
+			<category name="mod.portal.comment">
+				<parent>mod.portal</parent>
+				<options>module_comment</options>
+			</category>
+			<category name="admin.portal">
+				<parent>admin.content</parent>
+				<showorder>1</showorder>
+			</category>
+		</categories>
+		
+		<options>
+			<!-- user.portal.general -->
+			<option name="user.portal.canViewPortalOffline">
+				<categoryname>user.portal.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.portal.canViewCategory">
+				<categoryname>user.portal.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>			
+			<option name="user.portal.canEnterCategory">
+				<categoryname>user.portal.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /user.portal.general -->
+
+			<!-- user.portal.news -->
+			<option name="user.portal.canReadNewsEntry">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canReadOwnNewsEntry">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canAddNewsEntry">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canEditOwnNewsEntry">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canDeleteOwnNewsEntry">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canAddNewsEntryWithoutModeration">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.maxNewsEntryLength">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>10000</defaultvalue>
+			</option>
+			<option name="user.portal.canSetNewsTags">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_tagging</options>
+			</option>
+			<option name="user.portal.canDownloadNewsAttachment">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.canViewNewsAttachmentPreview">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.canUploadNewsAttachment">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<enableoptions>user.portal.maxNewsAttachmentSize,user.portal.allowedNewsAttachmentExtensions,user.portal.maxNewsAttachmentCount</enableoptions>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.maxNewsAttachmentSize">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>150000</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.allowedNewsAttachmentExtensions">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue><![CDATA[gif
+jpg
+jpeg
+png
+bmp
+zip
+txt
+pdf]]></defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.maxNewsAttachmentCount">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.canVoteNewsPoll">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canStartNewsPoll">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<enableoptions>user.portal.canStartPublicNewsPoll</enableoptions>
+			</option>
+			<option name="user.portal.canStartPublicNewsPoll">
+				<categoryname>user.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /user.portal.news -->
+			
+			<!-- user.portal.article -->
+			<option name="user.portal.canReadArticle">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canReadOwnArticle">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canAddArticle">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canEditOwnArticle">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canDeleteOwnArticle">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canSetArticleTags">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_tagging</options>
+			</option>
+			<option name="user.portal.canDownloadArticleSectionAttachment">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.canViewArticleSectionAttachmentPreview">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.canUploadArticleSectionAttachment">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<enableoptions>user.portal.maxArticleSectionAttachmentSize,user.portal.allowedArticleSectionAttachmentExtensions,user.portal.maxArticleSectionAttachmentCount</enableoptions>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.maxArticleSectionAttachmentSize">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>150000</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.allowedArticleSectionAttachmentExtensions">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>textarea</optiontype>
+				<defaultvalue><![CDATA[gif
+jpg
+jpeg
+png
+bmp
+zip
+txt
+pdf]]></defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<option name="user.portal.maxArticleSectionAttachmentCount">
+				<categoryname>user.portal.article</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+				<options>module_attachment</options>
+			</option>
+			<!-- /user.portal.article -->
+			
+			<!-- user.portal.comment -->
+			<option name="user.portal.canComment">
+				<categoryname>user.portal.comment</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.maxCommentLength">
+				<categoryname>user.portal.comment</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>1000</defaultvalue>
+			</option>
+			<option name="user.portal.canEditOwnComment">
+				<categoryname>user.portal.comment</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canDeleteOwnComment">
+				<categoryname>user.portal.comment</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canEditComment">
+				<categoryname>user.portal.comment</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="user.portal.canDeleteComment">
+				<categoryname>user.portal.comment</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /user.portal.comment -->
+			
+			<!-- user.portal.contentItem -->
+			<option name="user.portal.canViewContentItem">
+				<categoryname>user.portal.contentItem</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>			
+			<option name="user.portal.canEnterContentItem">
+				<categoryname>user.portal.contentItem</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="user.portal.canViewHiddenContentItem">
+				<categoryname>user.portal.contentItem</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /user.portal.contentItem -->
+			
+			<!-- mod.portal.news -->
+			<option name="mod.portal.canEditNewsEntry">
+				<categoryname>mod.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.portal.canDeleteNewsEntry">
+				<categoryname>mod.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.portal.canReadDeletedNewsEntry">
+				<categoryname>mod.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.portal.canDeleteNewsEntryCompletely">
+				<categoryname>mod.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.portal.canEnableNewsEntry">
+				<categoryname>mod.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.portal.canMoveNewsEntry">
+				<categoryname>mod.portal.news</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /mod.portal.news -->
+			
+			<!-- mod.portal.article -->
+			<option name="mod.portal.canEditArticle">
+				<categoryname>mod.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.portal.canDeleteArticle">
+				<categoryname>mod.portal.article</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /mod.portal.article -->
+			
+			<!-- mod.portal.comment -->
+			<option name="mod.portal.canEditComment">
+				<categoryname>mod.portal.comment</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="mod.portal.canDeleteComment">
+				<categoryname>mod.portal.comment</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /mod.portal.comment -->
+			
+			<!-- admin.portal -->
+			<option name="admin.portal.canAddCategory">
+				<categoryname>admin.portal</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="admin.portal.canEditCategory">
+				<categoryname>admin.portal</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="admin.portal.canDeleteCategory">
+				<categoryname>admin.portal</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="admin.portal.canAddContentItem">
+				<categoryname>admin.portal</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="admin.portal.canEditContentItem">
+				<categoryname>admin.portal</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="admin.portal.canDeleteContentItem">
+				<categoryname>admin.portal</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /admin.portal -->
+		</options>
+	</import>
+	<delete>
+		<category name="user.portal.link" />
+		<category name="user.portal.guestbook" />
+		<category name="mod.portal.link" />
+		<category name="mod.portal.guestbook" />
+	</delete>
+</data>

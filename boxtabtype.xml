@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.wcfsolutions.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wcfsolutions.com/XSD/box-tab-type.xsd">
+	<import>
+		<type>
+			<name>articles</name>
+			<classfile>lib/data/box/tab/type/ArticlesBoxTabType.class.php</classfile>
+		</type>
+		<type>
+			<name>newsEntries</name>
+			<classfile>lib/data/box/tab/type/NewsEntriesBoxTabType.class.php</classfile>
+		</type>
+		<type>
+			<name>contentItems</name>
+			<classfile>lib/data/box/tab/type/ContentItemsBoxTabType.class.php</classfile>
+		</type>
+	</import>
+	<delete>
+		<type>
+			<name>lastLinks</name>
+		</type>
+		<type>
+			<name>lastGuestbookEntries</name>
+		</type>
+	</delete>
+</data>

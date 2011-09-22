@@ -1,0 +1,1 @@
+{include file='searchPublicationObject' publicationType=article categoryOptions=$articleCategoryOptions categoryIDs=$articleCategoryIDs selectAllCategories=$articleSelectAllCategories}

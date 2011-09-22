@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/page-menu.xsd">
+	<import>
+		<pagemenuitem name="wsip.header.menu.portal">
+			<iconmedium>indexM.png</iconmedium>
+			<iconsmall>indexS.png</iconsmall>
+			<link>index.php?page=Index</link>
+			<showorder>1</showorder>
+			<position>header</position>
+		</pagemenuitem>
+		<pagemenuitem name="wsip.header.menu.news">
+			<iconmedium>newsM.png</iconmedium>
+			<iconsmall>newsS.png</iconsmall>
+			<link>index.php?page=NewsOverview</link>
+			<showorder>2</showorder>
+			<position>header</position>
+			<options>module_news</options>
+		</pagemenuitem>
+		<pagemenuitem name="wsip.header.menu.article">
+			<iconmedium>articleM.png</iconmedium>
+			<iconsmall>articleS.png</iconsmall>
+			<link>index.php?page=ArticleOverview</link>
+			<showorder>3</showorder>
+			<position>header</position>
+			<options>module_article</options>
+		</pagemenuitem>
+		<pagemenuitem name="wsip.header.menu.contentItem">
+			<iconmedium>contentItemM.png</iconmedium>
+			<iconsmall>contentItemS.png</iconsmall>
+			<link>index.php?page=ContentItemOverview</link>
+			<showorder>1</showorder>
+			<position>footer</position>
+		</pagemenuitem>
+	</import>
+	<delete>
+		<pagemenuitem name="wsip.header.menu.link" />
+		<pagemenuitem name="wsip.header.menu.guestbook" />
+	</delete>
+</data>

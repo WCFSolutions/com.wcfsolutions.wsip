@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.wcfsolutions.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wcfsolutions.com/XSD/publication-type.xsd">
+	<import>
+		<type>
+			<name>news</name>
+			<classfile>lib/data/news/NewsPublicationType.class.php</classfile>
+		</type>
+		<type>
+			<name>article</name>
+			<classfile>lib/data/article/ArticlePublicationType.class.php</classfile>
+		</type>
+	</import>
+	<delete>
+		<type>
+			<name>link</name>
+		</type>
+		<type>
+			<name>guestbook</name>
+		</type>
+	</delete>
+</data>

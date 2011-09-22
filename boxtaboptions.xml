@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.wcfsolutions.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wcfsolutions.com/XSD/box-tab-options.xsd">
+	<import>
+		<options>		
+			<!-- articles box tab -->
+			<option name="maxArticles">
+				<boxtabtype>articles</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+			</option>
+			<option name="categoryIDs">
+				<boxtabtype>articles</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>wsiparticlecategories</optiontype>
+			</option>
+			<option name="displayType">
+				<boxtabtype>articles</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>small</defaultvalue>
+				<selectoptions><![CDATA[small:wcf.acp.box.tab.type.newsEntries.displayType.small
+large:wcf.acp.box.tab.type.newsEntries.displayType.large]]></selectoptions>
+			</option>
+			<option name="sortField">
+				<boxtabtype>articles</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>time</defaultvalue>
+				<selectoptions><![CDATA[time:wcf.acp.box.tab.type.newsEntries.sortField.time
+rating:wcf.acp.box.tab.type.newsEntries.sortField.rating
+views:wcf.acp.box.tab.type.newsEntries.sortField.views
+comments:wcf.acp.box.tab.type.newsEntries.sortField.comments]]></selectoptions>
+			</option>
+			<option name="sortOrder">
+				<boxtabtype>articles</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>DESC</defaultvalue>
+				<selectoptions><![CDATA[ASC:wcf.global.sortOrder.ascending
+DESC:wcf.global.sortOrder.descending]]></selectoptions>
+			</option>
+			
+			<!-- news entries box tab -->
+			<option name="maxEntries">
+				<boxtabtype>newsEntries</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>5</defaultvalue>
+			</option>
+			<option name="categoryIDs">
+				<boxtabtype>newsEntries</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>wsipnewscategories</optiontype>
+			</option>
+			<option name="displayType">
+				<boxtabtype>newsEntries</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>small</defaultvalue>
+				<selectoptions><![CDATA[small:wcf.acp.box.tab.type.newsEntries.displayType.small
+large:wcf.acp.box.tab.type.newsEntries.displayType.large]]></selectoptions>
+			</option>
+			<option name="sortField">
+				<boxtabtype>newsEntries</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>time</defaultvalue>
+				<selectoptions><![CDATA[time:wcf.acp.box.tab.type.newsEntries.sortField.time
+rating:wcf.acp.box.tab.type.newsEntries.sortField.rating
+views:wcf.acp.box.tab.type.newsEntries.sortField.views
+comments:wcf.acp.box.tab.type.newsEntries.sortField.comments]]></selectoptions>
+			</option>
+			<option name="sortOrder">
+				<boxtabtype>newsEntries</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>select</optiontype>
+				<defaultvalue>DESC</defaultvalue>
+				<selectoptions><![CDATA[ASC:wcf.global.sortOrder.ascending
+DESC:wcf.global.sortOrder.descending]]></selectoptions>
+			</option>
+			
+			<!-- content items box tab -->
+			<option name="contentItemID">
+				<boxtabtype>contentItems</boxtabtype>
+				<categoryname>settings</categoryname>
+				<optiontype>wsipcontentitems</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>			
+		</options>
+	</import>
+	<delete>
+		<option name="maxGuestbookEntries" />
+		<option name="maxLinks" />
+		<option name="linkCategoryIDs" />
+	</delete>
+</data>

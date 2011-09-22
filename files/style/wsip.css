@@ -1,0 +1,239 @@
+
+/* ### -- -- -- -- -- Special Infinite Portal Styles -- -- -- -- -- ### */
+
+/* 
+
+File: wsip.css 
+Copyright 2009-2011 by wcfsolutions.com
+
+*/
+
+/* ### -- -- -- -- -- News / Article List -- -- -- -- -- ### */
+
+.articleList .contentHeader, .articleList .contentFooter, .newsEntryList .contentHeader, .newsEntryList .contentFooter {
+	margin-top: 7px;
+}
+
+.articleList .message, .newsEntryList .message {
+	margin-bottom: 7px;
+}
+
+.articleList .messageInner, .newsEntryList .messageInner {
+	padding: 10px 20px !important;
+}
+
+.articleList .messageHeader .containerContent h3, .newsEntryList .messageHeader .containerContent h3 {
+	padding: 0;
+	margin: 0;
+}
+
+#articleSections #articleSectionContents {
+	margin: 0;
+	padding: 0;
+}
+
+#articleSections .content .container-1 {
+	overflow: auto;
+}
+
+/* ### -- -- -- -- -- News Entry / Article Section -- -- -- -- -- ### */
+
+.newsEntryList .messageHeader p, .articleList .messageHeader p {
+	display: inline;
+}
+
+.newsEntryList .messageHeader .rating, .articleList .messageHeader .rating {
+	margin-top: -1px;
+}
+
+.news .newsEntry, .articles .articleSection {
+	overflow-x: hidden;
+}
+
+.news .newsEntry .buttonBar p, .articles .articleSection .buttonBar p { /* dev */
+	margin-top: 7px;
+}
+
+.news .newsEntry .contentHeader, .articles .articleSection .contentHeader {
+	padding-top: 0 !important;
+	margin-bottom: 13px;
+}
+
+.news .newsEntry .inputText, .articles .articleSection .inputText {
+	width: 95%;
+}
+
+.news .newsEntry .messageCount, .articles .articleSection .messageCount {
+	float: right;
+}
+
+.news .newsEntry .messageNumber, .articles .articleSection .messageNumber {
+	text-decoration: none;
+	display: block;
+	margin-top: 7px;
+	padding: 0 4px;
+}
+
+/* ### -- -- -- -- -- News Entry -- -- -- -- -- ### */
+
+.news .newsEntry .poll {
+	margin: 0 15px 7px 0;
+	float: left;
+	width: 47%;
+}
+
+/* ### -- -- -- -- -- Article Section -- -- -- -- -- ### */
+
+.articles .articleSection .articleSections {
+	margin: 0 0 7px 15px;
+	float: right;
+	width: 37%;
+}
+
+.articles .articleSection .articleSections .itemList {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.articles .articleSection .articleSections .itemList:last-child {
+	margin-bottom: 1px;
+}
+
+.articles .articleSection .articleSections .itemList li {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.articles .articleSection .articleSections .itemList li .itemListTitle {
+	border: 0;
+	margin: 0;
+	padding: 5px;
+	font-weight: normal;
+}
+
+.articles .articleSection .articleSections .itemList .itemList li .itemListTitle {
+	padding-left: 25px;
+}
+
+
+.articles .articleSection .articleSections .itemList .itemList .itemList li .itemListTitle {
+	padding-left: 45px;
+}
+
+.articles .articleSection .articleSections .itemList .itemList .itemList .itemList li .itemListTitle {
+	padding-left: 65px;
+}
+
+.articles .articleSection .articleSections .itemList .itemList .itemList .itemList .itemList li .itemListTitle {
+	padding-left: 85px;
+}
+
+/* ### -- -- -- -- -- Publication Object Comments -- -- -- -- -- ### */
+
+.publicationObjectComments .buttons .messageNumber {
+	text-decoration: none;
+	padding: 1px 2px;
+}
+
+/* ### -- -- -- -- -- Box General -- -- -- -- -- ### */
+
+#boxLayout {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 7px;
+}
+
+#boxLayout .mainHeadline, #boxLayout .mainHeadline .headlineContainer {
+	margin-top: 0px !important;
+}
+
+#boxLayout .breadCrumbs {
+	margin-top: 6px !important;
+}
+
+#boxLayout-1, #boxLayout-2, #boxLayout-3, #boxLayout-4 {
+	border-collapse: collapse;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+
+#boxColumnContainer {
+	display: table-row;
+}
+
+#leftBoxColumn, #mainBoxColumn, #rightBoxColumn {
+	display: table-cell;
+}
+
+#boxLayout #main {
+	width: auto !important;
+	min-width: 0 !important;
+	max-width: 100% !important;
+}
+
+#boxesTop, #boxesBottom {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* ### -- -- -- -- -- Box Layout 1 -- -- -- -- -- ### */
+
+#boxLayout-1 #mainBoxColumn {
+	width: 100%;
+}
+
+/* ### -- -- -- -- -- Box Layout 2 -- -- -- -- -- ### */
+
+#boxLayout-2 #rightBoxColumn {
+	width: 20%;
+}
+
+#boxLayout-2 #mainBoxColumn {
+	width: 80%;
+}
+
+#boxLayout-2 #mainBoxColumn .boxColumnInner {
+	padding-right: 15px;
+}
+
+#boxLayout-2 #main {
+	margin-left: 0 !important;
+}
+
+/* ### -- -- -- -- -- Box Layout 3 -- -- -- -- -- ### */
+
+#boxLayout-3 #leftBoxColumn {
+	width: 20%;
+}
+
+#boxLayout-3 #mainBoxColumn {
+	width: 80%;
+}
+
+#boxLayout-3 #mainBoxColumn .boxColumnInner {
+	padding-left: 15px;
+}
+
+#boxLayout-3 #main {
+	margin-right: 0 !important;
+}
+
+/* ### -- -- -- -- -- Box Layout 4 -- -- -- -- -- ### */
+
+#boxLayout-4 #leftBoxColumn, #boxLayout-4 #rightBoxColumn {
+	width: 16%;
+}
+
+#boxLayout-4 #mainBoxColumn {
+	width: 68%;
+}
+
+#boxLayout-4 #mainBoxColumn .boxColumnInner {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+/* ### -- -- -- -- -- EOF -- -- -- -- -- ### */

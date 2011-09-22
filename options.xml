@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/options.xsd">
+	<import>
+		<categories>
+			<category name="offline.general">
+				<parent>general.offline</parent>
+			</category>
+			
+			<category name="portal"></category>
+			
+			<category name="portal.index">
+				<parent>portal</parent>
+			</category>
+			<category name="portal.index.general">
+				<parent>portal.index</parent>
+			</category>
+			
+			<category name="portal.news">
+				<parent>portal</parent>
+				<options>module_news</options>
+			</category>
+			<category name="portal.news.general">
+				<parent>portal.news</parent>
+			</category>
+			<category name="portal.news.entry">
+				<parent>portal.news</parent>
+			</category>
+			
+			<category name="portal.article">
+				<parent>portal</parent>
+				<options>module_article</options>
+			</category>
+			<category name="portal.article.general">
+				<parent>portal.article</parent>
+			</category>
+			<category name="portal.article.articles">
+				<parent>portal.article</parent>
+			</category>
+		</categories>
+		
+		<options>
+			<!-- module.content -->
+			<option name="module_news">
+				<categoryname>module.content</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="module_article">
+				<categoryname>module.content</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="module_comment">
+				<categoryname>module.content</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /module.content -->
+			
+			<!-- offline -->
+			<option name="offline">
+				<categoryname>offline.general</categoryname>
+				<optiontype>boolean</optiontype>
+			 	<enableoptions><![CDATA[offline_message,offline_message_allow_html]]></enableoptions>
+			</option>
+			<option name="offline_message">
+				<categoryname>offline.general</categoryname>
+				<optiontype>textarea</optiontype>
+			</option>
+			<option name="offline_message_allow_html">
+				<categoryname>offline.general</categoryname>
+				<optiontype>boolean</optiontype>
+			</option>
+			<!-- /offline -->
+			
+			<!-- general.page -->
+			<option name="page_title">
+				<categoryname>general.page</categoryname>
+				<optiontype>text</optiontype>
+				<showorder>1</showorder>
+				<defaultvalue>WCF Solutions Infinite Portal</defaultvalue>
+			</option>
+			<option name="page_description">
+				<categoryname>general.page</categoryname>
+				<optiontype>text</optiontype>
+				<showorder>2</showorder>
+			</option>
+			<option name="page_url">
+				<categoryname>general.page</categoryname>
+				<optiontype>text</optiontype>
+				<showorder>3</showorder>
+			</option>
+			<option name="page_urls">
+				<categoryname>general.page</categoryname>
+				<optiontype>textarea</optiontype>
+				<showorder>4</showorder>
+			</option>
+			<option name="show_version_number">
+				<categoryname>general.page</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="show_style_chooser">
+				<categoryname>general.page</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /general.page -->
+			
+			<!-- general.cookie -->
+			<option name="cookie_path">
+				<categoryname>general.http.cookie</categoryname>
+				<optiontype>text</optiontype>
+				<defaultvalue></defaultvalue>
+			</option>
+			<!-- /general.cookie-->
+			
+			<!-- index.general -->
+			<option name="index_box_layout">
+				<categoryname>portal.index.general</categoryname>
+				<optiontype>boxlayouts</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<!-- /index.general -->
+			
+			<!-- news.general -->
+			<option name="news_box_layout">
+				<categoryname>portal.news.general</categoryname>
+				<optiontype>boxlayouts</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="news_enable_stats">
+				<categoryname>portal.news.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_entries_per_page">
+				<categoryname>portal.news.general</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>20</defaultvalue>
+			</option>
+			<!-- /news.general -->
+			
+			<!-- portal.news.entry -->
+			<option name="news_entry_enable_comments">
+				<categoryname>portal.news.entry</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_comment</options>
+			</option>
+			<option name="news_entry_enable_rating">
+				<categoryname>portal.news.entry</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="news_entry_enable_tags">
+				<categoryname>portal.news.entry</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_tagging</options>
+			</option>
+			<option name="activity_points_per_news_entry">
+				<categoryname>portal.news.entry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>10</defaultvalue>
+			</option>
+			<option name="news_entry_enable_recycle_bin">
+				<categoryname>portal.news.entry</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<enableoptions><![CDATA[news_entry_empty_recycle_bin_cycle]]></enableoptions>
+			</option>
+			<option name="news_entry_empty_recycle_bin_cycle">
+				<categoryname>portal.news.entry</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>30</defaultvalue>
+			</option>
+			<!-- /portal.news.entry -->
+			
+			<!-- article.general -->
+			<option name="article_box_layout">
+				<categoryname>portal.article.general</categoryname>
+				<optiontype>boxlayouts</optiontype>
+				<defaultvalue>0</defaultvalue>
+			</option>
+			<option name="article_enable_stats">
+				<categoryname>portal.article.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="articles_per_page">
+				<categoryname>portal.article.general</categoryname>
+				<optiontype>integer</optiontype>
+				<defaultvalue>20</defaultvalue>
+			</option>
+			<!-- /article.general -->
+			
+			<!-- article.articles -->
+			<option name="article_enable_comments">
+				<categoryname>portal.article.articles</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_comment</options>
+			</option>
+			<option name="article_enable_rating">
+				<categoryname>portal.article.articles</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<option name="article_enable_tags">
+				<categoryname>portal.article.articles</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_tagging</options>
+			</option>
+			<!-- /article.articles -->
+			
+			<!-- general -->
+			<option name="install_date">
+				<categoryname>general</categoryname>
+				<optiontype>integer</optiontype>
+				<hidden>1</hidden>
+			</option>
+			<!-- /general -->
+			
+			<!-- general.date -->
+			<option name="show_clock">
+				<categoryname>general.date</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /general.date -->
+			
+			<!-- security.antispam -->
+			<option name="news_entry_add_use_captcha">
+				<categoryname>security.antispam</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+			</option>
+			<!-- /security.antispam -->
+			
+			<!-- user.profile.general -->
+			<option name="profile_show_last_news_entries">
+				<categoryname>user.profile.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_news</options>
+			</option>			
+			<option name="profile_show_last_articles">
+				<categoryname>user.profile.general</categoryname>
+				<optiontype>boolean</optiontype>
+				<defaultvalue>1</defaultvalue>
+				<options>module_article</options>
+			</option>
+			<!-- /user.profile.general -->
+		</options>
+	</import>
+	<delete>
+		<category name="portal.link" />
+		<category name="portal.link.general" />
+		<category name="portal.link.link" />
+		<category name="portal.guestbook" />
+		<category name="portal.guestbook.general" />
+		<category name="portal.guestbook.entry" />
+		<option name="guestbook_entry_add_use_captcha" />
+	</delete>
+</data>

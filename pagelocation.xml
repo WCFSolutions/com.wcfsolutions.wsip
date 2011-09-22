@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com/XSD/page-location.xsd">	
+	<import>
+		<pagelocation name="wsip.usersOnline.location.index">
+			<pattern><![CDATA[(?:index\.php\?page=Index.*|index\.php(?!(?:\?|&)(?:page|action|form)=).*|/)$]]></pattern>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.publicationObjectComment">
+			<pattern><![CDATA[index\.php\?form=PublicationObjectComment]]></pattern>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.articleOverview">
+			<pattern><![CDATA[index\.php\?page=ArticleOverview.*(?!&categoryID=(\d+))]]></pattern>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.articleCategory">
+			<pattern><![CDATA[index\.php\?page=ArticleOverview&.*categoryID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/ArticleCategoryLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.articleAdd">
+			<pattern><![CDATA[index\.php\?form=ArticleAdd&.*categoryID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/ArticleCategoryLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.articleSection">
+			<pattern><![CDATA[index\.php\?page=Article&.*sectionID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/ArticleSectionLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.articleSectionAdd">
+			<pattern><![CDATA[index\.php\?form=ArticleSectionAdd&.*articleID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/ArticleLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.articleSectionEdit">
+			<pattern><![CDATA[index\.php\?form=ArticleSectionEdit&.*sectionID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/ArticleSectionLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.newsOverview">
+			<pattern><![CDATA[index\.php\?page=NewsOverview.*(?!&categoryID=(\d+))]]></pattern>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.newsCategory">
+			<pattern><![CDATA[index\.php\?page=NewsOverview&.*categoryID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/NewsCategoryLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.newsEntry">
+			<pattern><![CDATA[index\.php\?page=NewsEntry&.*entryID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/NewsEntryLocation.class.php</classpath>
+		</pagelocation>	
+		<pagelocation name="wsip.usersOnline.location.newsEntryAdd">
+			<pattern><![CDATA[index\.php\?form=NewsEntryAdd&.*categoryID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/NewsCategoryLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.newsEntryEdit">
+			<pattern><![CDATA[index\.php\?form=NewsEntryEdit&.*entryID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/NewsEntryLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.contentItemOverview">
+			<pattern><![CDATA[index\.php\?page=ContentItemOverview]]></pattern>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.contentItem">
+			<pattern><![CDATA[index\.php\?page=ContentItem&.*contentItemID=(\d+)]]></pattern>
+			<classpath>lib/data/page/location/ContentItemLocation.class.php</classpath>
+		</pagelocation>
+		<pagelocation name="wsip.usersOnline.location.contentItemSearch">
+			<pattern><![CDATA[index\.php\?(?:page|form)=ContentItemSearch]]></pattern>
+		</pagelocation>
+	</import>
+</data>

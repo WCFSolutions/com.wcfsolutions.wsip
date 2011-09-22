@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.wcfsolutions.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wcfsolutions.com/XSD/box-position.xsd">
+	<import>
+		<boxposition>
+			<name>index</name>
+		</boxposition>
+		<boxposition>
+			<name>top</name>
+		</boxposition>
+		<boxposition>
+			<name>bottom</name>
+		</boxposition>
+		<boxposition>
+			<name>left</name>
+		</boxposition>
+		<boxposition>
+			<name>right</name>
+		</boxposition>
+		<boxposition>
+			<name>userMessages</name>
+		</boxposition>
+	</import>
+</data>
