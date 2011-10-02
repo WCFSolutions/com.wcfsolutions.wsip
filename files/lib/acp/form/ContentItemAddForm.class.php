@@ -59,6 +59,13 @@ class ContentItemAddForm extends ACPForm {
 	public $permissionSettings = array();
 	
 	/**
+	 * ckeditor object
+	 * 
+	 * @var	CKEditor
+	 */
+	public $ckeditor = null;
+	
+	/**
 	 * publishing start time
 	 * 
 	 * @var	integer
@@ -109,6 +116,13 @@ class ContentItemAddForm extends ACPForm {
 		
 		// get permission settings
 		$this->permissionSettings = ContentItem::getPermissionSettings();
+		
+		// init ckeditor
+		$this->ckeditor = new CKEditor('text');
+		$this->ckeditor->setConfigOptions(array(
+			'baseHref' => "'".$this->ckeditor->encodeJS(RELATIVE_WSIP_DIR)."'",
+			'height' => "'300px'"
+		));
 	}
 	
 	/**
@@ -351,6 +365,7 @@ class ContentItemAddForm extends ACPForm {
 			'availableStyles' => $this->availableStyles,
 			'permissions' => $this->permissions,
 			'permissionSettings' => $this->permissionSettings,
+			'ckeditor' => $this->ckeditor,
 			'parentID' => $this->parentID,
 			'title' => $this->title,
 			'description' => $this->description,

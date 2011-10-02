@@ -88,6 +88,8 @@
 	//]]>
 </script>
 
+{@$ckeditor->getConfigurationHTML()}
+
 <div class="contentHeader">
 	<div class="largeButtons">
 		<ul><li><a href="index.php?page=ContentItemList&amp;packageID={@PACKAGE_ID}{@SID_ARG_2ND}" title="{lang}wsip.acp.menu.link.content.contentItem.view{/lang}"><img src="{@RELATIVE_WSIP_DIR}icon/contentItemM.png" alt="" /> <span>{lang}wsip.acp.menu.link.content.contentItem.view{/lang}</span></a></li></ul>
