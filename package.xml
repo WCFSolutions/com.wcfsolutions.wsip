@@ -4,7 +4,7 @@
 		<packagename>WCF Solutions Infinite Portal</packagename>
 		<standalone>1</standalone>
 		<version>1.1.1</version>
-		<date>2011-10-02</date>
+		<date>2011-10-03</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -51,7 +51,7 @@
 		<!-- 3rd party packages -->
 		<requiredpackage minversion="1.0.12" file="requirements/com.woltlab.community.wcf.user.notification.tar">com.woltlab.community.wcf.user.notification</requiredpackage>
 		
-		<!-- wcfsolutions packages-->
+		<!-- wcfsolutions packages -->
 		<requiredpackage minversion="1.0.0" file="requirements/com.wcfsolutions.wcf.ckeditor.tar">com.wcfsolutions.wcf.ckeditor</requiredpackage>
 		<requiredpackage minversion="1.1.0" file="requirements/com.wcfsolutions.wcf.data.box.tar">com.wcfsolutions.wcf.data.box</requiredpackage>
 		<requiredpackage minversion="2.0.3" file="requirements/com.wcfsolutions.wcf.data.moderation.tar">com.wcfsolutions.wcf.data.moderation</requiredpackage>

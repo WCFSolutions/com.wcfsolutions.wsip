@@ -5,6 +5,7 @@ require_once(WSIP_DIR.'lib/data/content/ContentItemEditor.class.php');
 // wcf imports
 require_once(WCF_DIR.'lib/acp/form/ACPForm.class.php');
 require_once(WCF_DIR.'lib/data/box/layout/BoxLayout.class.php');
+require_once(WCF_DIR.'lib/data/ckeditor/CKEditor.class.php');
 require_once(WCF_DIR.'lib/system/style/StyleManager.class.php');
 
 /**
