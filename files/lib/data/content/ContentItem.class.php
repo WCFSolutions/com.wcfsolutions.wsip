@@ -292,11 +292,17 @@ class ContentItem extends DatabaseObject {
 	public function getSubContentItems() {
 		if (self::$contentItemStructure === null) self::$contentItemStructure = WCF::getCache()->get('contentItem', 'contentItemStructure');
 		$subContentItems = array();
+		
 		if (isset(self::$contentItemStructure[$this->contentItemID])) {
 			foreach (self::$contentItemStructure[$this->contentItemID] as $contentItemID) {
-				$subContentItems[$contentItemID] = self::getContentItem($contentItemID);
+				$contentItem = self::getContentItem($contentItemID);
+				
+				if ($contentItem->getPermission() && ($contentItem->isPublished() || $contentItem->getPermission('canViewHiddenContentItem')))  {				
+					$subContentItems[$contentItemID] = $contentItem;
+				}
 			}
 		}
+		
 		return $subContentItems;
 	}
 	
