@@ -120,6 +120,8 @@
 		
 		<!-- config -->
 		<eventlistener>eventlistener.xml</eventlistener>
+		<groupoptions>groupoptions.xml</groupoptions>
+		<options>options.xml</options>
 	</instructions>
 	
 	<instructions type="update" fromversion="1.0.2">

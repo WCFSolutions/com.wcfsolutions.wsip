@@ -256,12 +256,12 @@
 		</options>
 	</import>
 	<delete>
-		<category name="portal.link" />
-		<category name="portal.link.general" />
-		<category name="portal.link.link" />
-		<category name="portal.guestbook" />
-		<category name="portal.guestbook.general" />
-		<category name="portal.guestbook.entry" />
+		<optioncategory name="portal.link" />
+		<optioncategory name="portal.link.general" />
+		<optioncategory name="portal.link.link" />
+		<optioncategory name="portal.guestbook" />
+		<optioncategory name="portal.guestbook.general" />
+		<optioncategory name="portal.guestbook.entry" />
 		<option name="guestbook_entry_add_use_captcha" />
 	</delete>
 </data>

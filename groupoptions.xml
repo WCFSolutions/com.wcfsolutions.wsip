@@ -390,9 +390,9 @@ pdf]]></defaultvalue>
 		</options>
 	</import>
 	<delete>
-		<category name="user.portal.link" />
-		<category name="user.portal.guestbook" />
-		<category name="mod.portal.link" />
-		<category name="mod.portal.guestbook" />
+		<optioncategory name="user.portal.link" />
+		<optioncategory name="user.portal.guestbook" />
+		<optioncategory name="mod.portal.link" />
+		<optioncategory name="mod.portal.guestbook" />
 	</delete>
 </data>
