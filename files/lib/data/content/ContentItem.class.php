@@ -459,12 +459,15 @@ class ContentItem extends DatabaseObject {
 				if (isset($boxToContentItems[$contentItemID])) {
 					$boxIDArray = $boxToContentItems[$contentItemID];
 					foreach ($boxIDArray as $boxID => $showOrder) {
-						$box = new Box($boxID);
-						foreach ($box->getBoxTabs() as $boxTab) {
-							if ($boxTab->boxTabType == 'content') {
-								$contents .= "\n\n".WCF::getLanguage()->get($boxTab->text);
+						try {
+							$box = new Box($boxID);
+							foreach ($box->getBoxTabs() as $boxTab) {
+								if ($boxTab->boxTabType == 'content') {
+									$contents .= "\n\n".WCF::getLanguage()->get($boxTab->text);
+								}
 							}
 						}
+						catch (IllegalLinkException $e) {}
 					}
 				}
 			}
