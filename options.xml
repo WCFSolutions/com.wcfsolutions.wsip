@@ -262,6 +262,8 @@
 		<optioncategory name="portal.guestbook" />
 		<optioncategory name="portal.guestbook.general" />
 		<optioncategory name="portal.guestbook.entry" />
+		<option name="module_link" />
+		<option name="module_guestbook" />
 		<option name="guestbook_entry_add_use_captcha" />
 	</delete>
 </data>
