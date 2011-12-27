@@ -117,6 +117,9 @@
 		<!-- files -->
 		<files>files.tar</files>
 		<acptemplates>acptemplates.tar</acptemplates>
+		
+		<!-- config -->
+		<eventlistener>eventlistener.xml</eventlistener>
 	</instructions>
 	
 	<instructions type="update" fromversion="1.0.2">
