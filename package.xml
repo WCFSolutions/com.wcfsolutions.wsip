@@ -53,7 +53,7 @@
 		
 		<!-- wcfsolutions packages -->
 		<requiredpackage minversion="1.0.0" file="requirements/com.wcfsolutions.wcf.ckeditor.tar">com.wcfsolutions.wcf.ckeditor</requiredpackage>
-		<requiredpackage minversion="1.1.0" file="requirements/com.wcfsolutions.wcf.data.box.tar">com.wcfsolutions.wcf.data.box</requiredpackage>
+		<requiredpackage minversion="1.1.1" file="requirements/com.wcfsolutions.wcf.data.box.tar">com.wcfsolutions.wcf.data.box</requiredpackage>
 		<requiredpackage minversion="2.0.3" file="requirements/com.wcfsolutions.wcf.data.moderation.tar">com.wcfsolutions.wcf.data.moderation</requiredpackage>
 		<requiredpackage minversion="1.1.0" file="requirements/com.wcfsolutions.wcf.data.navigation.tar">com.wcfsolutions.wcf.data.navigation</requiredpackage>
 		<requiredpackage minversion="1.1.0" file="requirements/com.wcfsolutions.wsip.core.tar">com.wcfsolutions.wsip.core</requiredpackage>
