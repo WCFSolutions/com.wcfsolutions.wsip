@@ -101,26 +101,26 @@
 	</div>
 </div>
 
+{if $categoryID|isset && $categoryQuickJumpOptions|count > 1}
+	<fieldset>
+		<legend>{lang}wsip.acp.category.edit{/lang}</legend>
+		<div class="formElement">
+			<div class="formFieldLabel">
+				<label for="categoryChange">{lang}wsip.acp.category.edit{/lang}</label>
+			</div>
+			<div class="formField">
+				<select id="categoryChange" onchange="document.location.href=fixURL('index.php?form=CategoryEdit&amp;categoryID='+this.options[this.selectedIndex].value+'&amp;packageID={@PACKAGE_ID}{@SID_ARG_2ND}')">
+					{htmloptions options=$categoryQuickJumpOptions selected=$categoryID disableEncoding=true}
+				</select>
+			</div>
+		</div>
+	</fieldset>
+{/if}
+
 <form method="post" action="index.php?form=Category{@$action|ucfirst}" id="categoryAddForm">
 	
 	<div class="border content">
-		<div class="container-1">
-			{if $categoryID|isset && $categoryQuickJumpOptions|count > 1}
-				<fieldset>
-					<legend>{lang}wsip.acp.category.edit{/lang}</legend>
-					<div class="formElement">
-						<div class="formFieldLabel">
-							<label for="categoryChange">{lang}wsip.acp.category.edit{/lang}</label>
-						</div>
-						<div class="formField">
-							<select id="categoryChange" onchange="document.location.href=fixURL('index.php?form=CategoryEdit&amp;categoryID='+this.options[this.selectedIndex].value+'&amp;packageID={@PACKAGE_ID}{@SID_ARG_2ND}')">
-								{htmloptions options=$categoryQuickJumpOptions selected=$categoryID disableEncoding=true}
-							</select>
-						</div>
-					</div>
-				</fieldset>
-			{/if}
-			
+		<div class="container-1">			
 			<fieldset>
 				<legend>{lang}wsip.acp.category.general{/lang}</legend>
 				
