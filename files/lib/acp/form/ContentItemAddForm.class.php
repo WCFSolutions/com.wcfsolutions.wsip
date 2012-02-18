@@ -121,6 +121,7 @@ class ContentItemAddForm extends ACPForm {
 		// init ckeditor
 		$this->ckeditor = new CKEditor('text');
 		$this->ckeditor->setConfigOptions(array(
+			'baseHref' => "'".$this->ckeditor->encodeJS(RELATIVE_WSIP_DIR)."'",
 			'height' => "'300px'"
 		));
 	}
