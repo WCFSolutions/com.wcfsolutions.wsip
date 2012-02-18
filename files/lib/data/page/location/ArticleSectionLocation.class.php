@@ -9,7 +9,7 @@ require_once(WCF_DIR.'lib/data/page/location/Location.class.php');
  * ArticleSectionLocation is an implementation of Location for the article section page.
  * 
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.page.location
