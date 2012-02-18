@@ -50,7 +50,7 @@ class ArticleSectionLocation implements Location {
 			return '';
 		}
 		
-		return WCF::getLanguage()->get($location['locationName'], array('$article' => '<a href="index.php?page=Article&amp;sectionID='.$this->articles[$sectionID]->firstSectionID.SID_ARG_2ND.'">'.StringUtil::encodeHTML($this->articles[$sectionID]['subject']).'</a>'));
+		return WCF::getLanguage()->get($location['locationName'], array('$article' => '<a href="index.php?page=Article&amp;sectionID='.$this->articles[$sectionID]['firstSectionID'].SID_ARG_2ND.'">'.StringUtil::encodeHTML($this->articles[$sectionID]['subject']).'</a>'));
 	}
 	
 	/**
