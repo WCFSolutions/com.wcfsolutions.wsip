@@ -1,7 +1,7 @@
 <?php
 /**
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
 $packageID = $this->installation->getPackageID();
@@ -120,23 +120,23 @@ foreach ($deprecatedFiles as $file) {
 
 // delete deprecated templates
 $deprecatedTemplates = array(
-	'articleSectionEdit.tpl',
-	'guestbook.tpl',
-	'guestbookEntryAdd.tpl',
-	'guestbookEntryInlineEdit.tpl',
-	'lastArticlesBoxType.tpl',
-	'lastGuestbookEntriesBoxType.tpl',
-	'lastLinksBoxType.tpl',
-	'lastNewsEntriesBoxType.tpl',
-	'link.tpl',
-	'linkAdd.tpl',
-	'linkAddCategorySelect.tpl',
-	'linkOverview.tpl',
-	'moderationGuestbookEntries.tpl',
-	'searchLink.tpl',
-	'searchResultGuestbookEntry.tpl',
-	'searchResultLink.tpl',
-	'taggedLinks.tpl'
+	'articleSectionEdit',
+	'guestbook',
+	'guestbookEntryAdd',
+	'guestbookEntryInlineEdit',
+	'lastArticlesBoxType',
+	'lastGuestbookEntriesBoxType.',
+	'lastLinksBoxType',
+	'lastNewsEntriesBoxType',
+	'link',
+	'linkAdd',
+	'linkAddCategorySelect',
+	'linkOverview',
+	'moderationGuestbookEntries',
+	'searchLink',
+	'searchResultGuestbookEntry',
+	'searchResultLink',
+	'taggedLinks'
 );
 
 $sql = "DELETE FROM	wcf".WCF_N."_template
