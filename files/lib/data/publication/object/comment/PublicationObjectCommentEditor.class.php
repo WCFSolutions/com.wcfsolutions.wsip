@@ -7,7 +7,7 @@ require_once(WCF_DIR.'lib/data/user/notification/NotificationHandler.class.php')
 
 /**
  * Provides functions to manage publication object comments.
- * 
+ *
  * @author	Sebastian Oettl
  * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
@@ -15,10 +15,10 @@ require_once(WCF_DIR.'lib/data/user/notification/NotificationHandler.class.php')
  * @subpackage	data.publication.object.comment
  * @category	Infinite Portal
  */
-class PublicationObjectCommentEditor extends PublicationObjectComment {	
+class PublicationObjectCommentEditor extends PublicationObjectComment {
 	/**
 	 * Updates this comment.
-	 * 
+	 *
 	 * @param	string		$comment
 	 */
 	public function update($comment) {
@@ -27,23 +27,23 @@ class PublicationObjectCommentEditor extends PublicationObjectComment {
 			WHERE	commentID = ".$this->commentID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Deletes this comment.
 	 */
 	public function delete() {
 		// revoke notifications
 		NotificationHandler::revokeEvent(array('newPublicationObjectComment', 'publicationObjectSubscription'), 'publicationObjectComment', $this);
-		
+
 		// delete comment
 		$sql = "DELETE FROM	wsip".WSIP_N."_publication_object_comment
 			WHERE		commentID = ".$this->commentID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Creates a new comment.
-	 * 
+	 *
 	 * @param	integer				$publicationObjectID
 	 * @param	string				$publicationType
 	 * @param	integer				$userID
@@ -56,14 +56,14 @@ class PublicationObjectCommentEditor extends PublicationObjectComment {
 					(publicationObjectID, publicationType, userID, username, comment, time, ipAddress)
 			VALUES		(".$publicationObjectID.", '".escapeString($publicationType)."', ".$userID.", '".escapeString($username)."', '".escapeString($comment)."', ".TIME_NOW.", '".escapeString(WCF::getSession()->ipAddress)."')";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		$commentID = WCF::getDB()->getInsertID("wsip".WSIP_N."_publication_object_comment", 'commentID');
 		return new PublicationObjectCommentEditor($commentID);
 	}
-	
+
 	/**
 	 * Sends the notifications.
-	 * 
+	 *
 	 * @param	PublicationObject		$publicationObj
 	 */
 	public function sendNotifications($publicationObj) {
@@ -71,9 +71,9 @@ class PublicationObjectCommentEditor extends PublicationObjectComment {
 		if ($this->userID != $publicationObj->getOwnerID()) {
 			NotificationHandler::fireEvent('newPublicationObjectComment', 'publicationObjectComment', $this->commentID, $publicationObj->getOwnerID(), array('publicationObjectTitle' => $publicationObj->getTitle(), 'publicationObjectURL' => $publicationObj->getURL()));
 		}
-		
+
 		// send subscription notifications
-		$sql = "SELECT		user.*
+		$sql = "SELECT		user.userID
 			FROM		wsip".WSIP_N."_publication_object_subscription subscription
 			LEFT JOIN	wcf".WCF_N."_user user
 			ON		(user.userID = subscription.userID)
