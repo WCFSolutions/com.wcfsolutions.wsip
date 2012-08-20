@@ -1,4 +1,7 @@
 <?php
+// wsip imports
+require_once(WSIP_DIR.'lib/system/CopyrightHandler.class.php');
+
 // wcf imports
 require_once(WCF_DIR.'lib/page/util/menu/ModerationCPMenuContainer.class.php');
 require_once(WCF_DIR.'lib/page/util/menu/PageMenuContainer.class.php');
@@ -9,7 +12,7 @@ require_once(WCF_DIR.'lib/system/style/StyleManager.class.php');
 
 /**
  * This class extends the main WCF class by portal specific functions.
- * 
+ *
  * @author	Sebastian Oettl
  * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
@@ -28,25 +31,25 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		'action' => array('UserLogout')
 	);
 	public static $defaultBoxPositions = array('left', 'right', 'top', 'bottom', 'userMessages');
-	
+
 	/**
 	 * @see WCF::initTPL()
 	 */
 	protected function initTPL() {
 		// init style to get template pack id
 		$this->initStyle();
-		
+
 		// init box layout
 		$this->initBoxLayout();
-		
+
 		global $packageDirs;
 		require_once(WCF_DIR.'lib/system/template/StructuredTemplate.class.php');
 		self::$tplObj = new StructuredTemplate(self::getStyle()->templatePackID, self::getLanguage()->getLanguageID(), ArrayUtil::appendSuffix($packageDirs, 'templates/'));
 		$this->assignDefaultTemplateVariables();
-		
+
 		// init cronjobs
 		$this->initCronjobs();
-		
+
 		// check offline mode
 		if (OFFLINE && !self::getUser()->getPermission('user.portal.canViewPortalOffline')) {
 			$showOfflineError = true;
@@ -58,32 +61,32 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 							break 2;
 						}
 					}
-					
+
 					break;
 				}
 			}
-			
+
 			if ($showOfflineError) {
 				$this->disableBoxLayout();
 				self::getTPL()->display('offline');
 				exit;
 			}
 		}
-		
+
 		// user ban
 		if (self::getUser()->banned && (!isset($_REQUEST['page']) || $_REQUEST['page'] != 'LegalNotice')) {
 			$this->disableBoxLayout();
 			throw new NamedUserException(WCF::getLanguage()->getDynamicVariable('wcf.user.banned'));
 		}
 	}
-	
+
 	/**
 	 * Initialises the cronjobs.
 	 */
 	protected function initCronjobs() {
 		self::getTPL()->assign('executeCronjobs', WCF::getCache()->get('cronjobs-'.PACKAGE_ID, 'nextExec') < TIME_NOW);
 	}
-	
+
 	/**
 	 * @see WCF::loadDefaultCacheResources()
 	 */
@@ -91,7 +94,7 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		parent::loadDefaultCacheResources();
 		self::loadDefaultWSIPCacheResources();
 	}
-	
+
 	/**
 	 * Loads default cache resources of content management system.
 	 * Can be called statically from other applications or plugins.
@@ -113,7 +116,7 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		WCF::getCache()->addResource('boxLayout-'.PACKAGE_ID, WCF_DIR.'cache/cache.boxLayout-'.PACKAGE_ID.'.php', WCF_DIR.'lib/system/cache/CacheBuilderBoxLayout.class.php');
 		WCF::getCache()->addResource('boxPosition-'.PACKAGE_ID, WCF_DIR.'cache/cache.boxPosition-'.PACKAGE_ID.'.php', WCF_DIR.'lib/system/cache/CacheBuilderBoxPosition.class.php');
 	}
-	
+
 	/**
 	 * Initialises the moderationcp menu.
 	 */
@@ -121,7 +124,7 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		require_once(WCF_DIR.'lib/page/util/menu/ModerationCPMenu.class.php');
 		self::$moderationCPMenuObj = ModerationCPMenu::getInstance();
 	}
-	
+
 	/**
 	 * Initialises the page header menu.
 	 */
@@ -130,7 +133,7 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		self::$pageMenuObj = new PageMenu();
 		if (PageMenu::getActiveMenuItem() == '') PageMenu::setActiveMenuItem('wsip.header.menu.portal');
 	}
-	
+
 	/**
 	 * Initialises the user cp menu.
 	 */
@@ -138,7 +141,7 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		require_once(WCF_DIR.'lib/page/util/menu/UserCPMenu.class.php');
 		self::$userCPMenuObj = UserCPMenu::getInstance();
 	}
-	
+
 	/**
 	 * Initialises the user profile menu.
 	 */
@@ -146,14 +149,14 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		require_once(WCF_DIR.'lib/page/util/menu/UserProfileMenu.class.php');
 		self::$userProfileMenuObj = UserProfileMenu::getInstance();
 	}
-	
+
 	/**
 	 * @see WCF::getOptionsFilename()
 	 */
 	protected function getOptionsFilename() {
 		return WSIP_DIR.'options.inc.php';
 	}
-	
+
 	/**
 	 * Initialises the style system.
 	 */
@@ -161,21 +164,21 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		if (isset($_GET['styleID'])) {
 			self::getSession()->setStyleID(intval($_GET['styleID']));
 		}
-		
+
 		StyleManager::changeStyle(self::getSession()->getStyleID());
 	}
-	
+
 	/**
 	 * Initialises the box layout system.
 	 */
 	protected function initBoxLayout() {
 		// register default positions
 		BoxLayout::registerPositions(self::$defaultBoxPositions);
-		
+
 		// change box layout to default
 		BoxLayoutManager::changeBoxLayout();
 	}
-	
+
 	/**
 	 * Disables the box layout.
 	 */
@@ -184,17 +187,17 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		$emptyBoxLayout = new BoxLayout(null, array('boxLayoutID' => 0));
 		BoxLayoutManager::setBoxLayout($emptyBoxLayout);
 	}
-	
+
 	/**
 	 * @see ModerationCPMenuContainer::getModerationCPMenu()
 	 */
 	public static final function getModerationCPMenu() {
 		if (self::$moderationCPMenuObj === null) {
 			self::initModerationCPMenu();
-		}		
+		}
 		return self::$moderationCPMenuObj;
 	}
-	
+
 	/**
 	 * @see PageMenuContainer::getPageMenu()
 	 */
@@ -202,10 +205,10 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		if (self::$pageMenuObj === null) {
 			self::initPageMenu();
 		}
-		
+
 		return self::$pageMenuObj;
 	}
-	
+
 	/**
 	 * @see UserCPMenuContainer::getUserCPMenu()
 	 */
@@ -213,10 +216,10 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		if (self::$userCPMenuObj === null) {
 			self::initUserCPMenu();
 		}
-		
+
 		return self::$userCPMenuObj;
 	}
-	
+
 	/**
 	 * @see UserProfileMenuContainer::getUserProfileMenu()
 	 */
@@ -224,28 +227,37 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		if (self::$userProfileMenuObj === null) {
 			self::initUserProfileMenu();
 		}
-		
+
 		return self::$userProfileMenuObj;
 	}
-	
+
 	/**
 	 * Returns the active style object.
-	 * 
+	 *
 	 * @return	ActiveStyle
 	 */
 	public static final function getStyle() {
 		return StyleManager::getStyle();
 	}
-	
+
 	/**
 	 * Returns the active style object.
-	 * 
+	 *
 	 * @return	BoxLayout
 	 */
 	public static final function getBoxLayout() {
 		return BoxLayoutManager::getBoxLayout();
 	}
-	
+
+	/**
+	 * Returns the copyright handler object.
+	 *
+	 * @return	CopyrightHandler
+	 */
+	public static final function getCopyrightHandler() {
+		return CopyrightHandler::getInstance();
+	}
+
 	/**
 	 * @see WCF::initSession()
 	 */
@@ -256,7 +268,7 @@ class WSIPCore extends WCF implements ModerationCPMenuContainer, PageMenuContain
 		self::$sessionObj = $factory->get();
 		self::$userObj = self::getSession()->getUser();
 	}
-	
+
 	/**
 	 * @see	WCF::assignDefaultTemplateVariables()
 	 */

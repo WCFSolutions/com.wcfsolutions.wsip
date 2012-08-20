@@ -16,7 +16,7 @@
 			</div>
 		{/if}
 	</div>
-	
+
 </div>
 <div id="footerContainer">
 	<div id="footer">
@@ -25,7 +25,7 @@
 			<div class="footerOptionsInner">
 				<ul>
 					{if $additionalFooterOptions|isset}{@$additionalFooterOptions}{/if}
-					
+
 					{if $stylePickerOptions|count > 1}
 						<li class="stylePicker{if !SHOW_CLOCK} last{/if}">
 							<a id="changeStyle" class="hidden"><img src="{icon}styleOptionsS.png{/icon}" alt="" /> <span>{lang}wsip.global.changeStyle{/lang}</span></a>
@@ -36,14 +36,14 @@
 									{/foreach}
 								</ul>
 							</div>
-							
+
 							<script type="text/javascript">
 								//<![CDATA[
 								onloadEvents.push(function() { document.getElementById('changeStyle').className=''; });
 								popupMenuList.register('changeStyle');
 								//]]>
 							</script>
-							
+
 							<noscript>
 								<form method="get" action="index.php" class="quickJump">
 									<div>
@@ -67,7 +67,9 @@
 				</ul>
 			</div>
 		</div>
-		<p class="copyright">{lang}wsip.global.copyright{/lang}{if $additionalCopyrightContents|isset}{@$additionalCopyrightContents}{/if}</p>
+
+		{assign var=copyrightOutput value=$this->copyrightHandler->getOutput()}
+		{if !$copyrightOutput|empty}<p class="copyright">{@$copyrightOutput}</p>{/if}
 	</div>
 </div>
 {if !$this->user->userID && !LOGIN_USE_CAPTCHA}
