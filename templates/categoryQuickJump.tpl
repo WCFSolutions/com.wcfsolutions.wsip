@@ -11,7 +11,7 @@
 					{htmloptions options=$categoryQuickJumpOptions disableEncoding=true}
 				{/if}
 			</select>
-			
+
 			{@SID_INPUT_TAG}
 			<input type="image" class="inputImage" src="{icon}submitS.png{/icon}" alt="{lang}wcf.global.button.submit{/lang}" />
 		</div>

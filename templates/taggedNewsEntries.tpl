@@ -1,6 +1,6 @@
 <div class="contentBox">
 	<h3 class="subHeadline">{lang}wcf.tagging.taggable.com.wcfsolutions.wsip.news.entry{/lang} <span>({#$items})</span></h3>
-	
+
 	{assign var='messageNumber' value=$items-$startIndex+1}
 	{foreach from=$taggedObjects item=entry}
 		<div class="newsEntryList">
@@ -11,7 +11,7 @@
 							<a href="index.php?page=NewsEntry&amp;entryID={@$entry->entryID}{@SID_ARG_2ND}" title="{lang}wsip.news.entry.permalink{/lang}" class="messageNumber">{#$messageNumber}</a>
 						</p>
 						<div class="containerIcon">
-							<img src="{icon}newsEntryM.png{/icon}" alt="" />	
+							<img src="{icon}newsEntryM.png{/icon}" alt="" />
 						</div>
 						<div class="containerContent">
 							<h3><a href="index.php?page=NewsEntry&amp;entryID={@$entry->entryID}{@SID_ARG_2ND}">{$entry->subject}</a></h3>
@@ -21,7 +21,7 @@
 					<div class="messageBody">
 						{@$entry->getFormattedTeaser()}
 					</div>
-					
+
 					<div class="messageFooter">
 						<div class="smallButtons">
 							<ul>

@@ -1,7 +1,7 @@
 {include file="documentHeader"}
 <head>
 	<title>{lang}wsip.news.entry.{@$action}{/lang} - {lang}{PAGE_TITLE}{/lang}</title>
-	
+
 	{include file='headInclude' sandbox=false}
 	{include file='imageViewer'}
 	<script type="text/javascript" src="{@RELATIVE_WCF_DIR}js/TabbedPane.class.js"></script>
@@ -10,7 +10,7 @@
 		<script type="text/javascript">
 			//<![CDATA[
 			var calendar = new Calendar('{$monthList}', '{$weekdayList}', {@$startOfWeek});
-			
+
 			document.observe('dom:loaded', function() {
 				var checkbox = $('disableEntry');
 				if (checkbox) {
@@ -36,7 +36,7 @@
 {include file='header' sandbox=false}
 
 <div id="main">
-	
+
 	<ul class="breadCrumbs">
 		<li><a href="index.php?page=Index{@SID_ARG_2ND}"><img src="{icon}indexS.png{/icon}" alt="" /> <span>{lang}{PAGE_TITLE}{/lang}</span></a> &raquo;</li>
 		<li><a href="index.php?page=NewsOverview{@SID_ARG_2ND}"><img src="{icon}newsS.png{/icon}" alt="" /> <span>{lang}wsip.news.overview{/lang}</span></a> &raquo;</li>
@@ -46,20 +46,20 @@
 		<li><a href="index.php?page=NewsOverview&amp;categoryID={@$category->categoryID}{@SID_ARG_2ND}"><img src="{icon}categoryS.png{/icon}" alt="" /> <span>{$category->getTitle()}</span></a> &raquo;</li>
 		{if $entry|isset}<li><a href="index.php?page=NewsEntry&amp;entryID={@$entry->entryID}{@SID_ARG_2ND}"><img src="{icon}newsEntryS.png{/icon}" alt="" /> <span>{$entry->subject}</span></a> &raquo;</li>{/if}
 	</ul>
-	
+
 	<div class="mainHeadline">
 		<img src="{icon}newsEntry{@$action|ucfirst}L.png{/icon}" alt="" />
 		<div class="headlineContainer">
 			<h2>{lang}wsip.news.entry.{@$action}{/lang}</h2>
 		</div>
 	</div>
-	
+
 	{if $userMessages|isset}{@$userMessages}{/if}
-	
+
 	{if $errorField}
 		<p class="error">{lang}wcf.global.form.error{/lang}</p>
 	{/if}
-	
+
 	{if $preview|isset}
 		<div class="border messagePreview">
 			<div class="containerHead">
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 	{/if}
-	
+
 	<form method="post" enctype="multipart/form-data" action="index.php?form=NewsEntry{@$action|ucfirst}{if $action == 'add'}&amp;categoryID={@$categoryID}{elseif $action == 'edit'}&amp;entryID={@$entryID}{/if}">
 		<div class="border content">
 			<div class="container-1">
@@ -114,10 +114,10 @@
 						</div>
 					</fieldset>
 				{/if}
-				
+
 				<fieldset>
 					<legend>{lang}wsip.news.entry.information{/lang}</legend>
-					
+
 					{if $availableLanguages|count > 1}
 						<div class="formElement">
 							<div class="formFieldLabel">
@@ -133,7 +133,7 @@
 							</div>
 						</div>
 					{/if}
-					
+
 					{if $action == 'add' && !$this->user->userID}
 						<div class="formElement{if $errorField == 'username'} formError{/if}">
 							<div class="formFieldLabel">
@@ -151,7 +151,7 @@
 							</div>
 						</div>
 					{/if}
-					
+
 					<div class="formElement{if $errorField == 'subject'} formError{/if}">
 						<div class="formFieldLabel">
 							<label for="subject">{lang}wsip.news.entry.subject{/lang}</label>
@@ -165,7 +165,7 @@
 							{/if}
 						</div>
 					</div>
-					
+
 					<div class="formElement{if $errorField == 'teaser'} formError{/if}">
 						<div class="formFieldLabel">
 							<label for="teaser">{lang}wsip.news.entry.teaser{/lang}</label>
@@ -180,16 +180,16 @@
 							{/if}
 						</div>
 					</div>
-					
+
 					{if MODULE_TAGGING && NEWS_ENTRY_ENABLE_TAGS && $category->getPermission('canSetNewsTags')}{include file='tagAddBit'}{/if}
-					
+
 					{if $additionalInformationFields|isset}{@$additionalInformationFields}{/if}
 				</fieldset>
-				
+
 				{if ($action == 'add' || !$entry->everEnabled) && $category->getModeratorPermission('canEnableNewsEntry')}
 					<fieldset>
 						<legend>{lang}wsip.news.entry.publishing{/lang}</legend>
-						
+
 						{if $action == 'add'}
 							<div class="formElement">
 								<div class="formField">
@@ -200,7 +200,7 @@
 								</div>
 							</div>
 						{/if}
-											
+
 						<div class="formGroup{if $errorField == 'publishingTime'} formError{/if}" id="publishingTimeDiv">
 							<div class="formGroupLabel">
 								<label>{lang}wsip.news.entry.publishingTime{/lang}</label>
@@ -208,28 +208,28 @@
 							<div class="formGroupField">
 								<fieldset>
 									<legend><label>{lang}wsip.news.entry.publishingTime{/lang}</label></legend>
-						
+
 									<div class="formField">
 										<div class="floatedElement">
 											<label for="publishingTimeDay">{lang}wcf.global.date.day{/lang}</label>
 											{htmlOptions options=$dayOptions selected=$publishingTimeDay id=publishingTimeDay name=publishingTimeDay}
 										</div>
-										
+
 										<div class="floatedElement">
 											<label for="publishingTimeMonth">{lang}wcf.global.date.month{/lang}</label>
 											{htmlOptions options=$monthOptions selected=$publishingTimeMonth id=publishingTimeMonth name=publishingTimeMonth}
 										</div>
-										
+
 										<div class="floatedElement">
 											<label for="publishingTimeYear">{lang}wcf.global.date.year{/lang}</label>
 											<input id="publishingTimeYear" class="inputText fourDigitInput" type="text" name="publishingTimeYear" value="{@$publishingTimeYear}" maxlength="4" />
 										</div>
-										
+
 										<div class="floatedElement">
 											<label for="publishingTimeHour">{lang}wcf.global.date.hour{/lang}</label>
 											{htmlOptions options=$hourOptions selected=$publishingTimeHour id=publishingTimeHour name=publishingTimeHour}
 										</div>
-										
+
 										<div class="floatedElement">
 											<a id="publishingTimeButton"><img src="{@RELATIVE_WCF_DIR}icon/datePickerOptionsM.png" alt="" /></a>
 											<div id="publishingTimeCalendar" class="inlineCalendar"></div>
@@ -239,7 +239,7 @@
 												//]]>
 											</script>
 										</div>
-										
+
 										{if $errorField == 'publishingTime'}
 											<p class="floatedElement innerError">
 												{if $errorType == 'invalid'}{lang}wsip.news.entry.publishingTime.error.invalid{/lang}{/if}
@@ -254,16 +254,16 @@
 						</div>
 					</fieldset>
 				{/if}
-				
+
 				<fieldset>
 					<legend>{lang}wsip.news.entry.text{/lang}</legend>
-					
-					<div class="editorFrame formElement{if $errorField == 'text'} formError{/if}" id="textDiv">	
+
+					<div class="editorFrame formElement{if $errorField == 'text'} formError{/if}" id="textDiv">
 						<div class="formFieldLabel">
 							<label for="text">{lang}wsip.news.entry.text{/lang}</label>
 						</div>
-						
-						<div class="formField">				
+
+						<div class="formField">
 							<textarea name="text" id="text" rows="15" cols="40" tabindex="{counter name='tabindex'}">{$text}</textarea>
 							{if $errorField == 'text'}
 								<p class="innerError">
@@ -272,10 +272,10 @@
 									{if $errorType == 'censoredWordsFound'}{lang}wcf.message.error.censoredWordsFound{/lang}{/if}
 								</p>
 							{/if}
-						</div>					
+						</div>
 					</div>
-					
-					{capture append=additionalSettings}							
+
+					{capture append=additionalSettings}
 						<div class="formField">
 							<label><input type="checkbox" name="enableComments" value="1" {if $enableComments == 1}checked="checked" {/if}/> {lang}wsip.news.entry.enableComments{/lang}</label>
 						</div>
@@ -283,14 +283,14 @@
 							<p>{lang}wsip.news.entry.enableComments.description{/lang}</p>
 						</div>
 					{/capture}
-					{include file='messageFormTabs'}	
+					{include file='messageFormTabs'}
 				</fieldset>
-				
+
 				{include file='captcha'}
 				{if $additionalFields|isset}{@$additionalFields}{/if}
 			</div>
 		</div>
-		
+
 		<div class="formSubmit">
 			<input type="submit" name="send" accesskey="s" value="{lang}wcf.global.button.submit{/lang}" tabindex="{counter name='tabindex'}" />
 			<input type="submit" name="preview" accesskey="p" value="{lang}wcf.global.button.preview{/lang}" tabindex="{counter name='tabindex'}" />

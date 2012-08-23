@@ -8,7 +8,7 @@
 						<div class="messageInner {cycle name='newsEntriesBoxTabCycle'}">
 							<div class="messageHeader">
 								<div class="containerIcon">
-									<img src="{icon}newsEntryM.png{/icon}" alt="" />	
+									<img src="{icon}newsEntryM.png{/icon}" alt="" />
 								</div>
 								<div class="containerContent">
 									<h3><a href="index.php?page=NewsEntry&amp;entryID={@$entry->entryID}{@SID_ARG_2ND}">{$entry->subject}</a></h3>
@@ -19,11 +19,11 @@
 							<div class="messageBody">
 								{@$entry->getFormattedTeaser()}
 							</div>
-							
+
 							<div class="editNote smallFont light">
 								<p>{lang}wsip.news.entry.views{/lang}: {#$entry->views}{if $entry->getViewsPerDay() > 0} ({lang}wsip.news.entry.viewsPerDay{/lang}){/if}</p>
 							</div>
-							
+
 							<div class="messageFooter">
 								<div class="smallButtons">
 									<ul>

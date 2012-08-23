@@ -4,7 +4,7 @@
 		<div class="messageInner {cycle values='container-1,container-2'}">
 			<div class="messageHeader">
 				<div class="containerIcon">
-					<img src="{icon}articleM.png{/icon}" alt="" />	
+					<img src="{icon}articleM.png{/icon}" alt="" />
 				</div>
 				<div class="containerContent">
 					<h3><a href="index.php?page=Article&amp;sectionID={@$article->firstSectionID}&amp;highlight={$query|urlencode}{@SID_ARG_2ND}">{$article->subject}</a></h3>
@@ -14,7 +14,7 @@
 			<div class="messageBody">
 				{@$article->getFormattedTeaser()}
 			</div>
-				
+
 			<div class="messageFooter">
 				<div class="smallButtons">
 					<ul>

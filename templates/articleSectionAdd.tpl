@@ -1,7 +1,7 @@
 {include file="documentHeader"}
 <head>
 	<title>{lang}wsip.article.section.{@$action}{/lang} - {lang}{PAGE_TITLE}{/lang}</title>
-	
+
 	{include file='headInclude' sandbox=false}
 	{include file='imageViewer'}
 	<script type="text/javascript" src="{@RELATIVE_WCF_DIR}js/TabbedPane.class.js"></script>
@@ -11,7 +11,7 @@
 {include file='header' sandbox=false}
 
 <div id="main">
-	
+
 	<ul class="breadCrumbs">
 		<li><a href="index.php?page=Index{@SID_ARG_2ND}"><img src="{icon}indexS.png{/icon}" alt="" /> <span>{lang}{PAGE_TITLE}{/lang}</span></a> &raquo;</li>
 		<li><a href="index.php?page=ArticleOverview{@SID_ARG_2ND}"><img src="{icon}articleS.png{/icon}" alt="" /> <span>{lang}wsip.article.overview{/lang}</span></a> &raquo;</li>
@@ -21,20 +21,20 @@
 		<li><a href="index.php?page=ArticleOverview&amp;categoryID={@$category->categoryID}{@SID_ARG_2ND}"><img src="{icon}categoryS.png{/icon}" alt="" /> <span>{$category->getTitle()}</span></a> &raquo;</li>
 		<li><a href="index.php?page=Article&amp;sectionID={@$article->firstSectionID}{@SID_ARG_2ND}"><img src="{icon}articleS.png{/icon}" alt="" /> <span>{$article->subject}</span></a> &raquo;</li>
 	</ul>
-	
+
 	<div class="mainHeadline">
 		<img src="{icon}article{@$action|ucfirst}L.png{/icon}" alt="" />
 		<div class="headlineContainer">
 			<h2>{lang}wsip.article.section.{@$action}{/lang}</h2>
 		</div>
 	</div>
-	
+
 	{if $userMessages|isset}{@$userMessages}{/if}
-	
+
 	{if $errorField}
 		<p class="error">{lang}wcf.global.form.error{/lang}</p>
 	{/if}
-	
+
 	{if $preview|isset}
 		<div class="border messagePreview">
 			<div class="containerHead">
@@ -52,15 +52,15 @@
 			</div>
 		</div>
 	{/if}
-	
+
 	<form enctype="multipart/form-data" method="post" action="index.php?form=ArticleSection{@$action|ucfirst}{if $action == 'add'}&amp;articleID={@$articleID}{elseif $action == 'edit'}&amp;sectionID={@$sectionID}{/if}">
 		<div class="border content">
 			<div class="container-1">
-				
+
 				{if $action == 'edit' && $article->firstSectionID == $section->sectionID && $categoryOptions|count > 0}
 					<fieldset>
 						<legend>{lang}wsip.article.move{/lang}</legend>
-						
+
 						<div class="formElement{if $errorField == 'categoryID'} formError{/if}">
 							<div class="formFieldLabel">
 								<label for="categoryID">{lang}wsip.article.categoryID{/lang}</label>
@@ -76,7 +76,7 @@
 								{/if}
 							</div>
 						</div>
-						
+
 						<div class="formElement">
 							<div class="formField">
 								<input type="submit" name="send" value="{lang}wcf.global.button.submit{/lang}" class="hidden" />
@@ -85,10 +85,10 @@
 						</div>
 					</fieldset>
 				{/if}
-				
+
 				<fieldset>
 					<legend>{lang}wsip.article.information{/lang}</legend>
-					
+
 					{if $action == 'edit' && $article->firstSectionID == $section->sectionID && $availableLanguages|count > 1}
 						<div class="formElement">
 							<div class="formFieldLabel">
@@ -104,7 +104,7 @@
 							</div>
 						</div>
 					{/if}
-					
+
 					<div class="formElement{if $errorField == 'subject'} formError{/if}">
 						<div class="formFieldLabel">
 							<label for="subject">{lang}wsip.article.subject{/lang}</label>
@@ -118,7 +118,7 @@
 							{/if}
 						</div>
 					</div>
-					
+
 					{if $action == 'edit' && $article->firstSectionID == $section->sectionID}
 						<div class="formElement{if $errorField == 'teaser'} formError{/if}">
 							<div class="formFieldLabel">
@@ -135,7 +135,7 @@
 							</div>
 						</div>
 					{/if}
-					
+
 					{if $sectionOptions|count > 0}
 						<div class="formElement{if $errorField == 'parentSectionID'} formError{/if}">
 							<div class="formFieldLabel">
@@ -154,21 +154,21 @@
 							</div>
 						</div>
 					{/if}
-					
+
 					{if MODULE_TAGGING && ARTICLE_ENABLE_TAGS && $action == 'edit' && $article->firstSectionID == $section->sectionID && $category->getPermission('canSetArticleTags')}{include file='tagAddBit'}{/if}
-					
+
 					{if $additionalInformationFields|isset}{@$additionalInformationFields}{/if}
 				</fieldset>
-				
+
 				<fieldset>
 					<legend>{lang}wsip.article.text{/lang}</legend>
-					
-					<div class="editorFrame formElement{if $errorField == 'text'} formError{/if}" id="textDiv">	
+
+					<div class="editorFrame formElement{if $errorField == 'text'} formError{/if}" id="textDiv">
 						<div class="formFieldLabel">
 							<label for="text">{lang}wsip.article.text{/lang}</label>
 						</div>
-						
-						<div class="formField">				
+
+						<div class="formField">
 							<textarea name="text" id="text" rows="15" cols="40" tabindex="{counter name='tabindex'}">{$text}</textarea>
 							{if $errorField == 'text'}
 								<p class="innerError">
@@ -177,11 +177,11 @@
 									{if $errorType == 'censoredWordsFound'}{lang}wcf.message.error.censoredWordsFound{/lang}{/if}
 								</p>
 							{/if}
-						</div>					
+						</div>
 					</div>
-					
+
 					{if $action == 'edit' && $article->firstSectionID == $section->sectionID}
-						{capture append=additionalSettings}	
+						{capture append=additionalSettings}
 							<div class="formField">
 								<label><input type="checkbox" name="enableComments" value="1" {if $enableComments == 1}checked="checked" {/if}/> {lang}wsip.article.enableComments{/lang}</label>
 							</div>
@@ -190,14 +190,14 @@
 							</div>
 						{/capture}
 					{/if}
-					{include file='messageFormTabs'}	
+					{include file='messageFormTabs'}
 				</fieldset>
-				
+
 				{include file='captcha'}
 				{if $additionalFields|isset}{@$additionalFields}{/if}
 			</div>
 		</div>
-		
+
 		<div class="formSubmit">
 			<input type="submit" name="send" accesskey="s" value="{lang}wcf.global.button.submit{/lang}" tabindex="{counter name='tabindex'}" />
 			<input type="submit" name="preview" accesskey="p" value="{lang}wcf.global.button.preview{/lang}" tabindex="{counter name='tabindex'}" />

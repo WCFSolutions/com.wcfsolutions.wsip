@@ -4,11 +4,11 @@
 	<a id="comments"></a>
 	<div class="contentBox publicationObjectComments">
 		<h4 class="subHeadline">{lang}wsip.publication.object.comments{/lang} <span>({#$items})</span></h4>
-		
+
 		<div class="contentHeader">
 			{pages print=true assign=pagesOutput link=$publicationObj->getURL()|concat:'&pageNo=%d#comments':SID_ARG_2ND_NOT_ENCODED}
 		</div>
-		
+
 		<ul class="dataList messages">
 			{assign var='messageNumber' value=$items-$startIndex+1}
 			{foreach from=$comments item=commentObj}
@@ -54,11 +54,11 @@
 				{assign var='messageNumber' value=$messageNumber-1}
 			{/foreach}
 		</ul>
-		
+
 		<div class="contentFooter">
 			{@$pagesOutput}
 		</div>
-		
+
 		<div class="buttonBar">
 			<div class="smallButtons">
 				<ul>
@@ -75,7 +75,7 @@
 		<form method="post" action="{$publicationObj->getURL()}&amp;action=add">
 			<fieldset>
 				<legend>{lang}wsip.publication.object.comment.add{/lang}</legend>
-				
+
 				{if !$this->user->userID}
 					<div class="formElement{if $errorField == 'username'} formError{/if}">
 						<div class="formFieldLabel">
@@ -93,7 +93,7 @@
 						</div>
 					</div>
 				{/if}
-				
+
 				<div class="formElement{if $action == 'add' && $errorField == 'comment'} formError{/if}">
 					<div class="formFieldLabel">
 						<label for="comment">{lang}wsip.publication.object.comment{/lang}</label>
@@ -108,10 +108,10 @@
 						{/if}
 					</div>
 				</div>
-				
+
 				{include file='captcha' enableFieldset=false}
 			</fieldset>
-			
+
 			<div class="formSubmit">
 				<input type="submit" accesskey="s" value="{lang}wcf.global.button.submit{/lang}" />
 				<input type="reset" accesskey="r" value="{lang}wcf.global.button.reset{/lang}" />

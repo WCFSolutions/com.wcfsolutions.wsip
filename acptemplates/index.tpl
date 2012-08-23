@@ -25,7 +25,7 @@
 	<form method="post" action="index.php?form=UserSearch">
 		<fieldset>
 			<legend>{lang}wsip.acp.index.searchUsers{/lang}</legend>
-			
+
 			<div class="formElement">
 				<div class="formFieldLabel">
 					<label for="username">{lang}wcf.user.username{/lang}</label>
@@ -41,19 +41,19 @@
 					<label><input type="checkbox" name="matchExactly[username]" value="1" /> {lang}wcf.global.search.matchesExactly{/lang}</label>
 				</div>
 			</div>
-			
+
 			{if $this->user->getPermission('admin.user.canMailUser')}
 				<div class="formElement">
 					<div class="formFieldLabel">
 						<label for="email">{lang}wcf.user.email{/lang}</label>
 					</div>
-					<div class="formField">	
+					<div class="formField">
 						<input type="text" class="inputText" id="email" name="staticParameters[email]" value="" />
 						<label><input type="checkbox" name="matchExactly[email]" value="1" /> {lang}wcf.global.search.matchesExactly{/lang}</label>
 					</div>
 				</div>
 			{/if}
-			
+
 			{if $additionalSearchFields|isset}{@$additionalSearchFields}{/if}
 		</fieldset>
 		<div class="formSubmit">
@@ -86,10 +86,10 @@
 		<div class="container-1">
 			{if $minorUpdates|count > 0}
 				<h3 class="subHeadline">{lang}wsip.acp.index.minorUpdates{/lang}</h3>
-				
+
 				<form method="post" action="index.php?form=PackageUpdate">
 					<p class="description">{lang}wsip.acp.index.minorUpdates.description{/lang}</p>
-					
+
 					<ul>
 						{foreach from=$minorUpdates item=update}
 							<li{if $update.version.updateType == 'security'} class="formError"{/if}>
@@ -98,7 +98,7 @@
 							</li>
 						{/foreach}
 					</ul>
-					
+
 					<p><input type="submit" value="{lang}wsip.acp.index.updates.startUpdate{/lang}" /></p>
 					<input type="hidden" name="packageID" value="{@PACKAGE_ID}" />
 					{@SID_INPUT_TAG}
@@ -106,10 +106,10 @@
 			{/if}
 			{if $majorUpdates|count > 0}
 				<h3 class="subHeadline">{lang}wsip.acp.index.majorUpdates{/lang}</h3>
-				
+
 				<form method="post" action="index.php?form=PackageUpdate">
 					<p class="description">{lang}wsip.acp.index.majorUpdates.description{/lang}</p>
-					
+
 					<ul>
 						{foreach from=$majorUpdates item=update}
 							<li{if $update.version.updateType == 'security'} class="formError"{/if}>
@@ -118,7 +118,7 @@
 							</li>
 						{/foreach}
 					</ul>
-					
+
 					<p><input type="submit" value="{lang}wsip.acp.index.updates.startUpdate{/lang}" /></p>
 					<input type="hidden" name="packageID" value="{@PACKAGE_ID}" />
 					{@SID_INPUT_TAG}
@@ -132,7 +132,7 @@
 	<div class="border tabMenuContent hidden" id="news-content">
 		<div class="container-1">
 			<h3 class="subHeadline">{lang}wsip.acp.index.news{/lang}</h3>
-			
+
 			{foreach from=$news item=newsItem}
 				<div class="message content">
 					<div class="messageInner container-{cycle name='results' values='1,2'}">
@@ -153,10 +153,10 @@
 <div class="border tabMenuContent hidden" id="system-content">
 	<div class="container-1">
 		<h3 class="subHeadline">{lang}wsip.acp.index.system{/lang}</h3>
-		
+
 		<fieldset>
 			<legend>{lang}wsip.acp.index.system.software{/lang}</legend>
-		
+
 			<div class="formElement">
 				<p class="formFieldLabel">{lang}wsip.acp.index.system.wsip.version{/lang}</p>
 				<p class="formField">{PACKAGE_VERSION}</p>
@@ -170,10 +170,10 @@
 				<p class="formField">{WCF_VERSION}</p>
 			</div>
 		</fieldset>
-		
+
 		<fieldset>
 			<legend>{lang}wsip.acp.index.system.server{/lang}</legend>
-		
+
 			<div class="formElement">
 				<p class="formFieldLabel">{lang}wsip.acp.index.system.os{/lang}</p>
 				<p class="formField">{$os}</p>
@@ -211,7 +211,7 @@
 <div class="border tabMenuContent hidden" id="stat-content">
 	<div class="container-1">
 		<h3 class="subHeadline">{lang}wsip.acp.index.stat{/lang}</h3>
-		
+
 		<div class="formElement">
 			<p class="formFieldLabel">{lang}wsip.acp.index.stat.members{/lang}</p>
 			<p class="formField">{#$members}</p>
@@ -242,19 +242,19 @@
 <div class="border tabMenuContent hidden" id="credits-content">
 	<div class="container-1">
 		<h3 class="subHeadline">{lang}wsip.acp.index.credits{/lang}</h3>
-		
+
 		<div class="formElement">
 			<p class="formFieldLabel">{lang}wsip.acp.index.credits.developedBy{/lang}</p>
 			<p class="formField"><a href="{@RELATIVE_WCF_DIR}acp/dereferrer.php?url={"http://www.wcfsolutions.com"|rawurlencode}" class="externalURL">WCF Solutions</a></p>
-		</div>	
+		</div>
 		<div class="formElement">
 			<p class="formFieldLabel">{lang}wsip.acp.index.credits.productManager{/lang}</p>
 			<p class="formField">Sebastian &Ouml;ttl</p>
-		</div>		
+		</div>
 		<div class="formElement">
 			<p class="formFieldLabel">{lang}wsip.acp.index.credits.developer{/lang}</p>
 			<p class="formField">Sebastian &Ouml;ttl</p>
-		</div>		
+		</div>
 		<div class="formElement">
 			<p class="formFieldLabel">{lang}wsip.acp.index.credits.designer{/lang}</p>
 			<p class="formField"><a href="{@RELATIVE_WCF_DIR}acp/dereferrer.php?url={"http://www.wsip-volcano.de"|rawurlencode}" class="externalURL">Christoph Summerer</a></p>

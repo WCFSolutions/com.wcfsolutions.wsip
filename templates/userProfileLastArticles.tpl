@@ -1,6 +1,6 @@
 <div class="contentBox">
 	<h3 class="subHeadline"><a href="index.php?form=Search&amp;types[]=article&amp;userID={@$user->userID}{@SID_ARG_2ND}">{lang}wcf.user.profile.lastArticles{/lang}</a> <span>({#$numberOfArticles})</span></h3>
-	
+
 	<ul class="dataList">
 		{foreach from=$articles item=article}
 			<li class="{cycle values='container-1,container-2'}">
@@ -14,7 +14,7 @@
 			</li>
 		{/foreach}
 	</ul>
-	
+
 	<div class="buttonBar">
 		<div class="smallButtons">
 			<ul>

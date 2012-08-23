@@ -25,7 +25,7 @@
 	language['wsip.news.entries.deleteMarked.reason'] 		= '{lang}wsip.news.entries.deleteMarked.reason{/lang}';
 	language['wcf.global.button.submit']				= '{lang}wcf.global.button.submit{/lang}';
 	language['wcf.global.button.reset']				= '{lang}wcf.global.button.reset{/lang}';
-	
+
 	// permissions
 	var permissions = new Object();
 	permissions['canDeleteNewsEntry'] = {@$permissions.canDeleteNewsEntry};

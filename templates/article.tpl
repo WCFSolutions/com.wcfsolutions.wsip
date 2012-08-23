@@ -1,7 +1,7 @@
 {include file="documentHeader"}
 <head>
 	<title>{$article->subject} - {lang}wsip.article.overview{/lang} - {lang}{PAGE_TITLE}{/lang}</title>
-	
+
 	{include file='headInclude' sandbox=false}
 	{include file='imageViewer'}
 	<script type="text/javascript" src="{@RELATIVE_WCF_DIR}js/MultiPagesLinks.class.js"></script>
@@ -10,7 +10,7 @@
 {include file='header' sandbox=false}
 
 <div id="main">
-	
+
 	<ul class="breadCrumbs">
 		<li><a href="index.php?page=Index{@SID_ARG_2ND}"><img src="{icon}indexS.png{/icon}" alt="" /> <span>{lang}{PAGE_TITLE}{/lang}</span></a> &raquo;</li>
 		<li><a href="index.php?page=ArticleOverview{@SID_ARG_2ND}"><img src="{icon}articleS.png{/icon}" alt="" /> <span>{lang}wsip.article.overview{/lang}</span></a> &raquo;</li>
@@ -19,38 +19,38 @@
 		{/foreach}
 		<li><a href="index.php?page=ArticleOverview&amp;categoryID={@$category->categoryID}{@SID_ARG_2ND}"><img src="{icon}categoryS.png{/icon}" alt="" /> <span>{$category->getTitle()}</span></a> &raquo;</li>
 	</ul>
-	
+
 	<div class="mainHeadline">
 		<img src="{icon}articleL.png{/icon}" alt="" />
 		<div class="headlineContainer">
 			<h2><a href="index.php?page=Article&amp;sectionID={@$article->firstSectionID}{@SID_ARG_2ND}">{$article->subject}</a></h2>
 		</div>
 	</div>
-	
+
 	{if $userMessages|isset}{@$userMessages}{/if}
-	
+
 	{if MODULE_COMMENT && ARTICLE_ENABLE_COMMENTS && $article->enableComments && $article->isCommentable() && $action != 'edit'}{assign var=commentUsername value=$username}{/if}
-	
+
 	<div class="border content">
 		<div class="container-1 articles">
 			<div class="contentBox articleSection">
 				<p class="messageCount">
 					<a href="index.php?page=Article&amp;sectionID={@$article->firstSectionID}{@SID_ARG_2ND}" title="{lang messageNumber=$article->articleID}wsip.article.permalink{/lang}" class="messageNumber">{#$article->articleID}</a>
 				</p>
-				
+
 				<h3 class="subHeadline">{$section->subject}</h3>
-				
+
 				<div class="contentHeader">
 					{if ARTICLE_ENABLE_RATING}<p class="rating light smallFont">{lang}wsip.article.rating{/lang}: <span id="com.wcfsolutions.wsip.article-ratingOutput{@$article->articleID}">{@$article->getRatingOutput()}</span></p>{/if}
-					
+
 					<p class="light smallFont">{lang}wsip.article.by{/lang} {if $article->userID}<a href="index.php?page=User&amp;userID={@$article->userID}{@SID_ARG_2ND}">{$article->username}</a>{else}{$article->username}{/if}, {@$article->time|time}</p>
 				</div>
-				
+
 				<div class="articleSectionInner">
 					{if $sections|count > 1}
 						<div class="container-3">
-							<div class="border titleBarPanel articleSections"> 
-								<div class="containerHead"> 
+							<div class="border titleBarPanel articleSections">
+								<div class="containerHead">
 									<h3><a href="index.php?page=ArticleSectionList&amp;articleID={@$article->articleID}{@SID_ARG_2ND}" title="{lang}wsip.article.sections{/lang}">{lang}wsip.article.sections{/lang}</a></h3>
 								</div>
 								<ul class="itemList dataList">
@@ -63,26 +63,26 @@
 							</div>
 						</div>
 					{/if}
-					
+
 					<div class="messageBody" id="articleSectionText{@$section->sectionID}">
 						{@$section->getFormattedMessage()}
 					</div>
-					
+
 					{assign var="messageID" value=$section->sectionID}
 					{assign var="author" value=$section->getUser()}
 					{include file='attachmentsShow'}
-					
+
 					<div class="buttonBar">
 						<p class="light smallFont">{lang}wsip.article.views{/lang}: {#$article->views}{if $article->getViewsPerDay() > 0} ({lang}wsip.article.viewsPerDay{/lang}){/if}</p>
-						
+
 						{if $tags|count > 0}
 							<p class="light smallFont">{lang}wsip.article.tags{/lang}: {implode from=$tags item=tag}<a href="index.php?page=NewsOverview&amp;categoryID={@$article->categoryID}&amp;tagID={@$tag->getID()}{@SID_ARG_2ND}">{$tag->getName()}</a>{/implode}</p>
 						{/if}
-						
+
 						{if $socialBookmarks|isset}
 							{@$socialBookmarks}
 						{/if}
-						
+
 						{if ARTICLE_ENABLE_RATING}
 							<div class="pageOptions rating">
 								<span>{lang}wsip.article.rate{/lang}</span>
@@ -117,7 +117,7 @@
 							</div>
 						{/if}
 					</div>
-					
+
 					<div class="buttonBar">
 						<div class="smallButtons">
 							<ul id="articleSectionButtons{@$section->sectionID}">
@@ -142,19 +142,19 @@
 					</div>
 				</div>
 			</div>
-			
+
 			{if MODULE_COMMENT && ARTICLE_ENABLE_COMMENTS && $article->enableComments}{include file='publicationObjectComments' publicationObj=$article sandbox=false}{/if}
-			
+
 			{if $additionalContents|isset}{@$additionalContents}{/if}
 		</div>
 	</div>
-	
+
 	{if $additionalBoxes|isset}
 		<div class="border infoBox">
 			{if $additionalBoxes|isset}{@$additionalBoxes}{/if}
 		</div>
 	{/if}
-	
+
 </div>
 
 {include file='footer' sandbox=false}

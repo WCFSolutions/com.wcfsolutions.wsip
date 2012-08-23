@@ -1,7 +1,7 @@
 {include file="documentHeader"}
 <head>
 	<title>{lang}wsip.contentItem.search{/lang} - {lang}{PAGE_TITLE}{/lang}</title>
-	
+
 	{include file='headInclude' sandbox=false}
 </head>
 <body{if $templateName|isset} id="tpl{$templateName|ucfirst}"{/if}>
@@ -14,28 +14,28 @@
 {include file='header' sandbox=false}
 
 <div id="main">
-	
+
 	<ul class="breadCrumbs">
 		<li><a href="index.php?page=Index{@SID_ARG_2ND}"><img src="{icon}indexS.png{/icon}" alt="" /> <span>{lang}{PAGE_TITLE}{/lang}</span></a> &raquo;</li>
 	</ul>
-	
+
 	<div class="mainHeadline">
 		<img src="{icon}contentItemOverviewL.png{/icon}" alt="" />
 		<div class="headlineContainer">
 			<h2>{lang}wsip.contentItem.overview{/lang}</h2>
 		</div>
 	</div>
-	
+
 	{if $userMessages|isset}{@$userMessages}{/if}
-	
+
 	{if $errorField}
 		<p class="error">{lang}wcf.global.form.error{/lang}</p>
 	{/if}
-	
+
 	{if $errorMessage|isset}
 		<p class="error">{@$errorMessage}</p>
 	{/if}
-	
+
 	<div class="tabMenu">
 		<ul>
 			<li><a href="index.php?page=ContentItemOverview{@SID_ARG_2ND}"><img src="{icon}contentItemM.png{/icon}" alt="" /> <span>{lang}wsip.contentItem.overview{/lang}</span></a></li>
@@ -46,15 +46,15 @@
 	<div class="subTabMenu">
 		<div class="containerHead"> </div>
 	</div>
-	
+
 	<form method="post" action="index.php?form=ContentItemSearch">
 		<div class="border tabMenuContent">
 			<div class="container-1">
 				<h3 class="subHeadline">{lang}wsip.contentItem.search{/lang}</h3>
-				
+
 				<fieldset>
 					<legend>{lang}wsip.contentItem.search{/lang}</legend>
-					
+
 					<div class="formElement{if $errorField == 'query'} formError{/if}">
 						<div class="formFieldLabel">
 							<label for="searchTerm">{lang}wsip.contentItem.search.query{/lang}</label>
@@ -69,19 +69,19 @@
 							{/if}
 						</div>
 					</div>
-					
+
 					{if $additionalFields|isset}{@$additionalFields}{/if}
 				</fieldset>
 			</div>
 		</div>
-		
+
 		<div class="formSubmit">
 			<input type="submit" accesskey="s" value="{lang}wcf.global.button.submit{/lang}" />
 			<input type="reset" accesskey="r" value="{lang}wcf.global.button.reset{/lang}" />
 			{@SID_INPUT_TAG}
 		</div>
 	</form>
-	
+
 </div>
 
 {include file='footer' sandbox=false}

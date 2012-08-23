@@ -13,7 +13,7 @@
 {/if}
 
 {if $success|isset}
-	<p class="success">{if $action == 'add'}{lang}wsip.acp.contentItem.add.success{/lang}{else}{lang}wsip.acp.contentItem.edit.success{/lang}{/if}</p>	
+	<p class="success">{if $action == 'add'}{lang}wsip.acp.contentItem.add.success{/lang}{else}{lang}wsip.acp.contentItem.edit.success{/lang}{/if}</p>
 {/if}
 
 <script type="text/javascript" src="{@RELATIVE_WCF_DIR}js/Suggestion.class.js"></script>
@@ -27,19 +27,19 @@
 	{foreach from=$permissionSettings item=permissionSetting}
 		language['wsip.acp.contentItem.permissions.{@$permissionSetting}'] = '{lang}wsip.acp.contentItem.permissions.{@$permissionSetting}{/lang}';
 	{/foreach}
-	
+
 	var permissions = new Hash();
-	{assign var=i value=0}		
+	{assign var=i value=0}
 	{foreach from=$permissions item=permission}
 		var settings = new Hash();
 		settings.set('fullControl', -1);
-		
+
 		{foreach from=$permission.settings key=setting item=value}
 			{if $setting != 'name' && $setting != 'type' && $setting != 'id'}
 				settings.set('{@$setting}', {@$value});
 			{/if}
 		{/foreach}
-		
+
 		permissions.set({@$i}, {
 			'name': '{@$permission.name|encodeJS}',
 			'type': '{@$permission.type}',
@@ -49,11 +49,11 @@
 
 		{assign var=i value=$i+1}
 	{/foreach}
-	
+
 	var permissionSettings = new Array({implode from=$permissionSettings item=permissionSetting}'{@$permissionSetting}'{/implode});
-	
+
 	var calendar = new Calendar('{$monthList}', '{$weekdayList}', {@$startOfWeek});
-	
+
 	// content item type
 	function setContentItemType(newType) {
 		switch (newType) {
@@ -71,15 +71,15 @@
 				break;
 		}
 	}
-	
+
 	document.observe("dom:loaded", function() {
 		setContentItemType({@$contentItemType});
-		
+
 		// user/group permissions
 		var permissionList = new PermissionList('permission', 'contentItem', permissions, permissionSettings);
-		
+
 		// add onsubmit event
-		$('contentItemAddForm').onsubmit = function() { 
+		$('contentItemAddForm').onsubmit = function() {
 			if (suggestion.selectedIndex != -1) return false;
 			if (permissionList.inputHasFocus) return false;
 			permissionList.submit(this);
@@ -114,7 +114,7 @@
 
 <form method="post" action="index.php?form=ContentItem{@$action|ucfirst}" id="contentItemAddForm">
 	<div class="border content">
-		<div class="container-1">			
+		<div class="container-1">
 			<fieldset>
 				<legend>{lang}wsip.acp.contentItem.contentItemType{/lang}</legend>
 				<div class="formElement{if $errorField == 'contentItemType'} formError{/if}">
@@ -130,10 +130,10 @@
 					{/if}
 				</div>
 			</fieldset>
-			
+
 			<fieldset>
 				<legend>{lang}wsip.acp.contentItem.classification{/lang}</legend>
-					
+
 				{if $contentItemOptions|count > 0}
 					<div class="formElement{if $errorField == 'parentID'} formError{/if}" id="parentIDDiv">
 						<div class="formFieldLabel">
@@ -158,12 +158,12 @@
 						inlineHelp.register('parentID');
 					//]]></script>
 				{/if}
-				
+
 				<div class="formElement" id="showOrderDiv">
 					<div class="formFieldLabel">
 						<label for="showOrder">{lang}wsip.acp.contentItem.showOrder{/lang}</label>
 					</div>
-					<div class="formField">	
+					<div class="formField">
 						<input type="text" class="inputText" name="showOrder" id="showOrder" value="{$showOrder}" />
 					</div>
 					<div class="formFieldDesc hidden" id="showOrderHelpMessage">
@@ -173,13 +173,13 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('showOrder');
 				//]]></script>
-					
+
 				{if $additionalClassificationFields|isset}{@$additionalClassificationFields}{/if}
 			</fieldset>
-			
+
 			<fieldset>
 				<legend>{lang}wsip.acp.contentItem.data{/lang}</legend>
-				
+
 				{if $action == 'edit'}
 					<div class="formElement" id="languageIDDiv">
 						<div class="formFieldLabel">
@@ -200,7 +200,7 @@
 						inlineHelp.register('languageID');
 					//]]></script>
 				{/if}
-				
+
 				<div class="formElement{if $errorField == 'title'} formError{/if}" id="titleDiv">
 					<div class="formFieldLabel">
 						<label for="title">{lang}wsip.acp.contentItem.title{/lang}</label>
@@ -220,7 +220,7 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('title');
 				//]]></script>
-				
+
 				<div class="formElement" id="descriptionDiv">
 					<div class="formFieldLabel">
 						<label for="description">{lang}wsip.acp.contentItem.description{/lang}</label>
@@ -235,7 +235,7 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('description');
 				//]]></script>
-				
+
 				<div class="formElement{if $errorField == 'text'} formError{/if}" id="textDiv">
 					<div class="formFieldLabel">
 						<label for="text">{lang}wsip.acp.contentItem.text{/lang}</label>
@@ -254,8 +254,8 @@
 				</div>
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('text');
-				//]]></script>					
-				
+				//]]></script>
+
 				<div class="formElement{if $errorField == 'externalURL'} formError{/if}" id="externalURLDiv">
 					<div class="formFieldLabel">
 						<label for="externalURL">{lang}wsip.acp.contentItem.externalURL{/lang}</label>
@@ -274,8 +274,8 @@
 				</div>
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('externalURL');
-				//]]></script>	
-					
+				//]]></script>
+
 				<div class="formElement" id="allowSpidersToIndexThisPageDiv">
 					<div class="formField">
 						<label id="allowSpidersToIndexThisPage"><input type="checkbox" name="allowSpidersToIndexThisPage" value="1" {if $allowSpidersToIndexThisPage}checked="checked" {/if}/> {lang}wsip.acp.contentItem.allowSpidersToIndexThisPage{/lang}</label>
@@ -287,13 +287,13 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('allowSpidersToIndexThisPage');
 				//]]></script>
-					
+
 				{if $additionalDataFields|isset}{@$additionalDataFields}{/if}
 			</fieldset>
-			
+
 			<fieldset id="meta">
 				<legend>{lang}wsip.acp.contentItem.meta{/lang}</legend>
-				
+
 				<div class="formElement" id="metaDescriptionDiv">
 					<div class="formFieldLabel">
 						<label for="metaDescription">{lang}wsip.acp.contentItem.metaDescription{/lang}</label>
@@ -308,7 +308,7 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('metaDescription');
 				//]]></script>
-				
+
 				<div class="formElement" id="metaKeywordsDiv">
 					<div class="formFieldLabel">
 						<label for="metaKeywords">{lang}wsip.acp.contentItem.metaKeywords{/lang}</label>
@@ -323,13 +323,13 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('metaKeywords');
 				//]]></script>
-					
+
 				{if $additionalMetaFields|isset}{@$additionalMetaFields}{/if}
 			</fieldset>
-			
+
 			<fieldset>
 				<legend>{lang}wsip.acp.contentItem.publishingTime{/lang}</legend>
-				
+
 				<div class="formGroup{if $errorField == 'publishingStartTime'} formError{/if}" id="publishingStartTimeDiv">
 					<div class="formGroupLabel">
 						<label>{lang}wsip.acp.contentItem.publishingStartTime{/lang}</label>
@@ -337,33 +337,33 @@
 					<div class="formGroupField">
 						<fieldset>
 							<legend><label>{lang}wsip.acp.contentItem.publishingStartTime{/lang}</label></legend>
-							
+
 							<div class="formField">
 								<div class="floatedElement">
 									<label for="publishingStartTimeDay">{lang}wcf.global.date.day{/lang}</label>
 									{htmlOptions options=$dayOptions selected=$publishingStartTimeDay id=publishingStartTimeDay name=publishingStartTimeDay}
 								</div>
-								
+
 								<div class="floatedElement">
 									<label for="publishingStartTimeMonth">{lang}wcf.global.date.month{/lang}</label>
 									{htmlOptions options=$monthOptions selected=$publishingStartTimeMonth id=publishingStartTimeMonth name=publishingStartTimeMonth}
 								</div>
-								
+
 								<div class="floatedElement">
 									<label for="publishingStartTimeYear">{lang}wcf.global.date.year{/lang}</label>
 									<input id="publishingStartTimeYear" class="inputText fourDigitInput" type="text" name="publishingStartTimeYear" value="{@$publishingStartTimeYear}" maxlength="4" />
 								</div>
-								
+
 								<div class="floatedElement">
 									<label for="publishingStartTimeHour">{lang}wcf.global.date.hour{/lang}</label>
 									{htmlOptions options=$hourOptions selected=$publishingStartTimeHour id=publishingStartTimeHour name=publishingStartTimeHour} :
 								</div>
-																	
+
 								<div class="floatedElement">
 									<label for="publishingStartTimeMinutes">{lang}wcf.global.date.minutes{/lang}</label>
 									{htmlOptions options=$minuteOptions selected=$publishingStartTimeMinutes id=publishingStartTimeMinutes name=publishingStartTimeMinutes}
 								</div>
-								
+
 								<div class="floatedElement">
 									<a id="publishingStartTimeButton"><img src="{@RELATIVE_WCF_DIR}icon/datePickerOptionsM.png" alt="" /></a>
 									<div id="publishingStartTimeCalendar" class="inlineCalendar"></div>
@@ -373,14 +373,14 @@
 										//]]>
 									</script>
 								</div>
-								
+
 								{if $errorField == 'publishingStartTime'}
 									<p class="floatedElement innerError">
 										{if $errorType == 'invalid'}{lang}wsip.acp.contentItem.publishingStartTime.error.invalid{/lang}{/if}
 									</p>
 								{/if}
 							</div>
-							
+
 							<div class="formFieldDesc hidden" id="publishingStartTimeHelpMessage">
 								<p>{lang}wsip.acp.contentItem.publishingStartTime.description{/lang}</p>
 							</div>
@@ -390,7 +390,7 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('publishingStartTime');
 				//]]></script>
-				
+
 				<div class="formGroup{if $errorField == 'publishingEndTime'} formError{/if}" id="publishingEndTimeDiv">
 					<div class="formGroupLabel">
 						<label>{lang}wsip.acp.contentItem.publishingEndTime{/lang}</label>
@@ -398,33 +398,33 @@
 					<div class="formGroupField">
 						<fieldset>
 							<legend><label>{lang}wsip.acp.contentItem.publishingEndTime{/lang}</label></legend>
-							
+
 							<div class="formField">
 								<div class="floatedElement">
 									<label for="publishingEndTimeDay">{lang}wcf.global.date.day{/lang}</label>
 									{htmlOptions options=$dayOptions selected=$publishingEndTimeDay id=publishingEndTimeDay name=publishingEndTimeDay}
 								</div>
-								
+
 								<div class="floatedElement">
 									<label for="publishingEndTimeMonth">{lang}wcf.global.date.month{/lang}</label>
 									{htmlOptions options=$monthOptions selected=$publishingEndTimeMonth id=publishingEndTimeMonth name=publishingEndTimeMonth}
 								</div>
-								
+
 								<div class="floatedElement">
 									<label for="publishingEndTimeYear">{lang}wcf.global.date.year{/lang}</label>
 									<input id="publishingEndTimeYear" class="inputText fourDigitInput" type="text" name="publishingEndTimeYear" value="{@$publishingEndTimeYear}" maxlength="4" />
 								</div>
-								
+
 								<div class="floatedElement">
 									<label for="publishingEndTimeHour">{lang}wcf.global.date.hour{/lang}</label>
 									{htmlOptions options=$hourOptions selected=$publishingEndTimeHour id=publishingEndTimeHour name=publishingEndTimeHour} :
 								</div>
-																	
+
 								<div class="floatedElement">
 									<label for="publishingEndTimeMinutes">{lang}wcf.global.date.minutes{/lang}</label>
 									{htmlOptions options=$minuteOptions selected=$publishingEndTimeMinutes id=publishingEndTimeMinutes name=publishingEndTimeMinutes}
 								</div>
-								
+
 								<div class="floatedElement">
 									<a id="publishingEndTimeButton"><img src="{@RELATIVE_WCF_DIR}icon/datePickerOptionsM.png" alt="" /></a>
 									<div id="publishingEndTimeCalendar" class="inlineCalendar"></div>
@@ -434,14 +434,14 @@
 										//]]>
 									</script>
 								</div>
-								
+
 								{if $errorField == 'publishingEndTime'}
 									<p class="floatedElement innerError">
 										{if $errorType == 'invalid'}{lang}wsip.acp.contentItem.publishingEndTime.error.invalid{/lang}{/if}
 									</p>
 								{/if}
 							</div>
-							
+
 							<div class="formFieldDesc hidden" id="publishingEndTimeHelpMessage">
 								<p>{lang}wsip.acp.contentItem.publishingEndTime.description{/lang}</p>
 							</div>
@@ -452,10 +452,10 @@
 					inlineHelp.register('publishingEndTime');
 				//]]></script>
 			</fieldset>
-			
+
 			<fieldset id="style">
 				<legend>{lang}wsip.acp.contentItem.style{/lang}</legend>
-				
+
 				{if $availableStyles|count > 1}
 					<div class="formElement" id="styleIDDiv">
 						<div class="formFieldLabel">
@@ -476,7 +476,7 @@
 						inlineHelp.register('styleID');
 					//]]></script>
 				{/if}
-				
+
 				{if $boxLayoutOptions|count > 1}
 					<div class="formElement" id="boxLayoutIDDiv">
 						<div class="formFieldLabel">
@@ -496,7 +496,7 @@
 						inlineHelp.register('boxLayoutID');
 					//]]></script>
 				{/if}
-				
+
 				<div class="formElement" id="iconDiv">
 					<div class="formFieldLabel">
 						<label for="icon">{lang}wsip.acp.contentItem.icon{/lang}</label>
@@ -511,13 +511,13 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('icon');
 				//]]></script>
-				
+
 				{if $additionalStyleFields|isset}{@$additionalStyleFields}{/if}
 			</fieldset>
-				
+
 			<fieldset id="permissions">
 				<legend>{lang}wsip.acp.contentItem.permissions{/lang}</legend>
-				
+
 				<div class="formElement">
 					<div class="formFieldLabel" id="permissionTitle">
 						{lang}wsip.acp.contentItem.permissions.title{/lang}
@@ -525,7 +525,7 @@
 					<div class="formField"><div id="permission" class="accessRights"></div></div>
 				</div>
 				<div class="formElement">
-					<div class="formField">	
+					<div class="formField">
 						<input id="permissionAddInput" type="text" name="" value="" class="inputText accessRightsInput" />
 						<script type="text/javascript">
 							//<![CDATA[
@@ -537,7 +537,7 @@
 						<input id="permissionAddButton" type="button" value="{lang}wsip.acp.contentItem.permissions.add{/lang}" />
 					</div>
 				</div>
-					
+
 				<div class="formElement" style="display: none;">
 					<div class="formFieldLabel">
 						<div id="permissionSettingsTitle" class="accessRightsTitle"></div>
@@ -550,14 +550,14 @@
 						<div id="permissionSettings" class="accessRights"></div>
 					</div>
 				</div>
-				
+
 				{if $additionalPermissionFields|isset}{@$additionalPermissionFields}{/if}
 			</fieldset>
-			
+
 			{if $additionalFields|isset}{@$additionalFields}{/if}
 		</div>
 	</div>
-	
+
 	<div class="formSubmit">
 		<input type="submit" accesskey="s" value="{lang}wcf.global.button.submit{/lang}" />
 		<input type="reset" accesskey="r" value="{lang}wcf.global.button.reset{/lang}" />

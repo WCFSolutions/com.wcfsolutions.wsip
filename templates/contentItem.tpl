@@ -1,7 +1,7 @@
 {include file="documentHeader"}
 <head>
 	<title>{$contentItem->getTitle()} - {lang}{PAGE_TITLE}{/lang}</title>
-	
+
 	<script type="text/javascript" src="{@RELATIVE_WCF_DIR}js/SubTabMenu.class.js"></script>
 	{include file='headInclude' sandbox=false}
 	{include file='imageViewer'}
@@ -16,14 +16,14 @@
 {include file='header' sandbox=false}
 
 <div id="main">
-	
+
 	<ul class="breadCrumbs">
 		<li><a href="index.php?page=Index{@SID_ARG_2ND}"><img src="{icon}indexS.png{/icon}" alt="" /> <span>{lang}{PAGE_TITLE}{/lang}</span></a> &raquo;</li>
 		{foreach from=$contentItem->getParentContentItems() item=parentContentItem}
 			<li><a href="index.php?page=ContentItem&amp;contentItemID={@$parentContentItem->contentItemID}{@SID_ARG_2ND}"><img src="{icon}{$contentItem->getIcon()}S.png{/icon}" alt="" /> <span>{$parentContentItem->getTitle()}</span></a> &raquo;</li>
 		{/foreach}
 	</ul>
-	
+
 	<div class="mainHeadline">
 		<img src="{icon}{$contentItem->getIcon()}L.png{/icon}" alt="" />
 		<div class="headlineContainer">
@@ -31,9 +31,9 @@
 			<p>{@$contentItem->getFormattedDescription()}</p>
 		</div>
 	</div>
-	
+
 	{if $userMessages|isset}{@$userMessages}{/if}
-	
+
 	{if $contentItem->isPage()}
 		<div class="border content">
 			<div class="container-1">
@@ -67,7 +67,7 @@
 						{foreach from=$boxTabs item=boxTab}
 							{assign var=boxTabType value=$boxTab->getBoxTabType()}
 							{assign var=boxTabData value=$boxTabType->getData($boxTab)}
-							
+
 							<div class="tabMenuContent" id="{@$boxPositionIdentifier}_{@$boxTab->boxTabID}-content">
 								<noscript>
 									<div class="subTabMenu">
@@ -94,7 +94,7 @@
 			{/foreach}
 		</div>
 	{/if}
-	
+
 </div>
 
 {include file='footer' sandbox=false}

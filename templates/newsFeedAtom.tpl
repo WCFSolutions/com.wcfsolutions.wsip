@@ -8,7 +8,7 @@
 		WCF Solutions Infinite Portal
 	</generator>
 	<subtitle>{lang}wsip.news.feed.description{/lang}</subtitle>
-	
+
 	{foreach from=$entries item=entry}
 		<entry>
 			<title>{$entry->subject}</title>

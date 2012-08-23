@@ -7,9 +7,9 @@
 			new ItemListEditor('contentItemList', { itemTitleEdit: true, itemTitleEditURL: 'index.php?action=ContentItemRename&contentItemID=', tree: true, treeTag: 'ol' });
 		{/if}
 	}
-	
+
 	// when the dom is fully loaded, execute these scripts
-	document.observe("dom:loaded", init);	
+	document.observe("dom:loaded", init);
 	//]]>
 </script>
 
@@ -21,11 +21,11 @@
 </div>
 
 {if $deletedContentItemID}
-	<p class="success">{lang}wsip.acp.contentItem.delete.success{/lang}</p>	
+	<p class="success">{lang}wsip.acp.contentItem.delete.success{/lang}</p>
 {/if}
 
 {if $successfulSorting}
-	<p class="success">{lang}wsip.acp.contentItem.sort.success{/lang}</p>	
+	<p class="success">{lang}wsip.acp.contentItem.sort.success{/lang}</p>
 {/if}
 
 {if $this->user->getPermission('admin.portal.canAddContentItem')}
@@ -45,7 +45,7 @@
 				<ol class="itemList" id="contentItemList">
 					{foreach from=$contentItems item=child}
 						{assign var="contentItem" value=$child.contentItem}
-						
+
 						<li id="item_{@$contentItem->contentItemID}" class="deletable">
 							<div class="buttons">
 								{if $this->user->getPermission('admin.portal.canEditContentItem')}
@@ -57,19 +57,19 @@
 									<a href="index.php?form=ContentItemAdd&amp;parentID={@$contentItem->contentItemID}&amp;packageID={@PACKAGE_ID}{@SID_ARG_2ND}" title="{lang}wsip.acp.contentItem.add{/lang}"><img src="{@RELATIVE_WCF_DIR}icon/addS.png" alt="" /></a>
 								{else}
 									<img src="{@RELATIVE_WCF_DIR}icon/addDisabledS.png" alt="" title="{lang}wsip.acp.contentItem.add{/lang}" />
-								{/if}								
+								{/if}
 								{if $this->user->getPermission('admin.portal.canDeleteContentItem')}
 									<a href="index.php?action=ContentItemDelete&amp;contentItemID={@$contentItem->contentItemID}&amp;packageID={@PACKAGE_ID}{@SID_ARG_2ND}" title="{lang}wsip.acp.contentItem.delete{/lang}" class="deleteButton"><img src="{@RELATIVE_WCF_DIR}icon/deleteS.png" alt="" longdesc="{lang}wsip.acp.contentItem.delete.sure{/lang}"  /></a>
 								{else}
 									<img src="{@RELATIVE_WCF_DIR}icon/deleteDisabledS.png" alt="" title="{lang}wsip.acp.contentItem.delete{/lang}" />
 								{/if}
-								
+
 								{if $child.additionalButtons|isset}{@$child.additionalButtons}{/if}
 							</div>
-							
+
 							<h3 class="itemListTitle">
 								<img src="{@RELATIVE_WSIP_DIR}icon/contentItem{if $contentItem->isExternalLink()}Redirect{elseif $contentItem->isBoxContainer()}Box{/if}S.png" alt="" />
-								
+
 								{if $this->user->getPermission('admin.portal.canEditContentItem')}
 									<select name="contentItemListPositions[{@$contentItem->contentItemID}][{@$child.parentID}]">
 										{section name='positions' loop=$child.maxPosition}
@@ -77,10 +77,10 @@
 										{/section}
 									</select>
 								{/if}
-								
+
 								ID-{@$contentItem->contentItemID} <a href="index.php?form=ContentItemEdit&amp;contentItemID={@$contentItem->contentItemID}&amp;packageID={@PACKAGE_ID}{@SID_ARG_2ND}" class="title">{$contentItem->getTitle()}</a>
 							</h3>
-						
+
 						{if $child.hasChildren}<ol id="parentItem_{@$contentItem->contentItemID}">{else}<ol id="parentItem_{@$contentItem->contentItemID}"></ol></li>{/if}
 						{if $child.openParents > 0}{@"</ol></li>"|str_repeat:$child.openParents}{/if}
 					{/foreach}

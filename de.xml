@@ -55,7 +55,7 @@
 		<item name="wcf.acp.group.option.user.portal.canStartPublicNewsPoll"><![CDATA[Kann öffentliche Umfragen erstellen]]></item>
 		<item name="wcf.acp.group.option.user.portal.canStartPublicNewsPoll.description"><![CDATA[Mitglieder dieser Benutzergruppe können öffentliche Umfragen erstellen. Hier kann jeder Benutzer sehen, wer für was abgestimmt hat.]]></item>
 		<item name="wcf.acp.group.option.user.portal.canVoteNewsPoll"><![CDATA[Kann an Umfragen teilnehmen]]></item>
-		<item name="wcf.acp.group.option.user.portal.canVoteNewsPoll.description"><![CDATA[Mitglieder dieser Benutzergruppe können an Umfragen teilnehmen.]]></item>		
+		<item name="wcf.acp.group.option.user.portal.canVoteNewsPoll.description"><![CDATA[Mitglieder dieser Benutzergruppe können an Umfragen teilnehmen.]]></item>
 		<item name="wcf.acp.group.option.admin.portal.canAddCategory"><![CDATA[Kann Kategorien erstellen]]></item>
 		<item name="wcf.acp.group.option.admin.portal.canAddCategory.description"><![CDATA[Mitglieder dieser Benutzergruppe können Kategorien erstellen.]]></item>
 		<item name="wcf.acp.group.option.admin.portal.canAddContentItem"><![CDATA[Kann Seiten erstellen]]></item>
@@ -279,7 +279,7 @@
 		<item name="wcf.moderation.menu.link.newsEntries"><![CDATA[Nachrichten]]></item>
 	</category>
 	<category name="wcf.user.notification">
-		<item name="wcf.user.notification.object.type.publicationObjectComment"><![CDATA[Kommentare]]></item>                
+		<item name="wcf.user.notification.object.type.publicationObjectComment"><![CDATA[Kommentare]]></item>
 	</category>
 	<category name="wcf.search">
 		<item name="wcf.search.type.article"><![CDATA[Artikel]]></item>

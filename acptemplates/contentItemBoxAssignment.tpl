@@ -6,8 +6,8 @@
 		var boxList = $('boxList');
 		if (boxList) {
 			boxList.addClassName('dragable');
-			
-			Sortable.create(boxList, { 
+
+			Sortable.create(boxList, {
 				tag: 'tr',
 				onUpdate: function(list) {
 					var rows = list.select('tr');
@@ -38,11 +38,11 @@
 </div>
 
 {if $removedBoxID}
-	<p class="success">{lang}wsip.acp.contentItem.boxAssignment.box.remove.success{/lang}</p>	
+	<p class="success">{lang}wsip.acp.contentItem.boxAssignment.box.remove.success{/lang}</p>
 {/if}
 
 {if $successfulSorting}
-	<p class="success">{lang}wsip.acp.contentItem.boxAssignment.box.sort.success{/lang}</p>	
+	<p class="success">{lang}wsip.acp.contentItem.boxAssignment.box.sort.success{/lang}</p>
 {/if}
 
 {if $contentItemOptions|count}
@@ -86,7 +86,7 @@
 						<th class="columnBoxID" colspan="2"><div><span class="emptyHead">{lang}wsip.acp.contentItem.boxAssignment.box.boxID{/lang}</span></div></th>
 						<th class="columnBox"><div><span class="emptyHead">{lang}wsip.acp.contentItem.boxAssignment.box.box{/lang}</span></div></th>
 						<th class="columnShowOrder"><div><span class="emptyHead">{lang}wsip.acp.contentItem.boxAssignment.box.showOrder{/lang}</span></div></th>
-						
+
 						{if $additionalColumnHeads|isset}{@$additionalColumnHeads}{/if}
 					</tr>
 				</thead>
@@ -100,7 +100,7 @@
 								{else}
 									<img src="{@RELATIVE_WCF_DIR}icon/deleteDisabledS.png" alt="" title="{lang}wsip.acp.contentItem.boxAssignment.box.removeDisabled{/lang}" />
 								{/if}
-								
+
 								{if $additionalButtons.$box->boxID|isset}{@$additionalButtons.$box->boxID}{/if}
 							</td>
 							<td class="columnBoxID columnID">{@$box->boxID}</td>
@@ -108,7 +108,7 @@
 								{$box->getTitle()}
 							</td>
 							<td class="columnShowOrder columnNumbers">{@$child.showOrder}</td>
-							
+
 							{if $additionalColumns.$box->boxID|isset}{@$additionalColumns.$box->boxID}{/if}
 						</tr>
 					{/foreach}

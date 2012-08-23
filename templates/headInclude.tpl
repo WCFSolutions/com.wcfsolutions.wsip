@@ -95,7 +95,7 @@
 		//]]>
 	</script>
 	{if $this->getStyle()->getVariable('user.MSIEFixes.IE7.use')}
-	<style type="text/css">	
+	<style type="text/css">
 		{@$this->getStyle()->getVariable('user.MSIEFixes.IE7.use')}
 	</style>
 	{/if}

@@ -1,7 +1,7 @@
 {include file="documentHeader"}
 <head>
 	<title>{lang}wsip.moderation.{@$action}{/lang} {if $pageNo > 1}- {lang}wcf.page.pageNo{/lang} {/if}- {lang}wsip.news.entries{/lang} - {lang}wcf.moderation{/lang} - {lang}{PAGE_TITLE}{/lang}</title>
-	
+
 	{include file='headInclude' sandbox=false}
 </head>
 <body{if $templateName|isset} id="tpl{$templateName|ucfirst}"{/if}>
@@ -9,13 +9,13 @@
 {include file='header' sandbox=false}
 
 <div id="main">
-	
+
 	{include file="moderationCPHeader"}
-	
+
 	<div class="border tabMenuContent">
 		<div class="container-1">
 			<h3 class="subHeadline">{lang}wsip.moderation.{@$action}{/lang}{if $items > 0} <span>({#$items}){/if}</span></h3>
-			
+
 			{if $entries|count}
 				<div class="contentHeader">
 					{pages print=true assign=pagesOutput link="index.php?page=$pageName&pageNo=%d"|concat:SID_ARG_2ND_NOT_ENCODED}
@@ -26,16 +26,16 @@
 						</ul>
 					</div>
 				</div>
-				
+
 				{if $permissions.canHandleNewsEntry}
 					<script type="text/javascript">
-						//<![CDATA[	
+						//<![CDATA[
 						var language = new Object();
 						//]]>
 					</script>
 					{include file='newsEntryInlineEdit'}
 				{/if}
-				
+
 				{assign var='messageNumber' value=$items-$startIndex+1}
 				{foreach from=$entries item=entry}
 					{assign var="entryID" value=$entry->entryID}
@@ -64,7 +64,7 @@
 												//]]>
 											</script>
 										{/if}
-										<img id="newsEntryEdit{@$entry->entryID}" src="{icon}newsEntryM.png{/icon}" alt="" />	
+										<img id="newsEntryEdit{@$entry->entryID}" src="{icon}newsEntryM.png{/icon}" alt="" />
 									</div>
 									<div class="containerContent">
 										<h3 id="newsEntryTitle{@$entry->entryID}"><a href="index.php?page=NewsEntry&amp;entryID={@$entry->entryID}{@SID_ARG_2ND}">{$entry->subject}</a></h3>
@@ -75,16 +75,16 @@
 								<div class="messageBody">
 									{@$entry->getFormattedTeaser()}
 								</div>
-								
+
 								<div class="editNote smallFont light">
 									{if $entry->publishingTime}<p>{lang}wsip.news.entry.publishingTime{/lang}: {@$entry->publishingTime|time}{/if}
 									<p>{lang}wsip.news.entry.views{/lang}: {#$entry->views}{if $entry->getViewsPerDay() > 0} ({lang}wsip.news.entry.viewsPerDay{/lang}){/if}</p>
 								</div>
-									
+
 								{if $entry->isDeleted}
 									<p class="deleteNote smallFont light">{lang}wsip.news.entries.deleteNote{/lang}</p>
 								{/if}
-																
+
 								<div class="messageFooter">
 									<div class="smallButtons">
 										<ul>
@@ -101,10 +101,10 @@
 					</div>
 					{assign var='messageNumber' value=$messageNumber-1}
 				{/foreach}
-				
+
 				<div class="contentFooter">
 					{@$pagesOutput}
-					
+
 					<div id="newsEntryEditMarked" class="optionButtons"></div>
 				</div>
 			{else}
@@ -112,7 +112,7 @@
 			{/if}
 		</div>
 	</div>
-	
+
 </div>
 
 {include file='footer' sandbox=false}

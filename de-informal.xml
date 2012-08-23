@@ -279,7 +279,7 @@
 		<item name="wcf.moderation.menu.link.newsEntries"><![CDATA[Nachrichten]]></item>
 	</category>
 	<category name="wcf.user.notification">
-		<item name="wcf.user.notification.object.type.publicationObjectComment"><![CDATA[Kommentare]]></item>                
+		<item name="wcf.user.notification.object.type.publicationObjectComment"><![CDATA[Kommentare]]></item>
 	</category>
 	<category name="wcf.search">
 		<item name="wcf.search.type.article"><![CDATA[Artikel]]></item>
