@@ -4,9 +4,9 @@ require_once(WSIP_DIR.'lib/data/article/ArticleList.class.php');
 
 /**
  * Represents a viewable list of articles.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.article
@@ -15,33 +15,33 @@ require_once(WSIP_DIR.'lib/data/article/ArticleList.class.php');
 class ViewableArticleList extends ArticleList {
 	/**
 	 * list of object ids
-	 * 
+	 *
 	 * @var	array<integer>
 	 */
 	public $objectIDArray = array();
-	
+
 	/**
 	 * list of tags
-	 * 
+	 *
 	 * @var	array
 	 */
 	public $tags = array();
-	
+
 	/**
 	 * Creates a new ViewableArticleList object.
-	 * 
+	 *
 	 * @param	array		$categoryIDArray
 	 */
 	public function __construct($categoryIDArray) {
 		$this->categoryIDArray = $categoryIDArray;
 		$this->sqlConditions .= 'article.categoryID IN ('.implode(',', $categoryIDArray).')';
-		
+
 		// language filter
 		if (count(WCF::getSession()->getVisibleLanguageIDArray())) {
 			$this->sqlConditions .= " AND article.languageID IN (".implode(',', WCF::getSession()->getVisibleLanguageIDArray()).")";
 		}
 	}
-	
+
 	/**
 	 * Gets the object ids.
 	 */
@@ -55,7 +55,7 @@ class ViewableArticleList extends ArticleList {
 			$this->objectIDArray[] = $row['articleID'];
 		}
 	}
-	
+
 	/**
 	 * Gets the list of tags.
 	 */
@@ -78,18 +78,18 @@ class ViewableArticleList extends ArticleList {
 			}
 		}
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::readObjects()
 	 */
 	public function readObjects() {
 		// get ids
 		$this->readObjectIDArray();
-		
+
 		// get articles
 		if (count($this->objectIDArray)) {
 			$this->readTags();
-			
+
 			$sql = "SELECT		".(!empty($this->sqlSelects) ? $this->sqlSelects.',' : '')."
 						article.*
 				FROM		wsip".WSIP_N."_article article
@@ -102,10 +102,10 @@ class ViewableArticleList extends ArticleList {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns the list of tags.
-	 * 
+	 *
 	 * @return	array
 	 */
 	public function getTags() {

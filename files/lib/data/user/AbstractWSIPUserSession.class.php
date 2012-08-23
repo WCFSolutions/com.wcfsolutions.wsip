@@ -4,9 +4,9 @@ require_once(WCF_DIR.'lib/system/session/UserSession.class.php');
 
 /**
  * Abstract class for wsip user and guest sessions.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.user
@@ -16,10 +16,10 @@ class AbstractWSIPUserSession extends UserSession {
 	protected $categoryPermissions = array();
 	protected $categoryModeratorPermissions = array();
 	protected $contentItemPermissions = array();
-	
+
 	/**
 	 * Checks whether this user has the permission with the given name on the category with the given category id.
-	 * 
+	 *
 	 * @param	string		$permission
 	 * @param	integer		$categoryID
 	 * @return	mixed
@@ -30,10 +30,10 @@ class AbstractWSIPUserSession extends UserSession {
 		}
 		return $this->getPermission('user.portal.'.$permission);
 	}
-	
+
 	/**
 	 * Checks whether this user has the moderator permission with the given name on the category with the given category id.
-	 * 
+	 *
 	 * @param	string		$permission
 	 * @param	integer		$categoryID
 	 * @return	mixed
@@ -44,10 +44,10 @@ class AbstractWSIPUserSession extends UserSession {
 		}
 		return $this->getPermission('mod.portal.'.$permission);
 	}
-	
+
 	/**
 	 * Checks whether this user has the permission with the given name on the content item with the given content item id.
-	 * 
+	 *
 	 * @param	string		$permission
 	 * @param	integer		$contentItemID
 	 * @return	mixed
@@ -58,33 +58,33 @@ class AbstractWSIPUserSession extends UserSession {
 		}
 		return $this->getPermission('user.portal.'.$permission);
 	}
-	
+
 	/**
 	 * @see UserSession::getGroupData()
 	 */
 	protected function getGroupData() {
 		parent::getGroupData();
-		
+
 		// get group permissions from cache
 		$groups = implode(',', $this->groupIDs);
 		$groupsFilename = StringUtil::getHash(implode('-', $this->groupIDs));
-		
+
 		// register cache resource
 		WCF::getCache()->addResource('categoryPermissions-'.$groups, WSIP_DIR.'cache/cache.categoryPermissions-'.$groupsFilename.'.php', WSIP_DIR.'lib/system/cache/CacheBuilderCategoryPermissions.class.php');
 		WCF::getCache()->addResource('contentItemPermissions-'.$groups, WSIP_DIR.'cache/cache.contentItemPermissions-'.$groupsFilename.'.php', WSIP_DIR.'lib/system/cache/CacheBuilderContentItemPermissions.class.php');
-		
+
 		// get category group data from cache
 		$this->categoryPermissions = WCF::getCache()->get('categoryPermissions-'.$groups);
 		if (isset($this->categoryPermissions['groupIDs']) && $this->categoryPermissions['groupIDs'] != $groups) {
 			$this->categoryPermissions = array();
 		}
-		
+
 		// get content item group data from cache
 		$this->contentItemPermissions = WCF::getCache()->get('contentItemPermissions-'.$groups);
 		if (isset($this->contentItemPermissions['groupIDs']) && $this->contentItemPermissions['groupIDs'] != $groups) {
 			$this->contentItemPermissions = array();
 		}
-		
+
 		// get category moderator permissions
 		$sql = "SELECT		*
 			FROM		wsip".WSIP_N."_category_moderator
@@ -95,19 +95,19 @@ class AbstractWSIPUserSession extends UserSession {
 		while ($row = WCF::getDB()->fetchArray($result)) {
 			$categoryID = $row['categoryID'];
 			unset($row['categoryID'], $row['userID'], $row['groupID']);
-			
+
 			if (!isset($this->categoryModeratorPermissions[$categoryID])) {
 				$this->categoryModeratorPermissions[$categoryID] = array();
 			}
-			
+
 			foreach ($row as $permission => $value) {
 				if ($value == -1) continue;
-				
+
 				if (!isset($this->categoryModeratorPermissions[$categoryID][$permission])) $this->categoryModeratorPermissions[$categoryID][$permission] = $value;
 				else $this->categoryModeratorPermissions[$categoryID][$permission] = $value || $this->categoryModeratorPermissions[$categoryID][$permission];
 			}
 		}
-		
+
 		// inherit category permissions
 		if (count($this->categoryModeratorPermissions)) {
 			require_once(WSIP_DIR.'lib/data/category/Category.class.php');

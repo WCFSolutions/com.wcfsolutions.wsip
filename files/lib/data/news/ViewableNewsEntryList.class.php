@@ -5,9 +5,9 @@ require_once(WSIP_DIR.'lib/data/news/ViewableNewsEntry.class.php');
 
 /**
  * Represents a viewable list of news entries.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.news
@@ -16,18 +16,18 @@ require_once(WSIP_DIR.'lib/data/news/ViewableNewsEntry.class.php');
 class ViewableNewsEntryList extends NewsEntryList {
 	/**
 	 * list of object ids
-	 * 
+	 *
 	 * @var	array<integer>
 	 */
 	public $objectIDArray = array();
-	
+
 	/**
 	 * list of tags
-	 * 
+	 *
 	 * @var	array
 	 */
 	public $tags = array();
-	
+
 	/**
 	 * Gets the object ids.
 	 */
@@ -41,7 +41,7 @@ class ViewableNewsEntryList extends NewsEntryList {
 			$this->objectIDArray[] = $row['entryID'];
 		}
 	}
-	
+
 	/**
 	 * Gets the list of tags.
 	 */
@@ -64,18 +64,18 @@ class ViewableNewsEntryList extends NewsEntryList {
 			}
 		}
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::readObjects()
 	 */
 	public function readObjects() {
 		// get ids
 		$this->readObjectIDArray();
-		
+
 		// get entries
 		if (count($this->objectIDArray)) {
 			$this->readTags();
-			
+
 			$sql = "SELECT		".(!empty($this->sqlSelects) ? $this->sqlSelects.',' : '')."
 						news_entry.*
 				FROM		wsip".WSIP_N."_news_entry news_entry
@@ -88,10 +88,10 @@ class ViewableNewsEntryList extends NewsEntryList {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns the list of tags.
-	 * 
+	 *
 	 * @return	array
 	 */
 	public function getTags() {

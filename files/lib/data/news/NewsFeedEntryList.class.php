@@ -5,9 +5,9 @@ require_once(WSIP_DIR.'lib/data/news/NewsEntryList.class.php');
 
 /**
  * Represents a list of viewable news entries in a rss or an atom feed.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.news
@@ -29,20 +29,20 @@ class NewsFeedEntryList extends NewsEntryList {
 		$result = WCF::getDB()->sendQuery($sql, $this->sqlLimit, $this->sqlOffset);
 		while ($row = WCF::getDB()->fetchArray($result)) {
 			$this->entries[] = new NewsFeedEntry(null, $row);
-			
+
 			// attachments
 			if ($row['attachments'] != 0) {
 				$attachmentEntryIDArray[] = $row['entryID'];
 			}
 		}
-		
+
 		// read attachments
 		if (MODULE_ATTACHMENT == 1 && count($attachmentEntryIDArray) > 0 && (WCF::getUser()->getPermission('user.portal.canViewNewsAttachmentPreview') || WCF::getUser()->getPermission('user.portal.canDownloadNewsAttachment'))) {
 			require_once(WCF_DIR.'lib/data/attachment/MessageAttachmentList.class.php');
 			$attachmentList = new MessageAttachmentList($attachmentEntryIDArray, 'newsEntry');
 			$attachmentList->readObjects();
 			$attachments = $attachmentList->getSortedAttachments();
-			
+
 			// set embedded attachments
 			require_once(WCF_DIR.'lib/data/message/bbcode/AttachmentBBCode.class.php');
 			AttachmentBBCode::setAttachments($attachments);

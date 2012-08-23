@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/data/DatabaseObjectList.class.php');
 
 /**
  * Represents a list of news entries.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.news
@@ -18,18 +18,18 @@ require_once(WCF_DIR.'lib/data/DatabaseObjectList.class.php');
 class NewsEntryList extends DatabaseObjectList {
 	/**
 	 * list of entries
-	 * 
+	 *
 	 * @var array<NewsEntry>
 	 */
 	public $entries = array();
-	
+
 	/**
 	 * sql order by statement
-	 * 
+	 *
 	 * @var	string
 	 */
 	public $sqlOrderBy = 'news_entry.time DESC';
-	
+
 	/**
 	 * @see DatabaseObjectList::countObjects()
 	 */
@@ -40,7 +40,7 @@ class NewsEntryList extends DatabaseObjectList {
 		$row = WCF::getDB()->getFirstRow($sql);
 		return $row['count'];
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::readObjects()
 	 */
@@ -56,7 +56,7 @@ class NewsEntryList extends DatabaseObjectList {
 			$this->entries[] = new ViewableNewsEntry(null, $row);
 		}
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::getObjects()
 	 */

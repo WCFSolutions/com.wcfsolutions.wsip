@@ -6,7 +6,7 @@ require_once(WCF_DIR.'lib/acp/page/UserSuggestPage.class.php');
  * Outputs an XML document with a list of permissions objects (user or user groups).
  *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	acp.page
@@ -18,10 +18,10 @@ class PermissionsObjectsSuggestPage extends UserSuggestPage {
 	 */
 	public function show() {
 		AbstractPage::show();
-				
+
 		header('Content-type: text/xml');
 		echo "<?xml version=\"1.0\" encoding=\"".CHARSET."\"?>\n<suggestions>\n";
-		
+
 		if (!empty($this->query)) {
 			// get suggestions
 			$sql = "(SELECT		username AS name, 'user' AS type

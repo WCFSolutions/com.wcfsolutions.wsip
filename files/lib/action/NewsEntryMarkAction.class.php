@@ -8,9 +8,9 @@ require_once(WCF_DIR.'lib/action/AbstractSecureAction.class.php');
 
 /**
  * Marks / unmarks news entries.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	action
@@ -19,13 +19,13 @@ require_once(WCF_DIR.'lib/action/AbstractSecureAction.class.php');
 class NewsEntryMarkAction extends AbstractSecureAction {
 	public $entryIDArray = array();
 	public $action = '';
-	
+
 	/**
 	 * @see Action::readParameters()
 	 */
 	public function readParameters() {
 		parent::readParameters();
-		
+
 		if (isset($_REQUEST['newsEntryID'])) {
 			$this->entryIDArray = ArrayUtil::toIntegerArray($_REQUEST['newsEntryID']);
 			if (!is_array($this->entryIDArray)) {
@@ -34,22 +34,22 @@ class NewsEntryMarkAction extends AbstractSecureAction {
 		}
 		if (isset($_POST['action'])) $this->action = $_POST['action'];
 	}
-	
+
 	/**
 	 * @see Action::execute()
 	 */
 	public function execute() {
 		parent::execute();
-		
+
 		// get categories
 		list($categories, $categoryIDs) = NewsEntryEditor::getCategoriesByEntryIDs(implode(',', $this->entryIDArray));
-		
+
 		// check permissions
 		foreach ($categories as $category) {
 			$category->checkModeratorPermission(array('canDeleteNewsEntry', 'canMoveNewsEntry', 'canCopyNewsEntry'));
 		}
-		
-		// mark / unmark		
+
+		// mark / unmark
 		foreach ($this->entryIDArray as $entryID) {
 			$entry = new NewsEntryEditor($entryID);
 			$entry->enter();

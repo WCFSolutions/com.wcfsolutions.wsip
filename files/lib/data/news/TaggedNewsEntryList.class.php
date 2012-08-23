@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/data/tag/TagEngine.class.php');
 
 /**
  * Represents a list of tagged news entries.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.news
@@ -18,18 +18,18 @@ require_once(WCF_DIR.'lib/data/tag/TagEngine.class.php');
 class TaggedNewsEntryList extends ViewableNewsEntryList {
 	/**
 	 * tag id
-	 * 
+	 *
 	 * @var	integer
 	 */
 	public $tagID = 0;
-	
+
 	/**
 	 * taggable object
-	 * 
+	 *
 	 * @var	Taggable
 	 */
 	public $taggable = null;
-	
+
 	/**
 	 * Creates a new TaggedNewsEntryList object.
 	 */
@@ -37,7 +37,7 @@ class TaggedNewsEntryList extends ViewableNewsEntryList {
 		$this->tagID = $tagID;
 		$this->taggable = TagEngine::getInstance()->getTaggable('com.wcfsolutions.wsip.news.entry');
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::countObjects()
 	 */
@@ -60,7 +60,7 @@ class TaggedNewsEntryList extends ViewableNewsEntryList {
 		$row = WCF::getDB()->getFirstRow($sql);
 		return $row['count'];
 	}
-	
+
 	/**
 	 * Gets the object ids.
 	 */

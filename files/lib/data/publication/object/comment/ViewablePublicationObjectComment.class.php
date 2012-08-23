@@ -8,9 +8,9 @@ require_once(WCF_DIR.'lib/data/message/bbcode/SimpleMessageParser.class.php');
 
 /**
  * Represents a viewable publication object comment.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.publication.object.comment
@@ -19,11 +19,11 @@ require_once(WCF_DIR.'lib/data/message/bbcode/SimpleMessageParser.class.php');
 class ViewablePublicationObjectComment extends PublicationObjectComment {
 	/**
 	 * user object
-	 * 
+	 *
 	 * @var UserProfile
 	 */
 	protected $user = null;
-	
+
 	/**
 	 * @see DatabaseObject::handleData()
 	 */
@@ -31,35 +31,35 @@ class ViewablePublicationObjectComment extends PublicationObjectComment {
 		parent::handleData($data);
 		$this->user = new UserProfile(null, $data);
 	}
-	
+
 	/**
 	 * Returns the formatted comment.
-	 * 
+	 *
 	 * @return	string
 	 */
 	public function getFormattedComment() {
 		return SimpleMessageParser::getInstance()->parse($this->comment);
 	}
-	
+
 	/**
 	 * Returns an excerpt of the comment.
-	 * 
+	 *
 	 * @return	string
 	 */
 	public function getExcerpt() {
 		$comment = $this->comment;
-		
+
 		// get abstract
 		if (StringUtil::length($comment) > 50) {
 			$comment = StringUtil::substring($comment, 0, 47).'...';
 		}
-		
+
 		return $comment;
 	}
-	
+
 	/**
 	 * Returns the user object.
-	 * 
+	 *
 	 * @return	UserProfile
 	 */
 	public function getUser() {

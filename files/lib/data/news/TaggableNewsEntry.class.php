@@ -8,9 +8,9 @@ require_once(WCF_DIR.'lib/data/tag/AbstractTaggableObject.class.php');
 
 /**
  * An implementation of Taggable to support the tagging of news entries.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.news
@@ -33,7 +33,7 @@ class TaggableNewsEntry extends AbstractTaggableObject {
 		}
 		return $taggedObjects;
 	}
-	
+
 	/**
 	 * @see Taggable::countObjectsByTagID()
 	 */
@@ -42,7 +42,7 @@ class TaggableNewsEntry extends AbstractTaggableObject {
 		if (count($accessibleCategoryIDArray) == 0) {
 			return array();
 		}
-		
+
 		$sql = "SELECT		COUNT(*) AS count
 			FROM		wcf".WCF_N."_tag_to_object tag_to_object
 			LEFT JOIN	wsip".WSIP_N."_news_entry news_entry
@@ -55,7 +55,7 @@ class TaggableNewsEntry extends AbstractTaggableObject {
 		$row = WCF::getDB()->getFirstRow($sql);
 		return $row['count'];
 	}
-	
+
 	/**
 	 * @see Taggable::getObjectsByTagID()
 	 */
@@ -64,7 +64,7 @@ class TaggableNewsEntry extends AbstractTaggableObject {
 		if (count($accessibleCategoryIDArray) == 0) {
 			return array();
 		}
-		
+
 		$entries = array();
 		$sql = "SELECT		news_entry.*
 			FROM		wcf".WCF_N."_tag_to_object tag_to_object
@@ -82,35 +82,35 @@ class TaggableNewsEntry extends AbstractTaggableObject {
 		}
 		return $entries;
 	}
-	
+
 	/**
 	 * @see Taggable::getIDFieldName()
 	 */
 	public function getIDFieldName() {
 		return 'entryID';
 	}
-	
+
 	/**
 	 * @see Taggable::getResultTemplateName()
 	 */
 	public function getResultTemplateName() {
 		return 'taggedNewsEntries';
 	}
-	
+
 	/**
 	 * @see Taggable::getSmallSymbol()
 	 */
 	public function getSmallSymbol() {
 		return StyleManager::getStyle()->getIconPath('newsEntryS.png');
 	}
-	
+
 	/**
 	 * @see Taggable::getMediumSymbol()
 	 */
 	public function getMediumSymbol() {
 		return StyleManager::getStyle()->getIconPath('newsEntryM.png');
 	}
-	
+
 	/**
 	 * @see Taggable::getLargeSymbol()
 	 */

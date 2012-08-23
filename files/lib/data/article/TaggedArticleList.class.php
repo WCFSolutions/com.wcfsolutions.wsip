@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/data/tag/TagEngine.class.php');
 
 /**
  * Represents a list of tagged articles.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.article
@@ -18,18 +18,18 @@ require_once(WCF_DIR.'lib/data/tag/TagEngine.class.php');
 class TaggedArticleList extends ViewableArticleList {
 	/**
 	 * tag id
-	 * 
+	 *
 	 * @var	integer
 	 */
 	public $tagID = 0;
-	
+
 	/**
 	 * taggable object
-	 * 
+	 *
 	 * @var	Taggable
 	 */
 	public $taggable = null;
-	
+
 	/**
 	 * Creates a new TaggedArticleList object.
 	 */
@@ -38,7 +38,7 @@ class TaggedArticleList extends ViewableArticleList {
 		$this->taggable = TagEngine::getInstance()->getTaggable('com.wcfsolutions.wsip.article');
 		parent::__construct($categoryIDArray);
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::countObjects()
 	 */
@@ -61,7 +61,7 @@ class TaggedArticleList extends ViewableArticleList {
 		$row = WCF::getDB()->getFirstRow($sql);
 		return $row['count'];
 	}
-	
+
 	/**
 	 * Gets the object ids.
 	 */

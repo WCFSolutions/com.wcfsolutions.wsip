@@ -4,9 +4,9 @@ require_once(WCF_DIR.'lib/data/DatabaseObject.class.php');
 
 /**
  * Represents a publication object comment.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.publication.object.comment
@@ -15,7 +15,7 @@ require_once(WCF_DIR.'lib/data/DatabaseObject.class.php');
 class PublicationObjectComment extends DatabaseObject {
 	/**
 	 * Creates a new PublicationObjectComment object.
-	 * 
+	 *
 	 * @param	integer		$commentID
 	 * @param 	array<mixed>	$row
 	 */
@@ -28,10 +28,10 @@ class PublicationObjectComment extends DatabaseObject {
 		}
 		parent::__construct($row);
 	}
-	
+
 	/**
 	 * Returns true, if the active user can edit this comment.
-	 * 
+	 *
 	 * @param	PublicationObject	$publicationObj
 	 * @return	boolean
 	 */
@@ -41,10 +41,10 @@ class PublicationObjectComment extends DatabaseObject {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Returns true, if the active user can delete this comment.
-	 * 
+	 *
 	 * @param	PublicationObject	$publicationObj
 	 * @return	boolean
 	 */
@@ -54,10 +54,10 @@ class PublicationObjectComment extends DatabaseObject {
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Returns an editor object for this comment.
-	 * 
+	 *
 	 * @return	PublicationObjectCommentEditor
 	 */
 	public function getEditor() {

@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/data/user/notification/object/NotificationObject.class
 
 /**
  * An implementation of NotificationObject to support the usage of a comment as a notification object.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip.notification
  * @subpackage	data.publication.object.comment
@@ -18,7 +18,7 @@ require_once(WCF_DIR.'lib/data/user/notification/object/NotificationObject.class
 class PublicationObjectCommentNotificationObject extends ViewablePublicationObjectComment implements NotificationObject {
 	/**
 	 * Creates a new PublicationObjectCommentNotificationObject object.
-	 * 
+	 *
 	 * @param	integer		$commentID
 	 * @param 	array<mixed>	$row
 	 */
@@ -28,35 +28,35 @@ class PublicationObjectCommentNotificationObject extends ViewablePublicationObje
                 }
 		parent::__construct($commentID, $row);
 	}
-	
+
 	/**
 	 * @see NotificationObject::getObjectID()
 	 */
 	public function getObjectID() {
                 return $this->commentID;
         }
-	
+
 	/**
 	 * @see NotificationObject::getTitle()
 	 */
 	public function getTitle() {
 		return $this->getExcerpt();
 	}
-	
+
 	/**
 	 * @see NotificationObject::getURL()
 	 */
 	public function getURL() {
 		return ''; // the publication object determines the comment url
 	}
-	
+
         /**
 	 * @see NotificationObject::getIcon()
 	 */
 	public function getIcon() {
 		return 'message';
 	}
-	
+
 	/**
 	 * @see ViewablePublicationObjectComment::getFormattedComment()
 	 */

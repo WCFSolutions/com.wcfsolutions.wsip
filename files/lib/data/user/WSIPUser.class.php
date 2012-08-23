@@ -4,9 +4,9 @@ require_once(WCF_DIR.'lib/data/user/UserProfile.class.php');
 
 /**
  * Represents a user in the portal.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.user
@@ -14,7 +14,7 @@ require_once(WCF_DIR.'lib/data/user/UserProfile.class.php');
  */
 class WSIPUser extends UserProfile {
 	protected $avatar = null;
-	
+
 	/**
 	 * @see UserProfile::__construct()
 	 */
@@ -22,10 +22,10 @@ class WSIPUser extends UserProfile {
 		$this->sqlJoins .= ' LEFT JOIN wsip'.WSIP_N.'_user wsip_user ON (wsip_user.userID = user.userID) ';
 		parent::__construct($userID, $row, $username, $email);
 	}
-	
+
 	/**
 	 * Updates the amount of news entries of an user.
-	 * 
+	 *
 	 * @param	integer		$userID
 	 * @param	integer		$newsEntries
 	 */

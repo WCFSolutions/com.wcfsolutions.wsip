@@ -4,9 +4,9 @@ require_once(WCF_DIR.'lib/data/tag/TagList.class.php');
 
 /**
  * Represents a list of tags.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.article
@@ -15,14 +15,14 @@ require_once(WCF_DIR.'lib/data/tag/TagList.class.php');
 class CategoryArticleTagList extends TagList {
 	/**
 	 * list of category ids
-	 * 
+	 *
 	 * @var	integer
 	 */
 	public $categoryIDArray = 0;
-	
+
 	/**
 	 * Creates a new CategoryArticleTagList object.
-	 * 
+	 *
 	 * @param	array		$categoryIDArray
 	 * @param	array<integer>	$languageIDArray
 	 */
@@ -30,7 +30,7 @@ class CategoryArticleTagList extends TagList {
 		parent::__construct(array('com.wcfsolutions.wsip.article'), $languageIDArray);
 		$this->categoryIDArray = $categoryIDArray;
 	}
-	
+
 	/**
 	 * Gets the tag ids.
 	 */
@@ -51,7 +51,7 @@ class CategoryArticleTagList extends TagList {
 			if ($row['counter'] < $this->minCounter) $this->minCounter = $row['counter'];
 			$tagIDArray[$row['tagID']] = $row['counter'];
 		}
-		
+
 		return $tagIDArray;
 	}
 }

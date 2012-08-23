@@ -8,9 +8,9 @@ require_once(WCF_DIR.'lib/data/tag/AbstractTaggableObject.class.php');
 
 /**
  * An implementation of Taggable to support the tagging of articles.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.article
@@ -31,7 +31,7 @@ class TaggableArticle extends AbstractTaggableObject {
 		}
 		return $taggedObjects;
 	}
-	
+
 	/**
 	 * @see Taggable::countObjectsByTagID()
 	 */
@@ -40,7 +40,7 @@ class TaggableArticle extends AbstractTaggableObject {
 		if (count($accessibleCategoryIDArray) == 0) {
 			return array();
 		}
-		
+
 		$sql = "SELECT		COUNT(*) AS count
 			FROM		wcf".WCF_N."_tag_to_object tag_to_object
 			LEFT JOIN	wsip".WSIP_N."_article article
@@ -51,7 +51,7 @@ class TaggableArticle extends AbstractTaggableObject {
 		$row = WCF::getDB()->getFirstRow($sql);
 		return $row['count'];
 	}
-	
+
 	/**
 	 * @see Taggable::getObjectsByTagID()
 	 */
@@ -60,7 +60,7 @@ class TaggableArticle extends AbstractTaggableObject {
 		if (count($accessibleCategoryIDArray) == 0) {
 			return array();
 		}
-		
+
 		$entries = array();
 		$sql = "SELECT		article.*
 			FROM		wcf".WCF_N."_tag_to_object tag_to_object
@@ -77,35 +77,35 @@ class TaggableArticle extends AbstractTaggableObject {
 		}
 		return $entries;
 	}
-	
+
 	/**
 	 * @see Taggable::getIDFieldName()
 	 */
 	public function getIDFieldName() {
 		return 'articleID';
 	}
-	
+
 	/**
 	 * @see Taggable::getResultTemplateName()
 	 */
 	public function getResultTemplateName() {
 		return 'taggedArticles';
 	}
-	
+
 	/**
 	 * @see Taggable::getSmallSymbol()
 	 */
 	public function getSmallSymbol() {
 		return StyleManager::getStyle()->getIconPath('articleS.png');
 	}
-	
+
 	/**
 	 * @see Taggable::getMediumSymbol()
 	 */
 	public function getMediumSymbol() {
 		return StyleManager::getStyle()->getIconPath('articleM.png');
 	}
-	
+
 	/**
 	 * @see Taggable::getLargeSymbol()
 	 */

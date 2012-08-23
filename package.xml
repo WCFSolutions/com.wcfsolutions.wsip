@@ -3,67 +3,67 @@
 	<packageinformation>
 		<packagename>WCF Solutions Infinite Portal</packagename>
 		<standalone>1</standalone>
-		<version>1.1.2</version>
-		<date>2012-02-18</date>
+		<version>1.1.3</version>
+		<date>2012-08-23</date>
 	</packageinformation>
-	
+
 	<authorinformation>
 		<author>WCF Solutions</author>
 		<authorurl>http://www.wcfsolutions.com</authorurl>
 	</authorinformation>
-	
+
 	<requiredpackages>
 		<!-- basics -->
-		<requiredpackage minversion="1.1.4 Beta 1">com.woltlab.wcf</requiredpackage>
-		<requiredpackage minversion="1.1.3">com.woltlab.wcf.data.cronjobs</requiredpackage>
+		<requiredpackage minversion="1.1.9">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="1.1.4">com.woltlab.wcf.data.cronjobs</requiredpackage>
 		<requiredpackage minversion="1.0.3">com.woltlab.wcf.data.feed.reader</requiredpackage>
-		<requiredpackage minversion="1.1.0">com.woltlab.wcf.data.image</requiredpackage>
+		<requiredpackage minversion="1.1.1">com.woltlab.wcf.data.image</requiredpackage>
 		<requiredpackage minversion="1.1.0">com.woltlab.wcf.data.image.captcha</requiredpackage>
-		<requiredpackage minversion="1.1.0 Beta 1">com.woltlab.wcf.imageViewer</requiredpackage>
-		
+		<requiredpackage minversion="1.1.0">com.woltlab.wcf.imageViewer</requiredpackage>
+
 		<!-- page system -->
 		<requiredpackage minversion="1.1.1">com.woltlab.wcf.data.page.headerMenu</requiredpackage>
-		<requiredpackage minversion="1.1.2 Beta 1">com.woltlab.wcf.system.style</requiredpackage>
-		<requiredpackage minversion="1.1.0">com.woltlab.wcf.data.page</requiredpackage>
-		<requiredpackage minversion="1.1.2">com.woltlab.wcf.data.help</requiredpackage>		
-		
+		<requiredpackage minversion="1.1.3">com.woltlab.wcf.system.style</requiredpackage>
+		<requiredpackage minversion="1.1.1">com.woltlab.wcf.data.page</requiredpackage>
+		<requiredpackage minversion="1.1.4">com.woltlab.wcf.data.help</requiredpackage>
+
 		<!-- message -->
-		<requiredpackage minversion="1.1.1">com.woltlab.wcf.data.message</requiredpackage>
-		<requiredpackage minversion="1.1.4">com.woltlab.wcf.data.message.attachment</requiredpackage>
-		<requiredpackage minversion="1.1.3">com.woltlab.wcf.data.message.bbcode</requiredpackage>
-		<requiredpackage minversion="1.1.4 pl 4">com.woltlab.wcf.form.message.wysiwyg</requiredpackage>
-		<requiredpackage minversion="1.0.3">com.woltlab.wcf.tagging</requiredpackage>
-		
+		<requiredpackage minversion="1.1.2">com.woltlab.wcf.data.message</requiredpackage>
+		<requiredpackage minversion="1.1.7">com.woltlab.wcf.data.message.attachment</requiredpackage>
+		<requiredpackage minversion="1.1.7">com.woltlab.wcf.data.message.bbcode</requiredpackage>
+		<requiredpackage minversion="1.1.4">com.woltlab.wcf.form.message.wysiwyg</requiredpackage>
+		<requiredpackage minversion="1.0.4">com.woltlab.wcf.tagging</requiredpackage>
+
 		<!-- user profile -->
-		<requiredpackage minversion="1.1.3">com.woltlab.wcf.form.user</requiredpackage>
-		<requiredpackage minversion="1.1.4 Beta 1">com.woltlab.wcf.page.user.profile</requiredpackage>
-		
+		<requiredpackage minversion="1.1.6">com.woltlab.wcf.form.user</requiredpackage>
+		<requiredpackage minversion="1.1.6">com.woltlab.wcf.page.user.profile</requiredpackage>
+
 		<!-- messages -->
-		<requiredpackage minversion="1.1.3">com.woltlab.wcf.data.message.poll</requiredpackage>
+		<requiredpackage minversion="1.1.4">com.woltlab.wcf.data.message.poll</requiredpackage>
 		<requiredpackage minversion="1.1.0">com.woltlab.wcf.data.message.censorship</requiredpackage>
 		<requiredpackage minversion="1.1.3">com.woltlab.wcf.form.message</requiredpackage>
 		<requiredpackage minversion="1.1.1">com.woltlab.wcf.data.message.search</requiredpackage>
-		<requiredpackage minversion="1.0.1">com.woltlab.wcf.message.sidebar</requiredpackage>
-		<requiredpackage minversion="1.0.1">com.woltlab.wcf.data.message.search.tagging</requiredpackage>
-		<requiredpackage minversion="1.0.0 Beta 1">com.woltlab.wcf.rating</requiredpackage>
-		<requiredpackage minversion="1.0.0 Beta 1">com.woltlab.wcf.socialBookmarks</requiredpackage>
-		
+		<requiredpackage minversion="1.0.2">com.woltlab.wcf.message.sidebar</requiredpackage>
+		<requiredpackage minversion="1.0.2">com.woltlab.wcf.data.message.search.tagging</requiredpackage>
+		<requiredpackage minversion="1.0.0">com.woltlab.wcf.rating</requiredpackage>
+		<requiredpackage minversion="1.0.1">com.woltlab.wcf.socialBookmarks</requiredpackage>
+
 		<!-- 3rd party packages -->
 		<requiredpackage minversion="1.0.12" file="requirements/com.woltlab.community.wcf.user.notification.tar">com.woltlab.community.wcf.user.notification</requiredpackage>
-		
+
 		<!-- wcfsolutions packages -->
 		<requiredpackage minversion="1.0.1" file="requirements/com.wcfsolutions.wcf.ckeditor.tar">com.wcfsolutions.wcf.ckeditor</requiredpackage>
-		<requiredpackage minversion="1.1.2" file="requirements/com.wcfsolutions.wcf.data.box.tar">com.wcfsolutions.wcf.data.box</requiredpackage>
-		<requiredpackage minversion="2.0.3" file="requirements/com.wcfsolutions.wcf.data.moderation.tar">com.wcfsolutions.wcf.data.moderation</requiredpackage>
+		<requiredpackage minversion="1.1.3" file="requirements/com.wcfsolutions.wcf.data.box.tar">com.wcfsolutions.wcf.data.box</requiredpackage>
+		<requiredpackage minversion="2.0.4" file="requirements/com.wcfsolutions.wcf.data.moderation.tar">com.wcfsolutions.wcf.data.moderation</requiredpackage>
 		<requiredpackage minversion="1.1.0" file="requirements/com.wcfsolutions.wcf.data.navigation.tar">com.wcfsolutions.wcf.data.navigation</requiredpackage>
 		<requiredpackage minversion="1.1.0" file="requirements/com.wcfsolutions.wsip.core.tar">com.wcfsolutions.wsip.core</requiredpackage>
-		
+
 	</requiredpackages>
-	
+
 	<optionalpackages>
 		<optionalpackage file="optionals/com.wcfsolutions.wsip.extensionKit.tar">com.wcfsolutions.wsip.extensionKit</optionalpackage>
 	</optionalpackages>
-	
+
 	<excludedpackages>
 		<excludedpackage version="2.0.0 Alpha 1">com.woltlab.wcf</excludedpackage>
 		<excludedpackage>com.wcfsolutions.wcf.acp.system.fileSystem</excludedpackage>
@@ -73,11 +73,11 @@
 		<excludedpackage>com.wcfsolutions.wcf.data.box.type.tinyMCE</excludedpackage>
 		<excludedpackage>com.wcfsolutions.wsip.acp.content.contentItem.tinyMCE</excludedpackage>
 	</excludedpackages>
-	
+
 	<instructions type="install">
 		<!-- pips -->
 		<packageinstallationplugins>pip.tar</packageinstallationplugins>
-		
+
 		<!-- files -->
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
@@ -85,7 +85,7 @@
 		<sql>install.sql</sql>
 		<script>acp/install.php</script>
 		<style default="true">wcfsolutions-silver-sunrise-style.tar</style>
-		
+
 		<!-- config -->
 		<pagemenu>pagemenu.xml</pagemenu>
 		<attachmentcontainertype>act.xml</attachmentcontainertype>
@@ -107,29 +107,29 @@
 		<boxtaboptions>boxtaboptions.xml</boxtaboptions>
 		<notificationobjecttype>notificationobjecttype.xml</notificationobjecttype>
 		<notificationevent>notificationevent.xml</notificationevent>
-		
+
 		<!-- languages -->
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>
 	</instructions>
-	
-	<instructions type="update" fromversion="1.1.1">
+
+	<instructions type="update" fromversion="1.1.2">
 		<!-- files -->
 		<files>files.tar</files>
-		<script>acp/update_111.php</script>
+		<templates>templates.tar</templates>
 	</instructions>
-	
+
 	<instructions type="update" fromversion="1.0.2">
 		<!-- pips -->
 		<packageinstallationplugins>pip.tar</packageinstallationplugins>
-		
+
 		<!-- files -->
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
 		<acptemplates>acptemplates.tar</acptemplates>
 		<sql>update_102.sql</sql>
 		<script>acp/update_102.php</script>
-		
+
 		<!-- config -->
 		<pagemenu>pagemenu.xml</pagemenu>
 		<attachmentcontainertype>act.xml</attachmentcontainertype>
@@ -151,7 +151,7 @@
 		<boxtaboptions>boxtaboptions.xml</boxtaboptions>
 		<notificationobjecttype>notificationobjecttype.xml</notificationobjecttype>
 		<notificationevent>notificationevent.xml</notificationevent>
-		
+
 		<!-- languages -->
 		<languages languagecode="de">de.xml</languages>
 		<languages languagecode="de-informal">de-informal.xml</languages>

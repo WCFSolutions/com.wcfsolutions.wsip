@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/system/cache/CacheBuilder.class.php');
 
 /**
  * Caches all categories and the category structure.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	system.cache
@@ -21,21 +21,21 @@ class CacheBuilderCategory implements CacheBuilder {
 	 */
 	public function getData($cacheResource) {
 		$data = array('categories' => array(), 'categoryStructure' => array(), 'publicationTypes' => array());
-				
+
 		// categories
-		$sql = "SELECT		* 
+		$sql = "SELECT		*
 			FROM		wsip".WSIP_N."_category
 			ORDER BY	showOrder";
 		$result = WCF::getDB()->sendQuery($sql);
 		while ($row = WCF::getDB()->fetchArray($result)) {
 			$data['categories'][$row['categoryID']] = new Category(null, $row);
-			
+
 			if (!isset($data['categoryStructure'][$row['parentID']])) {
 				$data['categoryStructure'][$row['parentID']] = array();
 			}
 			$data['categoryStructure'][$row['parentID']][] = $row['categoryID'];
 		}
-		
+
 		// category to publication types
 		$sql = "SELECT 		publication_type.publicationType, category.categoryID
 			FROM		wsip".WSIP_N."_category_to_publication_type publication_type
@@ -48,7 +48,7 @@ class CacheBuilderCategory implements CacheBuilder {
 			}
 			$data['publicationTypes'][$row['publicationType']][] = $row['categoryID'];
 		}
-		
+
 		return $data;
 	}
 }

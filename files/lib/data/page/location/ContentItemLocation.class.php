@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/data/page/location/Location.class.php');
 
 /**
  * ContentItemLocation is an implementation of Location for the content item page.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.page.location
@@ -18,16 +18,16 @@ require_once(WCF_DIR.'lib/data/page/location/Location.class.php');
 class ContentItemLocation implements Location {
 	/**
 	 * list of content items
-	 * 
+	 *
 	 * @var	array<ContentItem>
 	 */
 	public $contentItems = null;
-	
+
 	/**
 	 * @see Location::cache()
 	 */
 	public function cache($location, $requestURI, $requestMethod, $match) {}
-	
+
 	/**
 	 * @see Location::get()
 	 */
@@ -35,15 +35,15 @@ class ContentItemLocation implements Location {
 		if ($this->contentItems === null) {
 			$this->readContentItems();
 		}
-		
+
 		$contentItemID = $match[1];
 		if (!isset($this->contentItems[$contentItemID]) || !$this->contentItems[$contentItemID]->getPermission() || (!$this->contentItems[$contentItemID]->isPublished() && !$this->contentItems[$contentItemID]->getPermission('canViewHiddenContentItem'))) {
 			return '';
 		}
-		
+
 		return WCF::getLanguage()->get($location['locationName'], array('$contentItem' => '<a href="index.php?page=ContentItem&amp;contentItemID='.$this->contentItems[$contentItemID]->contentItemID.SID_ARG_2ND.'">'.StringUtil::encodeHTML($this->contentItems[$contentItemID]->getTitle()).'</a>'));
 	}
-	
+
 	/**
 	 * Gets content items from cache.
 	 */

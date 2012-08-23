@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/data/user/notification/object/AbstractNotificationObje
 
 /**
  * An implementation of NotificationObject to support the usage of a comment as a notification object.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip.notification
  * @subpackage	data.publication.object.comment
@@ -23,11 +23,11 @@ class PublicationObjectCommentNotificationObjectType extends AbstractNotificatio
                 // get object
                 $comment = new PublicationObjectCommentNotificationObject($objectID);
                 if (!$comment->commentID) return null;
-		
+
                 // return object
                 return $comment;
         }
-	
+
         /**
          * @see NotificationObjectType::getObjectByObject()
          */
@@ -35,11 +35,11 @@ class PublicationObjectCommentNotificationObjectType extends AbstractNotificatio
                 // build object using its data array
                 $comment = new PublicationObjectCommentNotificationObject(null, $object);
                 if (!$comment->commentID) return null;
-		
+
                 // return object
                 return $comment;
         }
-	
+
         /**
          * @see NotificationObjectType::getObjectsByIDArray()
          */
@@ -52,10 +52,10 @@ class PublicationObjectCommentNotificationObjectType extends AbstractNotificatio
                 while ($row = WCF::getDB()->fetchArray($result)) {
                         $comments[$row['commentID']] = new PublicationObjectCommentNotificationObject(null, $row);
                 }
-		
+
                 return $comments;
         }
-	
+
         /**
          * @see NotificationObjectType::getPackageID()
          */

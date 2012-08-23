@@ -8,9 +8,9 @@ require_once(WCF_DIR.'lib/system/cache/CacheBuilder.class.php');
 
 /**
  * Caches the news entries box tab data.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	system.cache
@@ -27,9 +27,9 @@ class CacheBuilderNewsEntriesBoxTabType implements CacheBuilder {
 		if (count($information) == 3) {
 			$languageIDs = $information[2];
 		}
-		
+
 		$data = array();
-		
+
 		// get box tab
 		try {
 			$boxTab = new BoxTab($boxTabID);
@@ -38,7 +38,7 @@ class CacheBuilderNewsEntriesBoxTabType implements CacheBuilder {
 			return $data;
 		}
 		if (!$boxTab->categoryIDs) return $data;
-		
+
 		// get entries
 		$sql = "SELECT		*
 			FROM		wsip".WSIP_N."_news_entry
@@ -52,7 +52,7 @@ class CacheBuilderNewsEntriesBoxTabType implements CacheBuilder {
 		while ($row = WCF::getDB()->fetchArray($result)) {
 			$data[] = new NewsEntry(null, $row);
 		}
-		
+
 		return $data;
 	}
 }

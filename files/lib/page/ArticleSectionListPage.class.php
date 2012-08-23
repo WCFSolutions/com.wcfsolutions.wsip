@@ -10,9 +10,9 @@ require_once(WCF_DIR.'lib/page/AbstractPage.class.php');
 
 /**
  * Shows a list of all article sections.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	page
@@ -21,35 +21,35 @@ require_once(WCF_DIR.'lib/page/AbstractPage.class.php');
 class ArticleSectionListPage extends AbstractPage {
 	// system
 	public $templateName = 'articleSectionList';
-	
+
 	/**
 	 * True, if the list was sorted successfully.
-	 * 
+	 *
 	 * @var boolean
 	 */
 	public $successfullSorting = false;
-	
+
 	/**
 	 * article id
-	 * 
+	 *
 	 * @var	integer
 	 */
 	public $articleID = 0;
-	
+
 	/**
 	 * article object
-	 * 
+	 *
 	 * @var	Article
 	 */
 	public $article = null;
-	
+
 	/**
 	 * category object
-	 * 
+	 *
 	 * @var	Category
 	 */
 	public $category = null;
-	
+
 	/**
 	 * @see Page::readParameters()
 	 */
@@ -64,23 +64,23 @@ class ArticleSectionListPage extends AbstractPage {
 		if (!$this->article->articleID) {
 			throw new IllegalLinkException();
 		}
-		
+
 		// get category
 		$this->category = new Category($this->article->categoryID);
 		$this->article->enter($this->category);
 	}
-	
+
 	/**
 	 * @see Page::readData()
 	 */
 	public function readData() {
 		parent::readData();
-		
+
 		// get section list
 		$this->sectionList = new ArticleSectionList($this->article->articleID);
 		$this->sectionList->readSections();
 	}
-	
+
 	/**
 	 * @see Page::assignVariables()
 	 */
@@ -98,7 +98,7 @@ class ArticleSectionListPage extends AbstractPage {
 			'allowSpidersToIndexThisPage' => true
 		));
 	}
-	
+
 	/**
 	 * @see Page::show()
 	 */
@@ -107,10 +107,10 @@ class ArticleSectionListPage extends AbstractPage {
 		if (MODULE_ARTICLE != 1) {
 			throw new IllegalLinkException();
 		}
-		
+
 		// set active menu item
 		WSIPCore::getPageMenu()->setActiveMenuItem('wsip.header.menu.article');
-		
+
 		parent::show();
 	}
 }

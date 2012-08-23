@@ -7,9 +7,9 @@ require_once(WCF_DIR.'lib/data/DatabaseObjectList.class.php');
 
 /**
  * Represents a list of publication object comments.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.publication.object.comment
@@ -18,18 +18,18 @@ require_once(WCF_DIR.'lib/data/DatabaseObjectList.class.php');
 class PublicationObjectCommentList extends DatabaseObjectList {
 	/**
 	 * list of comments
-	 * 
+	 *
 	 * @var array<ViewablePublicationObjectComment>
 	 */
 	public $comments = array();
-	
+
 	/**
 	 * sql order by statement
-	 * 
+	 *
 	 * @var	string
 	 */
 	public $sqlOrderBy = 'time ASC';
-	
+
 	/**
 	 * @see DatabaseObjectList::countObjects()
 	 */
@@ -40,7 +40,7 @@ class PublicationObjectCommentList extends DatabaseObjectList {
 		$row = WCF::getDB()->getFirstRow($sql);
 		return $row['count'];
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::readObjects()
 	 */
@@ -60,7 +60,7 @@ class PublicationObjectCommentList extends DatabaseObjectList {
 			$this->comments[] = new ViewablePublicationObjectComment(null, $row);
 		}
 	}
-	
+
 	/**
 	 * @see DatabaseObjectList::getObjects()
 	 */

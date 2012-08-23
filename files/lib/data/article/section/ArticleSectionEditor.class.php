@@ -4,19 +4,19 @@ require_once(WSIP_DIR.'lib/data/article/section/ArticleSection.class.php');
 
 /**
  * Provides functions to manage article sections.
- * 
+ *
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  * @package	com.wcfsolutions.wsip
  * @subpackage	data.article.section
  * @category	Infinite Portal
  */
-class ArticleSectionEditor extends ArticleSection {	
+class ArticleSectionEditor extends ArticleSection {
 	/**
 	 * Updates this section.
-	 * 
-	 * @param	integer				$parentSectionID			
+	 *
+	 * @param	integer				$parentSectionID
 	 * @param	string				$subject
 	 * @param	string				$message
 	 * @param	integer				$showOrder
@@ -59,23 +59,23 @@ class ArticleSectionEditor extends ArticleSection {
 				enableBBCodes = ".(isset($options['enableBBCodes']) ? $options['enableBBCodes'] : 1)."
 			WHERE 	sectionID = ".$this->sectionID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// update attachments
 		if ($attachmentList != null) {
 			$attachmentList->findEmbeddedAttachments($message);
 		}
 	}
-	
+
 	/**
 	 * Deletes this section.
 	 */
 	public function delete() {
 		self::deleteAll($this->sectionID);
 	}
-	
+
 	/**
 	 * Creates a new article section.
-	 * 
+	 *
 	 * @param	integer				$parentSectionID
 	 * @param	integer				$articleID
 	 * @param	string				$subject
@@ -88,7 +88,7 @@ class ArticleSectionEditor extends ArticleSection {
 	public static function create($parentSectionID, $articleID, $subject, $message, $options = array(), $attachmentList = null) {
 		// get number of attachments
 		$attachmentsAmount = $attachmentList != null ? count($attachmentList->getAttachments()) : 0;
-		
+
 		// get show order
 		/*if ($showOrder == 0) {
 			// get next number in row
@@ -106,7 +106,7 @@ class ArticleSectionEditor extends ArticleSection {
 					AND articleID = ".$articleID;
 			WCF::getDB()->sendQuery($sql);
 		}*/
-		
+
 		// insert section
 		$sql = "INSERT INTO	wsip".WSIP_N."_article_section
 					(parentSectionID, articleID, subject, message, attachments, enableSmilies, enableHtml, enableBBCodes)
@@ -115,20 +115,20 @@ class ArticleSectionEditor extends ArticleSection {
 					".(isset($options['enableHtml']) ? $options['enableHtml'] : 0).",
 					".(isset($options['enableBBCodes']) ? $options['enableBBCodes'] : 1).")";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// get section id
 		$sectionID = WCF::getDB()->getInsertID("wsip".WSIP_N."_article_section", 'sectionID');
-		
+
 		// update attachments
 		if ($attachmentList !== null) {
 			$attachmentList->updateContainerID($sectionID);
 			$attachmentList->findEmbeddedAttachments($message);
 		}
-		
+
 		// return new section
 		return new ArticleSectionEditor($sectionID);
 	}
-	
+
 	/**
 	 * Deletes all sections with the given section ids.
 	 *
@@ -136,7 +136,7 @@ class ArticleSectionEditor extends ArticleSection {
 	 */
 	public static function deleteAll($sectionIDs) {
 		if (empty($sectionIDs)) return;
-		
+
 		// update subsections
 		$sql = "SELECT 	sectionID, parentSectionID
 			FROM 	wsip".WSIP_N."_article_section
@@ -153,13 +153,13 @@ class ArticleSectionEditor extends ArticleSection {
 		$sql = "DELETE FROM	wsip".WSIP_N."_article_section
 			WHERE		sectionID IN (".$sectionIDs.")";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete attachments
 		require_once(WCF_DIR.'lib/data/attachment/MessageAttachmentListEditor.class.php');
 		$attachmentList = new MessageAttachmentListEditor(explode(',', $sectionIDs), 'articleSection');
 		$attachmentList->deleteAll();
 	}
-	
+
 	/**
 	 * Creates a preview of an article section.
 	 *
@@ -180,13 +180,13 @@ class ArticleSectionEditor extends ArticleSection {
 			'enableBBCodes' => $enableBBCodes,
 			'messagePreview' => true
 		);
-		
+
 		// get section
 		require_once(WSIP_DIR.'lib/data/article/section/ViewableArticleSection.class.php');
 		$section = new ViewableArticleSection(null, $row);
 		return $section->getFormattedMessage();
 	}
-	
+
 	/**
 	 * Updates the positions of an article section directly.
 	 *
