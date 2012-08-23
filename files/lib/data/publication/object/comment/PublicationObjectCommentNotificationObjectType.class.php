@@ -11,7 +11,7 @@ require_once(WCF_DIR.'lib/data/user/notification/object/AbstractNotificationObje
  * @author	Sebastian Oettl
  * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
- * @package	com.wcfsolutions.wsip.notification
+ * @package	com.wcfsolutions.wsip
  * @subpackage	data.publication.object.comment
  * @category	Infinite Portal
  */
