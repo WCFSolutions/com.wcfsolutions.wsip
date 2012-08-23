@@ -13,7 +13,7 @@
 {/if}
 
 {if $success|isset}
-	<p class="success">{if $action == 'add'}{lang}wsip.acp.category.add.success{/lang}{else}{lang}wsip.acp.category.edit.success{/lang}{/if}</p>	
+	<p class="success">{if $action == 'add'}{lang}wsip.acp.category.add.success{/lang}{else}{lang}wsip.acp.category.edit.success{/lang}{/if}</p>
 {/if}
 
 <script type="text/javascript" src="{@RELATIVE_WCF_DIR}js/Suggestion.class.js"></script>
@@ -29,19 +29,19 @@
 	{foreach from=$permissionSettings item=permissionSetting}
 		language['wsip.acp.category.permissions.{@$permissionSetting}'] = '{lang}wsip.acp.category.permissions.{@$permissionSetting}{/lang}';
 	{/foreach}
-	
+
 	var permissions = new Hash();
-	{assign var=i value=0}		
+	{assign var=i value=0}
 	{foreach from=$permissions item=permission}
 		var settings = new Hash();
 		settings.set('fullControl', -1);
-		
+
 		{foreach from=$permission.settings key=setting item=value}
 			{if $setting != 'name' && $setting != 'type' && $setting != 'id'}
 				settings.set('{@$setting}', {@$value});
 			{/if}
 		{/foreach}
-		
+
 		permissions.set({@$i}, {
 			'name': '{@$permission.name|encodeJS}',
 			'type': '{@$permission.type}',
@@ -51,41 +51,41 @@
 
 		{assign var=i value=$i+1}
 	{/foreach}
-	
+
 	var moderators = new Hash();
 	{assign var=i value=0}
 	{foreach from=$moderators item=moderator}
 		var settings = new Hash();
 		settings.set('fullControl', -1);
-		
+
 		{foreach from=$moderator.settings key=setting item=value}
 			{if $setting != 'name' && $setting != 'type' && $setting != 'id'}
 				settings.set('{@$setting}', {@$value});
 			{/if}
 		{/foreach}
-		
+
 		moderators.set({@$i}, {
 			'name': '{@$moderator.name|encodeJS}',
 			'type': '{@$moderator.type}',
 			'id': '{@$moderator.id}',
 			'settings': settings
 		});
-		
+
 		{assign var=i value=$i+1}
 	{/foreach}
-	
+
 	var permissionSettings = new Array({implode from=$permissionSettings item=permissionSetting}'{@$permissionSetting}'{/implode});
 	var moderatorSettings = new Array({implode from=$moderatorSettings item=moderatorSetting}'{@$moderatorSetting}'{/implode});
-	
-	document.observe("dom:loaded", function() {		
+
+	document.observe("dom:loaded", function() {
 		// user/group permissions
 		var permissionList = new PermissionList('permission', 'category', permissions, permissionSettings);
-		
+
 		// moderators
 		var moderatorPermissionList = new PermissionList('moderator', 'category', moderators, moderatorSettings);
-		
+
 		// add onsubmit event
-		$('categoryAddForm').onsubmit = function() { 
+		$('categoryAddForm').onsubmit = function() {
 			if (suggestion.selectedIndex != -1) return false;
 			if (permissionList.inputHasFocus || moderatorPermissionList.inputHasFocus) return false;
 			permissionList.submit(this); moderatorPermissionList.submit(this);
@@ -118,12 +118,12 @@
 {/if}
 
 <form method="post" action="index.php?form=Category{@$action|ucfirst}" id="categoryAddForm">
-	
+
 	<div class="border content">
-		<div class="container-1">			
+		<div class="container-1">
 			<fieldset>
 				<legend>{lang}wsip.acp.category.general{/lang}</legend>
-				
+
 				{if $action == 'edit'}
 					<div class="formElement" id="languageIDDiv">
 						<div class="formFieldLabel">
@@ -144,7 +144,7 @@
 						inlineHelp.register('languageID');
 					//]]></script>
 				{/if}
-				
+
 				<div class="formElement{if $errorField == 'title'} formError{/if}">
 					<div class="formFieldLabel">
 						<label for="title">{lang}wsip.acp.category.title{/lang}</label>
@@ -158,7 +158,7 @@
 						{/if}
 					</div>
 				</div>
-				
+
 				<div id="descriptionDiv" class="formElement">
 					<div class="formFieldLabel">
 						<label for="description">{lang}wsip.acp.category.description{/lang}</label>
@@ -168,13 +168,13 @@
 						<label><input type="checkbox" name="allowDescriptionHtml" value="1" {if $allowDescriptionHtml}checked="checked" {/if}/> {lang}wsip.acp.category.allowDescriptionHtml{/lang}</label>
 					</div>
 				</div>
-					
+
 				{if $additionalGeneralFields|isset}{@$additionalGeneralFields}{/if}
 			</fieldset>
-				
+
 			<fieldset>
 				<legend>{lang}wsip.acp.category.classification{/lang}</legend>
-				
+
 				<div class="formElement{if $errorField == 'publicationTypes'} formError{/if}">
 					<div class="formFieldLabel">
 						<label for="publicationTypes">{lang}wsip.acp.category.publicationTypes{/lang}</label>
@@ -196,7 +196,7 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('publicationTypes');
 				//]]></script>
-					
+
 				{if $categoryOptions|count > 0}
 					<div class="formElement{if $errorField == 'parentID'} formError{/if}" id="parentIDDiv">
 						<div class="formFieldLabel">
@@ -221,12 +221,12 @@
 						inlineHelp.register('parentID');
 					//]]></script>
 				{/if}
-				
+
 				<div class="formElement" id="showOrderDiv">
 					<div class="formFieldLabel">
 						<label for="showOrder">{lang}wsip.acp.category.showOrder{/lang}</label>
 					</div>
-					<div class="formField">	
+					<div class="formField">
 						<input type="text" class="inputText" name="showOrder" id="showOrder" value="{$showOrder}" />
 					</div>
 					<div class="formFieldDesc hidden" id="showOrderHelpMessage">
@@ -236,13 +236,13 @@
 				<script type="text/javascript">//<![CDATA[
 					inlineHelp.register('showOrder');
 				//]]></script>
-					
-				{if $additionalPositionFields|isset}{@$additionalPositionFields}{/if}
+
+				{if $additionalClassificationFields|isset}{@$additionalClassificationFields}{/if}
 			</fieldset>
-			
+
 			<fieldset id="permissions">
 				<legend>{lang}wsip.acp.category.permissions{/lang}</legend>
-					
+
 				<div class="formElement">
 					<div class="formFieldLabel" id="permissionTitle">
 						{lang}wsip.acp.category.permissions.title{/lang}
@@ -250,7 +250,7 @@
 					<div class="formField"><div id="permission" class="accessRights"></div></div>
 				</div>
 				<div class="formElement">
-					<div class="formField">	
+					<div class="formField">
 						<input id="permissionAddInput" type="text" name="" value="" class="inputText accessRightsInput" />
 						<script type="text/javascript">
 							//<![CDATA[
@@ -262,7 +262,7 @@
 						<input id="permissionAddButton" type="button" value="{lang}wsip.acp.category.permissions.add{/lang}" />
 					</div>
 				</div>
-					
+
 				<div class="formElement" style="display: none;">
 					<div class="formFieldLabel">
 						<div id="permissionSettingsTitle" class="accessRightsTitle"></div>
@@ -275,13 +275,13 @@
 						<div id="permissionSettings" class="accessRights"></div>
 					</div>
 				</div>
-				
+
 				{if $additionalPermissionFields|isset}{@$additionalPermissionFields}{/if}
 			</fieldset>
-				
+
 			<fieldset id="moderators">
 				<legend>{lang}wsip.acp.category.moderators{/lang}</legend>
-					
+
 				<div class="formElement">
 					<div class="formFieldLabel" id="moderatorTitle">
 						{lang}wsip.acp.category.permissions.title{/lang}
@@ -289,7 +289,7 @@
 					<div class="formField"><div id="moderator" class="accessRights"></div></div>
 				</div>
 				<div class="formElement">
-					<div class="formField">	
+					<div class="formField">
 						<input id="moderatorAddInput" type="text" name="" value="" class="inputText accessRightsInput" />
 						<script type="text/javascript">
 							//<![CDATA[
@@ -299,7 +299,7 @@
 						<input id="moderatorAddButton" type="button" value="{lang}wsip.acp.category.permissions.add{/lang}" />
 					</div>
 				</div>
-					
+
 				<div class="formElement" style="display: none;">
 					<div class="formFieldLabel">
 						<div id="moderatorSettingsTitle" class="accessRightsTitle"></div>
@@ -312,14 +312,14 @@
 						<div id="moderatorSettings" class="accessRights"></div>
 					</div>
 				</div>
-				
+
 				{if $additionalModeratorFields|isset}{@$additionalModeratorFields}{/if}
 			</fieldset>
-			
+
 			{if $additionalFields|isset}{@$additionalFields}{/if}
 		</div>
 	</div>
-		
+
 	<div class="formSubmit">
 		<input type="submit" accesskey="s" value="{lang}wcf.global.button.submit{/lang}" />
 		<input type="reset" accesskey="r" value="{lang}wcf.global.button.reset{/lang}" />

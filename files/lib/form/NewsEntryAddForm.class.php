@@ -13,7 +13,7 @@ require_once(WCF_DIR.'lib/system/language/Language.class.php');
 
 /**
  * Shows the news entry add form.
- * 
+ *
  * @author	Sebastian Oettl
  * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
@@ -26,56 +26,56 @@ class NewsEntryAddForm extends MessageForm {
 	public $templateName = 'newsEntryAdd';
 	public $useCaptcha = NEWS_ENTRY_ADD_USE_CAPTCHA;
 	public $showSignatureSetting = false;
-	
+
 	/**
 	 * category id
-	 * 
+	 *
 	 * @var	integer
 	 */
 	public $categoryID = 0;
-	
+
 	/**
 	 * category editor object
-	 * 
+	 *
 	 * @var	CategoryEditor
 	 */
 	public $category = null;
-	
+
 	/**
 	 * attachment list editor object
-	 * 
+	 *
 	 * @var	MessageAttachmentListEditor
 	 */
 	public $attachmentListEditor = null;
-	
+
 	/**
 	 * poll editor object
-	 * 
+	 *
 	 * @var	PollEditor
 	 */
 	public $pollEditor = null;
-	
+
 	/**
 	 * entry editor object
-	 * 
+	 *
 	 * @var	NewsEntryEditor
 	 */
 	public $entry = null;
-	
+
 	/**
 	 * list of available languages
-	 * 
+	 *
 	 * @var	array
 	 */
 	public $availableLanguages = array();
-	
+
 	/**
 	 * publishing time
-	 * 
+	 *
 	 * @var	integer
 	 */
 	public $publishingTime = 0;
-	
+
 	// form parameters
 	public $username = '';
 	public $teaser = '';
@@ -88,37 +88,37 @@ class NewsEntryAddForm extends MessageForm {
 	public $publishingTimeHour = '';
 	public $disableEntry = 0;
 	public $enableComments = 1;
-	
+
 	/**
 	 * @see Page::readParameters()
 	 */
 	public function readParameters() {
 		parent::readParameters();
-		
+
 		// get category
 		if (isset($_REQUEST['categoryID'])) {
 			$this->categoryID = intval($_REQUEST['categoryID']);
 			$this->category = new CategoryEditor($this->categoryID);
 			$this->category->enter('news');
-			
+
 			// check permission
 			if (!$this->category->getPermission('canAddNewsEntry')) {
 				throw new PermissionDeniedException();
 			}
 		}
-		
+
 		// flood control
 		$this->messageTable = "wsip".WSIP_N."_news_entry";
 	}
-	
+
 	/**
 	 * @see Form::readFormParameters()
 	 */
 	public function readFormParameters() {
 		parent::readFormParameters();
-		
+
 		$this->enableComments = 0;
-		
+
 		if (isset($_POST['username'])) $this->username = StringUtil::trim($_POST['username']);
 		if (isset($_POST['teaser'])) $this->teaser = StringUtil::trim($_POST['teaser']);
 		if (isset($_POST['preview'])) $this->preview = (boolean) $_POST['preview'];
@@ -134,27 +134,27 @@ class NewsEntryAddForm extends MessageForm {
 		}
 		if (isset($_POST['enableComments'])) $this->enableComments = intval($_POST['enableComments']);
 	}
-	
+
 	/**
 	 * @see Form::submit()
 	 */
 	public function submit() {
 		// call submit event
 		EventHandler::fireAction($this, 'submit');
-		
+
 		$this->readFormParameters();
-		
+
 		try {
 			// attachment handling
 			if ($this->showAttachments) {
 				$this->attachmentListEditor->handleRequest();
 			}
-			
+
 			// poll handling
 			if ($this->showPoll) {
 				$this->pollEditor->readParams();
 			}
-				
+
 			// preview
 			if ($this->preview) {
 				require_once(WCF_DIR.'lib/data/message/bbcode/AttachmentBBCode.class.php');
@@ -173,29 +173,29 @@ class NewsEntryAddForm extends MessageForm {
 			$this->errorType = $e->getType();
 		}
 	}
-	
+
 	/**
 	 * @see Form::validate()
 	 */
 	public function validate() {
 		parent::validate();
-		
+
 		// username
 		$this->validateUsername();
-		
+
 		// teaser
 		$this->validateTeaser();
-		
+
 		// language
 		$this->validateLanguage();
-		
+
 		// publishing time
 		$this->validatePublishingTime();
-		
+
 		// poll
 		if ($this->showPoll) $this->pollEditor->checkParams();
 	}
-	
+
 	/**
 	 * Validates the language.
 	 */
@@ -215,7 +215,7 @@ class NewsEntryAddForm extends MessageForm {
 			$this->languageID = 0;
 		}
 	}
-	
+
 	/**
 	 * Validates the username.
 	 */
@@ -232,14 +232,14 @@ class NewsEntryAddForm extends MessageForm {
 			if (!UserUtil::isAvailableUsername($this->username)) {
 				throw new UserInputException('username', 'notAvailable');
 			}
-			
+
 			WCF::getSession()->setUsername($this->username);
 		}
 		else {
 			$this->username = WCF::getUser()->username;
 		}
 	}
-	
+
 	/**
 	 * Validates the teaser.
 	 */
@@ -247,13 +247,13 @@ class NewsEntryAddForm extends MessageForm {
 		if (empty($this->teaser)) {
 			throw new UserInputException('teaser');
 		}
-		
+
 		// check teaser length
 		if (StringUtil::length($this->teaser) > 255) {
 			throw new UserInputException('teaser', 'tooLong');
 		}
 	}
-	
+
 	/**
 	 * Validates the publishing time.
 	 */
@@ -264,38 +264,38 @@ class NewsEntryAddForm extends MessageForm {
 			if ($time === false || $time === -1) {
 				throw new UserInputException('publishingTime', 'invalid');
 			}
-			
+
 			// get utc time
 			$time = DateUtil::getUTC($time);
 			if ($time <= TIME_NOW) {
 				throw new UserInputException('publishingTime', 'invalid');
 			}
-			
+
 			$this->publishingTime = $time;
 			$this->disableEntry = 1;
 		}
 	}
-	
+
 	/**
 	 * @see Form::save()
 	 */
-	public function save() {		
+	public function save() {
 		parent::save();
-		
+
 		// save poll
 		if ($this->showPoll) {
 			$this->pollEditor->save();
 		}
-		
+
 		// save entry
 		$this->entry = NewsEntryEditor::create($this->categoryID, $this->languageID, $this->subject, $this->text, $this->teaser, WCF::getUser()->userID, $this->username, $this->publishingTime, $this->enableComments, $this->getOptions(), $this->attachmentListEditor, $this->pollEditor, intval(($this->disableEntry || !$this->category->getPermission('canAddNewsEntryWithoutModeration'))));
-		
+
 		// save tags
 		if (MODULE_TAGGING && NEWS_ENTRY_ENABLE_TAGS && $this->category->getPermission('canSetNewsTags')) {
 			$tagArray = TaggingUtil::splitString($this->tags);
 			if (count($tagArray)) $this->entry->updateTags($tagArray);
 		}
-		
+
 		if (!$this->disableEntry && $this->category->getPermission('canAddNewsEntryWithoutModeration')) {
 			// update user news entries
 			if (WCF::getUser()->userID) {
@@ -306,19 +306,19 @@ class NewsEntryAddForm extends MessageForm {
 					UserRank::updateActivityPoints(ACTIVITY_POINTS_PER_NEWS_ENTRY);
 				}
 			}
-			
+
 			// refresh counter
 			$this->category = new CategoryEditor($this->categoryID);
 			$this->category->updateNewsEntries(1); // maybe use $category->refresh() here..
-			
+
 			// reset stat cache
 			WCF::getCache()->clearResource('stat');
 			WCF::getCache()->clearResource('categoryData');
-			
+
 			// reset box tab cache
 			BoxTab::resetBoxTabCacheByBoxTabType('newsEntries');
 			$this->saved();
-			
+
 			// forward to entry
 			HeaderUtil::redirect('index.php?page=NewsEntry&entryID='.$this->entry->entryID.SID_ARG_2ND_NOT_ENCODED);
 		}
@@ -339,25 +339,25 @@ class NewsEntryAddForm extends MessageForm {
 		}
 		exit;
 	}
-	
+
 	/**
 	 * @see Page::readData()
 	 */
 	public function readData() {
 		parent::readData();
-		
+
 		// get username
 		if (!count($_POST)) {
 			$this->username = WCF::getSession()->username;
 		}
 	}
-	
+
 	/**
 	 * @see Page::assignVariables()
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
-		
+
 		WCF::getTPL()->assign(array(
 			'action' => 'add',
 			'username' => $this->username,
@@ -375,7 +375,7 @@ class NewsEntryAddForm extends MessageForm {
 			'enableComments' => $this->enableComments
 		));
 	}
-	
+
 	/**
 	 * @see Page::show()
 	 */
@@ -384,15 +384,15 @@ class NewsEntryAddForm extends MessageForm {
 		if (MODULE_NEWS != 1) {
 			throw new IllegalLinkException();
 		}
-		
+
 		// set active page menu item
 		PageMenu::setActiveMenuItem('wsip.header.menu.news');
-		
+
 		// show category select
 		if ($this->category == null) {
 			// check permission
 			WCF::getUser()->checkPermission('user.portal.canAddNewsEntry');
-			
+
 			// assign variables
 			WCF::getTPL()->assign(array(
 				'categoryOptions' => Category::getCategorySelect('news', array('canViewCategory', 'canEnterCategory', 'canAddNewsEntry'))
@@ -400,45 +400,45 @@ class NewsEntryAddForm extends MessageForm {
 			WCF::getTPL()->display('newsEntryAddCategorySelect');
 			exit;
 		}
-		
+
 		// load available languages
 		$this->loadAvailableLanguages();
-		
+
 		if (MODULE_POLL != 1 || !$this->category->getPermission('canStartNewsPoll')) {
 			$this->showPoll = false;
 		}
-		
+
 		if (MODULE_ATTACHMENT != 1 || !$this->category->getPermission('canUploadNewsAttachment')) {
 			$this->showAttachments = false;
 		}
-		
+
 		// get attachments editor
 		if ($this->attachmentListEditor == null) {
 			$this->attachmentListEditor = new MessageAttachmentListEditor(array(), 'newsEntry', PACKAGE_ID, WCF::getUser()->getPermission('user.portal.maxNewsAttachmentSize'), WCF::getUser()->getPermission('user.portal.allowedNewsAttachmentExtensions'), WCF::getUser()->getPermission('user.portal.maxNewsAttachmentCount'));
 		}
-		
+
 		// get poll editor
 		if ($this->pollEditor == null) {
 			$this->pollEditor = new PollEditor(0, 0, 'newsEntry', WCF::getUser()->getPermission('user.portal.canStartPublicNewsPoll'));
 		}
-		
+
 		// show form
 		parent::show();
 	}
-	
+
 	/**
 	 * Gets the available content languages.
 	 */
 	protected function loadAvailableLanguages() {
 		if ($this->languageID == 0) $this->languageID = WCF::getLanguage()->getLanguageID();
 		$this->availableLanguages = $this->getAvailableLanguages();
-		
+
 		if (!isset($this->availableLanguages[$this->languageID]) && count($this->availableLanguages) > 0) {
 			$languageIDs = array_keys($this->availableLanguages);
 			$this->languageID = array_shift($languageIDs);
 		}
 	}
-	
+
 	/**
 	 * Returns a list of available languages.
 	 *
@@ -452,7 +452,7 @@ class NewsEntryAddForm extends MessageForm {
 				unset($availableLanguages[$key]);
 			}
 		}
-		
+
 		return $availableLanguages;
 	}
 }

@@ -7,7 +7,7 @@ require_once(WCF_DIR.'lib/acp/form/ACPForm.class.php');
 
 /**
  * Shows the category add form.
- * 
+ *
  * @author	Sebastian Oettl
  * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
@@ -20,42 +20,42 @@ class CategoryAddForm extends ACPForm {
 	public $templateName = 'categoryAdd';
 	public $activeMenuItem = 'wsip.acp.menu.link.content.category.add';
 	public $neededPermissions = 'admin.portal.canAddCategory';
-	
+
 	/**
 	 * category editor object
-	 * 
+	 *
 	 * @var	CategoryEditor
 	 */
 	public $category = null;
-	
+
 	/**
 	 * list of available publication types
-	 * 
+	 *
 	 * @var	array
 	 */
 	public $publicationTypeSettings = array();
-	
+
 	/**
 	 * list of available permisions
-	 * 
+	 *
 	 * @var	array
 	 */
 	public $permissionSettings = array();
-	
+
 	/**
 	 * list of available moderator permisions
-	 * 
+	 *
 	 * @var	array
 	 */
 	public $moderatorSettings = array();
-	
+
 	/**
 	 * list of available parent categories
-	 * 
+	 *
 	 * @var	array
 	 */
 	public $categoryOptions = array();
-	
+
 	// parameters
 	public $parentID = 0;
 	public $title = '';
@@ -65,16 +65,16 @@ class CategoryAddForm extends ACPForm {
 	public $permissions = array();
 	public $moderators = array();
 	public $showOrder = 0;
-	
+
 	/**
 	 * @see Page::readParameters()
 	 */
 	public function readParameters() {
 		parent::readParameters();
-		
+
 		// get parent id
 		if (isset($_REQUEST['parentID'])) $this->parentID = intval($_REQUEST['parentID']);
-		
+
 		// get publication types
 		$availablePublicationTypes = Publication::getAvailablePublicationTypes();
 		foreach ($availablePublicationTypes as $publicationType => $publicationTypeObj) {
@@ -83,18 +83,18 @@ class CategoryAddForm extends ACPForm {
 			}
 		}
 		$this->publicationTypeSettings = $availablePublicationTypes;
-		
+
 		// get permission settings
 		$this->moderatorSettings = Category::getModeratorSettings();
 		$this->permissionSettings = Category::getPermissionSettings();
 	}
-	
+
 	/**
 	 * @see Form::readFormParameters()
 	 */
 	public function readFormParameters() {
 		parent::readFormParameters();
-		
+
 		if (isset($_POST['title'])) $this->title = StringUtil::trim($_POST['title']);
 		if (isset($_POST['description'])) $this->description = StringUtil::trim($_POST['description']);
 		if (isset($_POST['allowDescriptionHtml'])) $this->allowDescriptionHtml = intval($_POST['allowDescriptionHtml']);
@@ -103,29 +103,29 @@ class CategoryAddForm extends ACPForm {
 		if (isset($_POST['moderator']) && is_array($_POST['moderator'])) $this->moderators = $_POST['moderator'];
 		if (isset($_POST['showOrder'])) $this->showOrder = intval($_POST['showOrder']);
 	}
-	
+
 	/**
 	 * @see Form::validate()
 	 */
 	public function validate() {
 		parent::validate();
-		
+
 		// parent id
 		$this->validateParentID();
-		
+
 		// title
 		if (empty($this->title)) {
 			throw new UserInputException('title');
 		}
-		
+
 		// publication types
 		$this->validatePublicationTypes();
-		
+
 		// permissions
 		$this->validatePermissions($this->permissions, array_flip($this->permissionSettings));
 		$this->validatePermissions($this->moderators, array_flip($this->moderatorSettings));
 	}
-	
+
 	/**
 	 * Validates the parent id.
 	 */
@@ -139,10 +139,10 @@ class CategoryAddForm extends ACPForm {
 			}
 		}
 	}
-	
+
 	/**
 	 * Validates the publication types.
-	 */	
+	 */
 	protected function validatePublicationTypes() {
 		if (!count($this->publicationTypes)) {
 			throw new UserInputException('publicationTypes');
@@ -153,7 +153,7 @@ class CategoryAddForm extends ACPForm {
 			}
 		}
 	}
-	
+
 	/**
 	 * Validates the given permissions with the given settings.
 	 *
@@ -166,7 +166,7 @@ class CategoryAddForm extends ACPForm {
 			if (!isset($permission['type']) || ($permission['type'] != 'user' && $permission['type'] != 'group')) {
 				throw new UserInputException();
 			}
-			
+
 			// id
 			if (!isset($permission['id'])) {
 				throw new UserInputException();
@@ -179,19 +179,19 @@ class CategoryAddForm extends ACPForm {
 				$group = new Group(intval($permission['id']));
 				if (!$group->groupID) throw new UserInputException();
 			}
-			
+
 			// settings
 			if (!isset($permission['settings']) || !is_array($permission['settings'])) {
 				throw new UserInputException();
 			}
-			
+
 			// find invalid settings
 			foreach ($permission['settings'] as $key => $value) {
 				if (!isset($settings[$key]) || ($value != -1 && $value != 0 && $value =! 1)) {
 					throw new UserInputException();
 				}
 			}
-			
+
 			// find missing settings
 			foreach ($settings as $key => $value) {
 				if (!isset($permission['settings'][$key])) {
@@ -200,56 +200,56 @@ class CategoryAddForm extends ACPForm {
 			}
 		}
 	}
-	
+
 	/**
 	 * @see Form::save()
 	 */
 	public function save() {
 		parent::save();
-		
+
 		// save category
 		$this->category = CategoryEditor::create($this->parentID, $this->title, $this->description, $this->allowDescriptionHtml, $this->showOrder, WCF::getLanguage()->getLanguageID());
 		$this->category->assignPublicationTypes($this->publicationTypes);
-		
+
 		// save permissions
 		$this->permissions = CategoryEditor::getCleanedPermissions($this->permissions);
 		$this->category->addPermissions($this->permissions, $this->permissionSettings);
-		
+
 		// save moderators
 		$this->moderators = CategoryEditor::getCleanedPermissions($this->moderators);
 		$this->category->addModerators($this->moderators, $this->moderatorSettings);
-		
+
 		// reset cache
 		Category::resetCache();
-		
+
 		// reset sessions
 		Session::resetSessions(array(), true, false);
 		$this->saved();
-		
+
 		// reset values
-		$this->parentID = $this->allowDescriptionHtml = 0;
-		$this->position = $this->title = $this->description = '';
+		$this->parentID = $this->allowDescriptionHtml = $this->showOrder = 0;
+		$this->title = $this->description = '';
 		$this->publicationTypes = $this->permissions = $this->moderators = array();
-		
+
 		// show success message
 		WCF::getTPL()->assign('success', true);
 	}
-	
+
 	/**
 	 * @see Page::readData()
 	 */
 	public function readData() {
 		parent::readData();
-		
+
 		$this->categoryOptions = Category::getCategorySelect('', array());
 	}
-	
+
 	/**
 	 * @see Page::assignVariables()
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
-		
+
 		WCF::getTPL()->assign(array(
 			'action' => 'add',
 			'categoryOptions' => $this->categoryOptions,

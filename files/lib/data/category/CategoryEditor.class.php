@@ -7,7 +7,7 @@ require_once(WCF_DIR.'lib/system/language/LanguageEditor.class.php');
 
 /**
  * Provides functions to manage categories.
- * 
+ *
  * @author	Sebastian Oettl
  * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
@@ -29,10 +29,10 @@ class CategoryEditor extends Category {
 			parent::__construct(null, $row);
 		}
 	}
-	
+
 	/**
 	 * Updates the amount of news entries for this category.
-	 * 
+	 *
 	 * @param	integer		$entries
 	 */
 	public function updateNewsEntries($entries) {
@@ -41,10 +41,10 @@ class CategoryEditor extends Category {
 			WHERE 	categoryID = ".$this->categoryID;
 		WCF::getDB()->registerShutdownUpdate($sql);
 	}
-	
+
 	/**
 	 * Updates the amount of articles for this category.
-	 * 
+	 *
 	 * @param	integer		$articles
 	 */
 	public function updateArticles($articles) {
@@ -53,10 +53,10 @@ class CategoryEditor extends Category {
 			WHERE 	categoryID = ".$this->categoryID;
 		WCF::getDB()->registerShutdownUpdate($sql);
 	}
-	
+
 	/**
 	 * Updates the amount of links for this category.
-	 * 
+	 *
 	 * @param	integer		$links
 	 */
 	public function updateLinks($links) {
@@ -65,35 +65,35 @@ class CategoryEditor extends Category {
 			WHERE 	categoryID = ".$this->categoryID;
 		WCF::getDB()->registerShutdownUpdate($sql);
 	}
-	
+
 	/**
 	 * Updates the stats for this category.
 	 */
 	public function refresh() {
 		$this->refreshAll($this->categoryID);
 	}
-	
+
 	/**
 	 * Assigns this category to the given publication types.
-	 * 
+	 *
 	 * @param	array		$publicationTypes
 	 */
 	public function assignPublicationTypes($publicationTypes) {
 		$publicationTypes = array_unique($publicationTypes);
-	
+
 		$inserts = '';
 		foreach ($publicationTypes as $publicationType) {
 			if (!empty($inserts)) $inserts .= ',';
 			$inserts .= "('".escapeString($publicationType)."', ".$this->categoryID.")";
 		}
-	
+
 		// insert new publication types
 		$sql = "INSERT IGNORE INTO 	wsip".WSIP_N."_category_to_publication_type
 						(publicationType, categoryID)
 			VALUES			".$inserts;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Removes assigned publication types.
 	 */
@@ -102,10 +102,10 @@ class CategoryEditor extends Category {
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Returns the list of assigned publication types.
-	 * 
+	 *
 	 * @return	array
 	 */
 	public function getAssignedPublicationTypes() {
@@ -119,11 +119,11 @@ class CategoryEditor extends Category {
 		}
 		return $publicationTypes;
 	}
-	
+
 	/**
 	 * Returns the cleaned permission list.
 	 * Removes default permissions from the given permission list.
-	 * 
+	 *
 	 * @param	array		$permissions
 	 * @return	array
 	 */
@@ -140,7 +140,7 @@ class CategoryEditor extends Category {
 		}
 		return $permissions;
 	}
-	
+
 	/**
 	 * Removes the user and group permissions of this category.
 	 */
@@ -149,16 +149,16 @@ class CategoryEditor extends Category {
 		$sql = "DELETE FROM	wsip".WSIP_N."_category_to_user
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// group
 		$sql = "DELETE FROM	wsip".WSIP_N."_category_to_group
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Adds the given permissions to this category.
-	 * 
+	 *
 	 * @param	array		$permissions
 	 * @param	array		$permissionSettings
 	 */
@@ -170,7 +170,7 @@ class CategoryEditor extends Category {
 				$userInserts .= '('.$this->categoryID.',
 						 '.intval($permission['id']).',
 						 '.(implode(', ', ArrayUtil::toIntegerArray($permission['settings']))).')';
-			
+
 			}
 			else {
 				if (!empty($groupInserts)) $groupInserts .= ',';
@@ -179,24 +179,24 @@ class CategoryEditor extends Category {
 						 '.(implode(', ', ArrayUtil::toIntegerArray($permission['settings']))).')';
 			}
 		}
-	
+
 		if (!empty($userInserts)) {
 			$sql = "INSERT INTO	wsip".WSIP_N."_category_to_user
 						(categoryID, userID, ".implode(', ', $permissionSettings).")
 				VALUES		".$userInserts;
 			WCF::getDB()->sendQuery($sql);
 		}
-		
+
 		if (!empty($groupInserts)) {
 			$sql = "INSERT INTO	wsip".WSIP_N."_category_to_group
 						(categoryID, groupID, ".implode(', ', $permissionSettings).")
 				VALUES		".$groupInserts;
 			WCF::getDB()->sendQuery($sql);
 		}
-		
+
 		return $permissions;
 	}
-	
+
 	/**
 	 * Removes the moderator permissions of this category.
 	 */
@@ -205,10 +205,10 @@ class CategoryEditor extends Category {
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Adds the given moderators to this category.
-	 * 
+	 *
 	 * @param	array		$moderators
 	 * @param	array		$moderatorSettings
 	 */
@@ -221,7 +221,7 @@ class CategoryEditor extends Category {
 					'.($moderator['type'] == 'group' ? intval($moderator['id']) : 0).',
 					'.(implode(', ', ArrayUtil::toIntegerArray($moderator['settings']))).')';
 		}
-	
+
 		if (!empty($inserts)) {
 			$sql = "INSERT INTO	wsip".WSIP_N."_category_moderator
 						(categoryID, userID, groupID, ".implode(', ', $moderatorSettings).")
@@ -229,10 +229,10 @@ class CategoryEditor extends Category {
 			WCF::getDB()->sendQuery($sql);
 		}
 	}
-	
+
 	/**
 	 * Updates this category.
-	 * 
+	 *
 	 * @param	integer		$parentID
 	 * @param	string		$title
 	 * @param	string		$description
@@ -260,7 +260,7 @@ class CategoryEditor extends Category {
 				WCF::getDB()->sendQuery($sql);
 			}
 		}
-		
+
 		// update category
 		$sql = "UPDATE	wsip".WSIP_N."_category
 			SET	parentID = ".$parentID.",
@@ -269,7 +269,7 @@ class CategoryEditor extends Category {
 				showOrder = ".$showOrder."
 			WHERE	categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// update language items
 		if ($languageID != 0) {
 			// save language variables
@@ -278,7 +278,7 @@ class CategoryEditor extends Category {
 			LanguageEditor::deleteLanguageFiles($languageID, 'wsip.category', PACKAGE_ID);
 		}
 	}
-	
+
 	/**
 	 * Deletes this category.
 	 */
@@ -298,7 +298,7 @@ class CategoryEditor extends Category {
 			require_once(WSIP_DIR.'lib/data/news/NewsEntryEditor.class.php');
 			NewsEntryEditor::deleteAllCompletely($entryIDs);
 		}
-		
+
 		// get all article ids
 		$articleIDs = '';
 		$sql = "SELECT	articleID
@@ -314,44 +314,51 @@ class CategoryEditor extends Category {
 			require_once(WSIP_DIR.'lib/data/article/ArticleEditor.class.php');
 			ArticleEditor::deleteAll($articleIDs);
 		}
-		
+
 		// remove publication types
 		$this->removeAssignedPublicationTypes();
-		
+
+		// update neighbour categories
+		$sql = "UPDATE	wsip".WSIP_N."_category
+			SET	showOrder = showOrder - 1
+			WHERE	showOrder > ".$this->showOrder."
+				AND parentID = ".$this->parentID;
+		WCF::getDB()->sendQuery($sql);
+
 		// update sub categories
 		$sql = "UPDATE	wsip".WSIP_N."_category
 			SET	parentID = ".$this->parentID."
 			WHERE	parentID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete category moderator options
 		$sql = "DELETE FROM	wsip".WSIP_N."_category_moderator
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete category group options
 		$sql = "DELETE FROM	wsip".WSIP_N."_category_to_group
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete category user options
 		$sql = "DELETE FROM	wsip".WSIP_N."_category_to_user
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete category
 		$sql = "DELETE FROM	wsip".WSIP_N."_category
 			WHERE		categoryID = ".$this->categoryID;
 		WCF::getDB()->sendQuery($sql);
-			
+
 		// delete language variables
 		LanguageEditor::deleteVariable('wsip.category.'.$this->category);
 		LanguageEditor::deleteVariable('wsip.category.'.$this->category.'.description');
 	}
-	
+
 	/**
 	 * Creates a new category.
-	 * 
+	 *
 	 * @param	integer		$parentID
 	 * @param	string		$title
 	 * @param	string		$description
@@ -377,7 +384,7 @@ class CategoryEditor extends Category {
 					AND parentID = ".$parentID;
 			WCF::getDB()->sendQuery($sql);
 		}
-		
+
 		// get title
 		$category = '';
 		if ($languageID == 0) $category = $title;
@@ -387,10 +394,10 @@ class CategoryEditor extends Category {
 					(parentID, category, allowDescriptionHtml, time, showOrder)
 			VALUES		(".$parentID.", '".escapeString($category)."', ".$allowDescriptionHtml.", ".TIME_NOW.", ".$showOrder.")";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// get category id
 		$categoryID = WCF::getDB()->getInsertID("wsip".WSIP_N."_category", 'categoryID');
-		
+
 		// update language items
 		if ($languageID != 0) {
 			// set name
@@ -399,40 +406,40 @@ class CategoryEditor extends Category {
 				SET	category = '".escapeString($category)."'
 				WHERE	categoryID = ".$categoryID;
 			WCF::getDB()->sendQuery($sql);
-			
+
 			// save language variables
 			$language = new LanguageEditor($languageID);
 			$language->updateItems(array('wsip.category.'.$category => $title, 'wsip.category.'.$category.'.description' => $description));
 			LanguageEditor::deleteLanguageFiles($languageID, 'wsip.category', PACKAGE_ID);
 		}
-		
+
 		// return new category
-		return $category = new CategoryEditor($categoryID, null, null, false);
+		return new CategoryEditor($categoryID, null, null, false);
 	}
-	
+
 	/**
 	 * Updates the position of a specific category.
-	 * 
+	 *
 	 * @param	integer		$categoryID
 	 * @param	integer		$parentID
 	 * @param	integer		$position
 	 */
-	public static function updatePosition($categoryID, $parentID, $position) {		
+	public static function updatePosition($categoryID, $parentID, $position) {
 		$sql = "UPDATE	wsip".WSIP_N."_category
 			SET	parentID = ".$parentID.",
 				showOrder = ".$position."
 			WHERE 	categoryID = ".$categoryID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Updates the stats for the given categories.
-	 * 
+	 *
 	 * @param	string		$categoryIDs
 	 */
 	public static function refreshAll($categoryIDs) {
 		if (empty($categoryIDs)) return;
-		
+
 		$sql = "UPDATE	wsip".WSIP_N."_category category
 			SET	newsEntries = (
 					SELECT	COUNT(*)

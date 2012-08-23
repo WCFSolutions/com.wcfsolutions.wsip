@@ -7,7 +7,7 @@ require_once(WCF_DIR.'lib/system/language/LanguageEditor.class.php');
 
 /**
  * Provides functions to manage content items.
- * 
+ *
  * @author	Sebastian Oettl
  * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
@@ -29,10 +29,10 @@ class ContentItemEditor extends ContentItem {
 			parent::__construct(null, $row);
 		}
 	}
-	
+
 	/**
 	 * Updates this content item.
-	 * 
+	 *
 	 * @param	integer		$parentID
 	 * @param	string		$title
 	 * @param	string		$description
@@ -71,7 +71,7 @@ class ContentItemEditor extends ContentItem {
 				WCF::getDB()->sendQuery($sql);
 			}
 		}
-		
+
 		// update item
 		$sql = "UPDATE	wsip".WSIP_N."_content_item
 			SET	parentID = ".$parentID.",
@@ -88,7 +88,7 @@ class ContentItemEditor extends ContentItem {
 				showOrder = ".$showOrder."
 			WHERE	contentItemID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// update language items
 		if ($languageID != 0) {
 			// save language variables
@@ -97,11 +97,11 @@ class ContentItemEditor extends ContentItem {
 			LanguageEditor::deleteLanguageFiles($languageID, 'wsip.contentItem', PACKAGE_ID);
 		}
 	}
-	
+
 	/**
 	 * Returns the cleaned permission list.
 	 * Removes default permissions from the given permission list.
-	 * 
+	 *
 	 * @param	array		$permissions
 	 * @return	array
 	 */
@@ -118,7 +118,7 @@ class ContentItemEditor extends ContentItem {
 		}
 		return $permissions;
 	}
-	
+
 	/**
 	 * Removes the user and group permissions of this content item.
 	 */
@@ -127,16 +127,16 @@ class ContentItemEditor extends ContentItem {
 		$sql = "DELETE FROM	wsip".WSIP_N."_content_item_to_user
 			WHERE		contentItemID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// group
 		$sql = "DELETE FROM	wsip".WSIP_N."_content_item_to_group
 			WHERE		contentItemID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Adds the given permissions to this content item.
-	 * 
+	 *
 	 * @param	array		$permissions
 	 * @param	array		$permissionSettings
 	 */
@@ -148,7 +148,7 @@ class ContentItemEditor extends ContentItem {
 				$userInserts .= '('.$this->contentItemID.',
 						 '.intval($permission['id']).',
 						 '.(implode(', ', ArrayUtil::toIntegerArray($permission['settings']))).')';
-			
+
 			}
 			else {
 				if (!empty($groupInserts)) $groupInserts .= ',';
@@ -157,24 +157,24 @@ class ContentItemEditor extends ContentItem {
 						 '.(implode(', ', ArrayUtil::toIntegerArray($permission['settings']))).')';
 			}
 		}
-	
+
 		if (!empty($userInserts)) {
 			$sql = "INSERT INTO	wsip".WSIP_N."_content_item_to_user
 						(contentItemID, userID, ".implode(', ', $permissionSettings).")
 				VALUES		".$userInserts;
 			WCF::getDB()->sendQuery($sql);
 		}
-		
+
 		if (!empty($groupInserts)) {
 			$sql = "INSERT INTO	wsip".WSIP_N."_content_item_to_group
 						(contentItemID, groupID, ".implode(', ', $permissionSettings).")
 				VALUES		".$groupInserts;
 			WCF::getDB()->sendQuery($sql);
 		}
-		
+
 		return $permissions;
 	}
-	
+
 	/**
 	 * Deletes this content item.
 	 */
@@ -185,33 +185,40 @@ class ContentItemEditor extends ContentItem {
 			WHERE	showOrder >= ".$this->showOrder."
 				AND parentID = ".$this->parentID;
 		WCF::getDB()->sendQuery($sql);
-		
+
+		// update neighbour content items
+		$sql = "UPDATE	wsip".WSIP_N."_content_item
+			SET	showOrder = showOrder - 1
+			WHERE	showOrder > ".$this->showOrder."
+				AND parentID = ".$this->parentID;
+		WCF::getDB()->sendQuery($sql);
+
 		// update sub content items
 		$sql = "UPDATE	wsip".WSIP_N."_content_item
 			SET	parentID = ".$this->parentID."
 			WHERE	parentID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete category group options
 		$sql = "DELETE FROM	wsip".WSIP_N."_content_item_to_group
 			WHERE		contentItemID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete category user options
 		$sql = "DELETE FROM	wsip".WSIP_N."_content_item_to_user
 			WHERE		contentItemID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete box assignments
 		$sql = "DELETE FROM	wsip".WSIP_N."_content_item_box
 			WHERE		contentItemID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete content item
 		$sql = "DELETE FROM	wsip".WSIP_N."_content_item
 			WHERE		contentItemID = ".$this->contentItemID;
 		WCF::getDB()->sendQuery($sql);
-			
+
 		// delete language variables
 		LanguageEditor::deleteVariable('wsip.contentItem.'.$this->contentItem);
 		LanguageEditor::deleteVariable('wsip.contentItem.'.$this->contentItem.'.description');
@@ -219,10 +226,10 @@ class ContentItemEditor extends ContentItem {
 		LanguageEditor::deleteVariable('wsip.contentItem.'.$this->contentItem.'.metaDescription');
 		LanguageEditor::deleteVariable('wsip.contentItem.'.$this->contentItem.'.metaKeywords');
 	}
-	
+
 	/**
 	 * Adds the box with the given box id to this content item.
-	 * 
+	 *
 	 * @param	integer		$boxID
 	 */
 	public function addBox($boxID) {
@@ -233,17 +240,17 @@ class ContentItemEditor extends ContentItem {
 		$row = WCF::getDB()->getFirstRow($sql);
 		if (!empty($row)) $showOrder = intval($row['showOrder']) + 1;
 		else $showOrder = 1;
-		
+
 		// add box
 		$sql = "REPLACE INTO	wsip".WSIP_N."_content_item_box
 					(boxID, contentItemID, showOrder)
 			VALUES		(".$boxID.", ".$this->contentItemID.", ".$showOrder.")";
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Updates the position of a box directly.
-	 * 
+	 *
 	 * @param	integer		$boxID
 	 * @param	integer		$showOrder
 	 */
@@ -254,22 +261,22 @@ class ContentItemEditor extends ContentItem {
 				AND boxID = ".$boxID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Removes the box with the given box id from this content item.
-	 * 
+	 *
 	 * @param	integer		$boxID
 	 */
 	public function removeBox($boxID) {
 		$sql = "DELETE FROM	wsip".WSIP_N."_content_item_box
 			WHERE		contentItemID = ".$this->contentItemID."
 					AND boxID = ".$boxID;
-		WCF::getDB()->sendQuery($sql);	
+		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Creates a new content item.
-	 * 
+	 *
 	 * @param	integer		$parentID
 	 * @param	string		$title
 	 * @param	string		$description
@@ -307,20 +314,20 @@ class ContentItemEditor extends ContentItem {
 					AND parentID = ".$parentID;
 			WCF::getDB()->sendQuery($sql);
 		}
-		
+
 		// get title
 		$contentItem = '';
 		if ($languageID == 0) $contentItem = $title;
-		
+
 		// insert item
 		$sql = "INSERT INTO	wsip".WSIP_N."_content_item
 					(parentID, contentItem, contentItemType, externalURL, icon, publishingStartTime, publishingEndTime, styleID, enforceStyle, boxLayoutID, allowSpidersToIndexThisPage, showOrder)
 			VALUES		(".$parentID.", '".escapeString($contentItem)."', ".$contentItemType.", '".escapeString($externalURL)."', '".escapeString($icon)."', ".$publishingStartTime.", ".$publishingEndTime.", ".$styleID.", ".$enforceStyle.", ".$boxLayoutID.", ".$allowSpidersToIndexThisPage.", ".$showOrder.")";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// get item id
 		$contentItemID = WCF::getDB()->getInsertID("wsip".WSIP_N."_content_item", 'contentItemID');
-		
+
 		// update language items
 		if ($languageID != 0) {
 			// set name
@@ -329,25 +336,25 @@ class ContentItemEditor extends ContentItem {
 				SET	contentItem = '".escapeString($contentItem)."'
 				WHERE	contentItemID = ".$contentItemID;
 			WCF::getDB()->sendQuery($sql);
-			
+
 			// save language variables
 			$language = new LanguageEditor($languageID);
 			$language->updateItems(array('wsip.contentItem.'.$contentItem => $title, 'wsip.contentItem.'.$contentItem.'.description' => $description, 'wsip.contentItem.'.$contentItem.'.text' => $text, 'wsip.contentItem.'.$contentItem.'.metaDescription' => $metaDescription, 'wsip.contentItem.'.$contentItem.'.metaKeywords' => $metaKeywords));
 			LanguageEditor::deleteLanguageFiles($languageID, 'wsip.contentItem', PACKAGE_ID);
 		}
-		
+
 		// return new content item
 		return new ContentItemEditor($contentItemID, null, null, false);
 	}
-	
+
 	/**
 	 * Updates the position of the content item with the given content item id.
-	 * 
+	 *
 	 * @param	integer		$contentItemID
 	 * @param	integer		$parentID
 	 * @param	integer		$position
 	 */
-	public static function updatePosition($contentItemID, $parentID, $position) {		
+	public static function updatePosition($contentItemID, $parentID, $position) {
 		$sql = "UPDATE	wsip".WSIP_N."_content_item
 			SET	parentID = ".$parentID.",
 				showOrder = ".$position."

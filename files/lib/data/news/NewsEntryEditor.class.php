@@ -5,7 +5,7 @@ require_once(WSIP_DIR.'lib/data/publication/object/PublicationObjectEditor.class
 
 /**
  * Provides functions to manage news entries.
- * 
+ *
  * @author	Sebastian Oettl
  * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.html>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
@@ -16,24 +16,24 @@ require_once(WSIP_DIR.'lib/data/publication/object/PublicationObjectEditor.class
 class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 	/**
 	 * Sets the subject of this entry.
-	 * 
+	 *
 	 * @param	string		$subject
 	 */
 	public function setSubject($subject) {
 		if ($subject == $this->subject) return;
-		
+
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry
 			SET	subject = '".escapeString($subject)."'
 			WHERE 	entryID = ".$this->entryID;
 		WCF::getDB()->registerShutdownUpdate($sql);
 	}
-	
+
 	/**
 	 * Marks this entry.
 	 */
 	public function mark() {
 		$markedEntries = self::getMarkedEntries();
-		if ($markedEntries === null || !is_array($markedEntries)) { 
+		if ($markedEntries === null || !is_array($markedEntries)) {
 			$markedEntries = array($this->entryID);
 			WCF::getSession()->register('markedNewsEntries', $markedEntries);
 		}
@@ -44,7 +44,7 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			}
 		}
 	}
-	
+
 	/**
 	 * Unmarks this entry.
 	 */
@@ -55,27 +55,27 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			unset($markedEntries[$key]);
 			if (count($markedEntries) == 0) {
 				self::unmarkAll();
-			} 
+			}
 			else {
 				WCF::getSession()->register('markedNewsEntries', $markedEntries);
 			}
 		}
 	}
-	
+
 	/**
 	 * Disables this entry.
 	 */
 	public function disable() {
 		self::disableAll($this->entryID);
 	}
-	
+
 	/**
 	 * Enables this entry.
 	 */
 	public function enable() {
 		self::enableAll($this->entryID);
 	}
-	
+
 	/**
 	 * Moves this entry into the recycle bin.
 	 *
@@ -84,26 +84,26 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 	public function trash($reason = '') {
 		self::trashAll($this->entryID, $reason);
 	}
-	
+
 	/**
 	 * Deletes this entry completely.
 	 */
 	public function delete() {
 		self::deleteAllCompletely($this->entryID);
 	}
-	
+
 	/**
 	 * Restores this deleted entry.
 	 */
 	public function restore() {
 		self::restoreAll($this->entryID);
 	}
-	
+
 	/**
 	 * Updates this entry.
-	 * 
+	 *
 	 * @param	integer				$categoryID
-	 * @param	integer				$languageID			
+	 * @param	integer				$languageID
 	 * @param	string				$subject
 	 * @param	string				$message
 	 * @param	string				$teaser
@@ -116,7 +116,7 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 	public function update($categoryID, $languageID, $subject, $message, $teaser, $publishingTime, $enableComments, $options, $attachmentList = null, $poll = null) {
 		// get number of attachments
 		$attachmentsAmount = ($attachmentList !== null ? count($attachmentList->getAttachments($this->entryID)) : 0);
-		
+
 		// update entry
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry
 			SET	categoryID = ".$categoryID.",
@@ -133,28 +133,28 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 				enableComments = ".$enableComments."
 			WHERE 	entryID = ".$this->entryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// update attachments
 		if ($attachmentList != null) {
 			$attachmentList->findEmbeddedAttachments($message);
 		}
-		
+
 		// update poll
 		if ($poll != null) {
 			$poll->updateMessageID($this->entryID);
 		}
 	}
-	
+
 	/**
 	 * Updates the tags of this entry.
-	 * 
+	 *
 	 * @param	array		$tags
 	 */
 	public function updateTags($tagArray) {
 		// include files
 		require_once(WCF_DIR.'lib/data/tag/TagEngine.class.php');
 		require_once(WSIP_DIR.'lib/data/news/TaggedNewsEntry.class.php');
-		
+
 		// save tags
 		$tagged = new TaggedNewsEntry(null, array(
 			'entryID' => $this->entryID,
@@ -163,15 +163,15 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 
 		// delete old tags
 		TagEngine::getInstance()->deleteObjectTags($tagged, array($this->languageID));
-		
+
 		// save new tags
 		if (count($tagArray) > 0) TagEngine::getInstance()->addTags($tagArray, $tagged, $this->languageID);
 	}
-	
+
 	/**
 	 * Creates a new entry.
-	 * 
-	 * @param	integer				$categoryID	
+	 *
+	 * @param	integer				$categoryID
 	 * @param	integer				$languageID
 	 * @param	string				$subject
 	 * @param	string				$message
@@ -189,7 +189,7 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 	public static function create($categoryID, $languageID, $subject, $message, $teaser, $userID, $username, $publishingTime, $enableComments, $options = array(), $attachmentList = null, $poll = null, $isDisabled = 0, $ipAddress = null) {
 		if ($ipAddress == null) $ipAddress = WCF::getSession()->ipAddress;
 		$attachmentsAmount = $attachmentList != null ? count($attachmentList->getAttachments()) : 0;
-		
+
 		// insert entry
 		$sql = "INSERT INTO	wsip".WSIP_N."_news_entry
 					(categoryID, languageID, userID, username, subject, message, teaser, time, publishingTime, everEnabled, isDisabled, attachments, pollID, enableComments, ipAddress, enableSmilies, enableHtml, enableBBCodes)
@@ -198,31 +198,31 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 					".(isset($options['enableHtml']) ? $options['enableHtml'] : 0).",
 					".(isset($options['enableBBCodes']) ? $options['enableBBCodes'] : 1).")";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// get entry id
 		$entryID = WCF::getDB()->getInsertID("wsip".WSIP_N."_news_entry", 'entryID');
-		
+
 		// get new entry
 		$entry = new NewsEntryEditor($entryID);
-		
+
 		// update attachments
 		if ($attachmentList != null) {
 			$attachmentList->updateContainerID($entryID);
 			$attachmentList->findEmbeddedAttachments($message);
 		}
-		
+
 		// update poll
 		if ($poll != null) {
 			$poll->updateMessageID($entryID);
 		}
-		
+
 		// return entry
 		return $entry;
 	}
-	
+
 	/**
 	 * Creates a preview of an entry.
-	 * 
+	 *
 	 * @param	string		$subject
 	 * @param 	string		$message
 	 * @param 	boolean		$enableSmilies
@@ -240,16 +240,16 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			'enableBBCodes' => $enableBBCodes,
 			'messagePreview' => true
 		);
-		
+
 		// get entry
 		require_once(WSIP_DIR.'lib/data/news/ViewableNewsEntry.class.php');
 		$entry = new ViewableNewsEntry(null, $row);
 		return $entry->getFormattedMessage();
 	}
-	
+
 	/**
 	 * Returns the currently marked entries.
-	 * 
+	 *
 	 * @return	mixed
 	 */
 	public static function getMarkedEntries() {
@@ -259,37 +259,37 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Unmarks all marked entries.
 	 */
 	public static function unmarkAll() {
 		WCF::getSession()->unregister('markedNewsEntries');
 	}
-	
+
 	/**
 	 * Disables the entries with the given entry ids.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 */
 	public static function disableAll($entryIDs) {
 		if (empty($entryIDs)) return;
-		
+
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry
 			SET	isDeleted = 0,
 				isDisabled = 1
 			WHERE 	entryID IN (".$entryIDs.")";
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Enables the entries with the given entry ids.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 */
 	public static function enableAll($entryIDs) {
 		if (empty($entryIDs)) return;
-		
+
 		// get not yet enabled entries
 		$statEntryIDs = '';
 		$sql = "SELECT	entryID
@@ -302,10 +302,10 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			if (!empty($statEntryIDs)) $statEntryIDs .= ',';
 			$statEntryIDs .= $row['entryID'];
 		}
-		
+
 		// update user entries and activity points
 		self::updateUserStats($statEntryIDs, 'enable');
-		
+
 		// enable entries
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry
 			SET	isDisabled = 0,
@@ -313,24 +313,24 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 				publishingTime = 0
 			WHERE 	entryID IN (".$entryIDs.")";
 		WCF::getDB()->registerShutdownUpdate($sql);
-	}	
-	
+	}
+
 	/**
 	 * Refreshes the stats of this entry.
 	 */
 	public function refresh() {
 		self::refreshAll($this->entryID);
 	}
-	
+
 	/**
 	 * Moves all entries with the given entry ids into the category with the given category id.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 * @param	integer		$newCategoryID
 	 */
 	public static function moveAll($entryIDs, $newCategoryID) {
 		if (empty($entryIDs)) return;
-		
+
 		// move entries
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry
 			SET	categoryID = ".$newCategoryID."
@@ -338,15 +338,15 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 				AND categoryID <> ".$newCategoryID;
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Refreshes the stats of this entry.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 */
 	public static function refreshAll($entryIDs) {
 		if (empty($entryIDs)) return;
-		
+
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry news_entry
 			SET	comments = (
 					SELECT	COUNT(*)
@@ -357,16 +357,16 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			WHERE 	entryID IN (".$entryIDs.")";
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Deletes the entries with the given entry ids.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 * @param	string		$reason
 	 */
 	public static function deleteAll($entryIDs, $reason = '') {
 		if (empty($entryIDs)) return;
-		
+
 		$trashIDs = '';
 		$deleteIDs = '';
 		if (NEWS_ENTRY_ENABLE_RECYCLE_BIN) {
@@ -388,20 +388,20 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 		else {
 			$deleteIDs = $entryIDs;
 		}
-		
+
 		self::trashAll($trashIDs, $reason);
 		self::deleteAllCompletely($deleteIDs);
 	}
-	
+
 	/**
 	 * Moves the entries with the given entry ids into the recycle bin.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 * @param	string		$reason
 	 */
 	public static function trashAll($entryIDs, $reason = '') {
 		if (empty($entryIDs)) return;
-		
+
 		// trash entry
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry
 			SET	isDeleted = 1,
@@ -413,87 +413,85 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			WHERE 	entryID IN (".$entryIDs.")";
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Deletes the entries with the given entry ids completely.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 */
 	public static function deleteAllCompletely($entryIDs) {
 		if (empty($entryIDs)) return;
-		
+
 		// delete attachments
 		require_once(WCF_DIR.'lib/data/attachment/MessageAttachmentListEditor.class.php');
 		$attachment = new MessageAttachmentListEditor(explode(',', $entryIDs), 'newsEntry');
 		$attachment->deleteAll();
-		
+
 		// delete tags
-		if (MODULE_TAGGING) {
-			require_once(WCF_DIR.'lib/data/tag/TagEngine.class.php');
-			$taggable = TagEngine::getInstance()->getTaggable('com.wcfsolutions.wsip.news.entry');
-			
-			$sql = "DELETE FROM	wcf".WCF_N."_tag_to_object
-				WHERE 		taggableID = ".$taggable->getTaggableID()."
-						AND objectID IN (".$entryIDs.")";
-			WCF::getDB()->registerShutdownUpdate($sql);
-		}
-		
+		require_once(WCF_DIR.'lib/data/tag/TagEngine.class.php');
+		$taggable = TagEngine::getInstance()->getTaggable('com.wcfsolutions.wsip.news.entry');
+
+		$sql = "DELETE FROM	wcf".WCF_N."_tag_to_object
+			WHERE 		taggableID = ".$taggable->getTaggableID()."
+					AND objectID IN (".$entryIDs.")";
+		WCF::getDB()->registerShutdownUpdate($sql);
+
 		// delete polls
 		require_once(WCF_DIR.'lib/data/message/poll/PollEditor.class.php');
 		PollEditor::deleteAll($entryIDs, 'newsEntry');
-		
+
 		// delete ratings
 		$sql = "DELETE FROM	wcf".WCF_N."_rating
 			WHERE		objectID IN (".$entryIDs.")
 					AND objectName = 'com.wcfsolutions.wsip.news.entry'
 					AND packageID = ".PACKAGE_ID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete comments
 		$sql = "DELETE FROM	wsip".WSIP_N."_publication_object_comment
 			WHERE		publicationObjectID IN (".$entryIDs.")
 					AND publicationType = 'news'";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// delete subscriptions
 		$sql = "DELETE FROM	wsip".WSIP_N."_publication_object_subscription
 			WHERE		publicationObjectID IN (".$entryIDs.")
 					AND publicationType = 'news'";
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// update user posts and activity points
 		self::updateUserStats($entryIDs, 'delete');
-		
+
 		// delete entries
 		$sql = "DELETE FROM 	wsip".WSIP_N."_news_entry
 			WHERE 		entryID IN (".$entryIDs.")";
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Restores the entries with the given entry ids.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 */
 	public static function restoreAll($entryIDs) {
 		if (empty($entryIDs)) return;
-		
+
 		// restore entries
 		$sql = "UPDATE 	wsip".WSIP_N."_news_entry
 			SET	isDeleted = 0
 			WHERE 	entryID IN (".$entryIDs.")";
 		WCF::getDB()->sendQuery($sql);
 	}
-	
+
 	/**
 	 * Updates the user stats.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 * @param 	string		$mode
 	 */
 	public static function updateUserStats($entryIDs, $mode) {
 		if (empty($entryIDs)) return;
-		
+
 		// update user news entries and activity points
 		$userNewsEntries = array();
 		$userActivityPoints = array();
@@ -504,7 +502,7 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 				AND userID <> 0";
 		$result = WCF::getDB()->sendQuery($sql);
 		while ($row = WCF::getDB()->fetchArray($result)) {
-			$category = new Category($row['categoryID']);			
+			$category = new Category($row['categoryID']);
 			switch ($mode) {
 				case 'enable':
 					// entries
@@ -526,7 +524,7 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 					break;
 			}
 		}
-		
+
 		// save user news entries
 		if (count($userNewsEntries)) {
 			require_once(WSIP_DIR.'lib/data/user/WSIPUser.class.php');
@@ -534,7 +532,7 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 				WSIPUser::updateUserNewsEntries($userID, $entries);
 			}
 		}
-		
+
 		// save activity points
 		if (count($userActivityPoints)) {
 			require_once(WCF_DIR.'lib/data/user/rank/UserRank.class.php');
@@ -543,16 +541,16 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			}
 		}
 	}
-	
+
 	/**
 	 * Returns the categories of the entries with the given entry ids.
-	 * 
+	 *
 	 * @param	string		$entryIDs
 	 * @return	array
 	 */
 	public static function getCategoriesByEntryIDs($entryIDs) {
 		if (empty($entryIDs)) return array(array(), '', 'categories' => array(), 'categoryIDs' => '');
-		
+
 		$categories = array();
 		$categoryIDs = '';
 		$sql = "SELECT 	DISTINCT categoryID
@@ -564,10 +562,10 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			$categoryIDs .= $row['categoryID'];
 			$categories[$row['categoryID']] = new CategoryEditor($row['categoryID']);
 		}
-		
+
 		return array($categories, $categoryIDs, 'categories' => $categories, 'categoryIDs' => $categoryIDs);
 	}
-	
+
 	// PublicationObjectEditor implementation
 	/**
 	 * @see PublicationObjectEditor::addComment()
@@ -577,12 +575,12 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			SET	comments = comments + 1
 			WHERE	entryID = ".$this->entryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// reset box tab cache
 		require_once(WCF_DIR.'lib/data/box/tab/BoxTab.class.php');
 		BoxTab::resetBoxTabCacheByBoxTabType('newsEntries');
 	}
-	
+
 	/**
 	 * @see PublicationObjectEditor::removeComment()
 	 */
@@ -591,7 +589,7 @@ class NewsEntryEditor extends NewsEntry implements PublicationObjectEditor {
 			SET	comments = comments - 1
 			WHERE	entryID = ".$this->entryID;
 		WCF::getDB()->sendQuery($sql);
-		
+
 		// reset box tab cache
 		require_once(WCF_DIR.'lib/data/box/tab/BoxTab.class.php');
 		BoxTab::resetBoxTabCacheByBoxTabType('newsEntries');
