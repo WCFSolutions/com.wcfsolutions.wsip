@@ -1,6 +1,6 @@
 /**
  * @author	Sebastian Oettl
- * @copyright	2009-2011 WCF Solutions <http://www.wcfsolutions.com/index.php>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
 var NewsEntryListEdit = Class.create({
@@ -17,11 +17,11 @@ var NewsEntryListEdit = Class.create({
 			entryID:		0,
 			enableRecycleBin:	true
 		}, arguments[2] || { });
-		
+
 		// get parent object
 		this.parentObject = new InlineListEdit('newsEntry', this);
 	},
-	
+
 	/**
 	 * Initialises special news entry options.
 	 */
@@ -33,40 +33,40 @@ var NewsEntryListEdit = Class.create({
 				entrySubjectDiv.observe('dblclick', function(id) { this.startTitleEdit(id); }.bind(this, id));
 			}
 		}
-	},	
-	
+	},
+
 	/**
 	 * Show the status of a news entry.
 	 */
 	showStatus: function(id) {
 		var entry = this.data.get(id);
-		
+
 		// get row
 		var row = $('newsEntryRow'+id);
-		
+
 		// update css class
 		if (row) {
 			// remove all classes
-			row.removeClassName('marked');			
+			row.removeClassName('marked');
 			row.removeClassName('disabled');
 			row.removeClassName('deleted');
-			
+
 			// disabled
 			if (entry.isDisabled) {
 				row.addClassName('disabled');
 			}
-			
+
 			// deleted
 			if (entry.isDeleted) {
 				row.addClassName('deleted');
 			}
-			
+
 			// marked
 			if (entry.isMarked) {
 				row.addClassName('marked');
 			}
 		}
-		
+
 		// update icon
 		var icon = $('newsEntryEdit'+id);
 		if (icon && icon.src != undefined) {
@@ -79,7 +79,7 @@ var NewsEntryListEdit = Class.create({
 			}
 		}
 	},
-	
+
 	/**
 	 * Saves the marked status.
 	 */
@@ -89,7 +89,7 @@ var NewsEntryListEdit = Class.create({
 			parameters: data
 		});
 	},
-	
+
 	/**
 	 * Returns a list of the edit options for the edit menu.
 	 */
@@ -97,7 +97,7 @@ var NewsEntryListEdit = Class.create({
 		var options = new Array();
 		var i = 0;
 		var entry = this.data.get(id);
-		
+
 		// edit title
 		if (permissions['canEditNewsEntry']) {
 			options[i] = new Object();
@@ -105,7 +105,7 @@ var NewsEntryListEdit = Class.create({
 			options[i]['text'] = language['wsip.news.entries.button.editTitle'];
 			i++;
 		}
-			
+
 		// enable / disable
 		if (permissions['canEnableNewsEntry']) {
 			if (entry.isDisabled == 1) {
@@ -121,7 +121,7 @@ var NewsEntryListEdit = Class.create({
 				i++;
 			}
 		}
-		
+
 		// delete
 		if (permissions['canDeleteNewsEntry'] && (permissions['canDeleteNewsEntryCompletely'] || (entry.isDeleted == 0 && this.options.enableRecycleBin))) {
 			options[i] = new Object();
@@ -129,7 +129,7 @@ var NewsEntryListEdit = Class.create({
 			options[i]['text'] = (entry.isDeleted == 0 ? language['wcf.global.button.delete'] : language['wcf.global.button.deleteCompletely']);
 			i++;
 		}
-			
+
 		// recover
 		if (entry.isDeleted == 1 && permissions['canDeleteNewsEntryCompletely']) {
 			options[i] = new Object();
@@ -137,7 +137,7 @@ var NewsEntryListEdit = Class.create({
 			options[i]['text'] = language['wsip.news.entries.button.recover'];
 			i++;
 		}
-			
+
 		// marked status
 		if (permissions['canMarkNewsEntry']) {
 			var markedStatus = entry ? entry.isMarked : false;
@@ -146,7 +146,7 @@ var NewsEntryListEdit = Class.create({
 			options[i]['text'] = markedStatus ? language['wcf.global.button.unmark'] : language['wcf.global.button.mark'];
 			i++;
 		}
-			
+
 		return options;
 	},
 
@@ -156,7 +156,7 @@ var NewsEntryListEdit = Class.create({
 	getEditMarkedOptions: function() {
 		var options = new Array();
 		var i = 0;
-		
+
 		if (this.options.page == 'category') {
 			// move
 			if (permissions['canMoveNewsEntry']) {
@@ -166,7 +166,7 @@ var NewsEntryListEdit = Class.create({
 				i++;
 			}
 		}
-		
+
 		// delete
 		if (permissions['canDeleteNewsEntry'] && (permissions['canDeleteNewsEntryCompletely'] || this.options.enableRecycleBin)) {
 			options[i] = new Object();
@@ -174,7 +174,7 @@ var NewsEntryListEdit = Class.create({
 			options[i]['text'] = language['wcf.global.button.delete'];
 			i++;
 		}
-		
+
 		// recover
 		if (this.options.enableRecycleBin && permissions['canDeleteNewsEntryCompletely']) {
 			options[i] = new Object();
@@ -182,36 +182,36 @@ var NewsEntryListEdit = Class.create({
 			options[i]['text'] = language['wsip.news.entries.button.recover'];
 			i++;
 		}
-		
+
 		// unmark all
 		options[i] = new Object();
 		options[i]['function'] = 'newsEntryListEdit.unmarkAll();';
 		options[i]['text'] = language['wcf.global.button.unmark'];
 		i++;
-		
+
 		// show marked
 		options[i] = new Object();
 		options[i]['function'] = 'document.location.href = fixURL("index.php?page=ModerationMarkedEntries'+SID_ARG_2ND+'")';
 		options[i]['text'] = language['wsip.news.entries.button.showMarked'];
 		i++;
-		
+
 		return options;
 	},
-	
+
 	/**
 	 * Returns the title of the edit marked menu.
 	 */
 	getMarkedTitle: function() {
 		return eval(language['wsip.news.entries.markedEntries']);
 	},
-	
+
 	/**
 	 * Moves this entry.
 	 */
 	move: function(action) {
 		document.location.href = fixURL('index.php?action=NewsEntryMoveMarked&categoryID='+this.options.categoryID+'&url='+encodeURIComponent(this.options.url)+'&t='+SECURITY_TOKEN+SID_ARG_2ND);
 	},
-	
+
 	/**
 	 * Deletes this entry.
 	 */
@@ -247,7 +247,7 @@ var NewsEntryListEdit = Class.create({
 			}
 		}
 	},
-	
+
 	/**
 	 * Deletes all marked entries.
 	 */
@@ -262,14 +262,14 @@ var NewsEntryListEdit = Class.create({
 			document.location.href = fixURL('index.php?action=NewsEntryDeleteMarked&url='+encodeURIComponent(this.options.url)+'&t='+SECURITY_TOKEN+SID_ARG_2ND);
 		}
 	},
-	
+
 	/**
 	 * Recovers all marked entries.
 	 */
 	recoverAll: function(id) {
 		document.location.href = fixURL('index.php?action=NewsEntryRecoverMarked&categoryID='+this.options.categoryID+'&url='+encodeURIComponent(this.options.url)+'&t='+SECURITY_TOKEN+SID_ARG_2ND);
 	},
-	
+
 	/**
 	 * Unmarkes all marked entries.
 	 */
@@ -277,26 +277,26 @@ var NewsEntryListEdit = Class.create({
 		new Ajax.Request('index.php?action=NewsEntryUnmarkAll&t='+SECURITY_TOKEN+SID_ARG_2ND, {
 			method: 'get'
 		});
-		
+
 		// checkboxes
 		this.count = 0;
 		var entryIDArray = this.data.keys();
 		for (var i = 0; i < entryIDArray.length; i++) {
 			var id = entryIDArray[i];
 			var entry = this.data.get(id);
-		
+
 			entry.isMarked = 0;
 			var checkbox = $('newsEntryMark'+id);
 			if (checkbox) {
 				checkbox.checked = false;
 			}
-			
+
 			this.showStatus(id);
 		}
-		
+
 		// mark all checkboxes
 		this.parentObject.checkMarkAll(false);
-		
+
 		// edit marked menu
 		this.parentObject.showMarked();
 	},
@@ -320,7 +320,7 @@ var NewsEntryListEdit = Class.create({
 			});
 		}
 	},
-	
+
 	/**
 	 * Enables an entry.
 	 */
@@ -352,7 +352,7 @@ var NewsEntryListEdit = Class.create({
 			});
 		}
 	},
-	
+
 	/**
 	 * Starts the editing of an entry title.
 	 */
@@ -367,20 +367,20 @@ var NewsEntryListEdit = Class.create({
 				title.addClassName('hidden');
 				value = title.innerHTML.unescapeHTML();
 			}
-			
+
 			// show input field
 			var inputField = new Element('input', { 'id': 'newsEntryTitleInput'+id, 'type': 'text', 'className': 'inputText', 'value': value });
 			entrySubjectDiv.insert(inputField);
-			
+
 			// add event listeners
 			inputField.observe('keydown', function(id, e) { this.doTitleEdit(id, e); }.bind(this, id));
 			inputField.observe('blur', function(id) { this.abortTitleEdit(id); }.bind(this, id));
-			
+
 			// set focus
 			inputField.focus();
 		}
 	},
-	
+
 	/**
 	 * Aborts the editing of an entry title.
 	 */
@@ -390,7 +390,7 @@ var NewsEntryListEdit = Class.create({
 		if (entrySubjectInputDiv) {
 			entrySubjectInputDiv.remove();
 		}
-		
+
 		// show title
 		var entrySubjectDiv = $('newsEntryTitle'+id);
 		if (entrySubjectDiv) {
@@ -401,7 +401,7 @@ var NewsEntryListEdit = Class.create({
 			}
 		}
 	},
-	
+
 	/**
 	 * Takes the value of the input-field and creates an ajax-request to save the new title.
 	 * enter = save
@@ -409,10 +409,10 @@ var NewsEntryListEdit = Class.create({
 	 */
 	doTitleEdit: function(id, event) {
 		var keyCode = event.keyCode;
-	
+
 		// get input field
 		var inputField = $('newsEntryTitleInput'+id);
-		
+
 		// enter
 		if (keyCode == Event.KEY_RETURN && inputField.value != '') {
 			// set new value
@@ -422,7 +422,7 @@ var NewsEntryListEdit = Class.create({
 			if (title) {
 				title.update(inputField.getValue().escapeHTML());
 			}
-			
+
 			// save new value
 			new Ajax.Request('index.php?action=NewsEntrySubjectEdit&entryID='+id+'&t='+SECURITY_TOKEN+SID_ARG_2ND, {
 				method: 'get',
@@ -430,7 +430,7 @@ var NewsEntryListEdit = Class.create({
 					subject: inputField.getValue()
 				}
 			});
-			
+
 			// abort editing
 			inputField.blur();
 			return false;

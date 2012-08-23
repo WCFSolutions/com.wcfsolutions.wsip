@@ -114,9 +114,13 @@
 	</instructions>
 
 	<instructions type="update" fromversion="1.1.2">
+		<!-- pips -->
+		<packageinstallationplugins>pip.tar</packageinstallationplugins>
+
 		<!-- files -->
 		<files>files.tar</files>
 		<templates>templates.tar</templates>
+		<acptemplates>acptemplates.tar</acptemplates>
 	</instructions>
 
 	<instructions type="update" fromversion="1.0.2">

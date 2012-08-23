@@ -1,7 +1,7 @@
 <?php
 /**
  * @author	Sebastian Oettl
- * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/index.html>
+ * @copyright	2009-2012 WCF Solutions <http://www.wcfsolutions.com/>
  * @license	GNU Lesser General Public License <http://opensource.org/licenses/lgpl-license.php>
  */
 $packageID = $this->installation->getPackageID();
@@ -184,7 +184,7 @@ while ($row = WCF::getDB()->fetchArray($result)) {
 $instanceNo = WCF_N.'_'.$this->installation->getPackage()->getInstanceNo();
 
 // update content items
-$sql = "SELECT		* 
+$sql = "SELECT		*
 	FROM		wsip".$instanceNo."_content_item
 	ORDER BY	showOrder";
 $result = WCF::getDB()->sendQuery($sql);
@@ -203,7 +203,7 @@ foreach ($languages as $languageID => $language) {
 
 // delete deprecated box tabs
 require_once(WCF_DIR.'lib/data/box/BoxEditor.class.php');
-$sql = "SELECT		box.* 
+$sql = "SELECT		box.*
 	FROM		wcf".WCF_N."_box box
 	LEFT JOIN	wcf".WCF_N."_box_tab box_tab
 	ON		(box_tab.boxID = box.boxID)
