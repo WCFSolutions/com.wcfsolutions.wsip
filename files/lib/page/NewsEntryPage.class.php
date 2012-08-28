@@ -237,6 +237,11 @@ class NewsEntryPage extends MultipleLinkPage {
 			}
 		}
 
+		$socialBookmarks = '';
+		if (MODULE_SOCIAL_BOOKMARK) {
+			$socialBookmarks = SocialBookmarks::getInstance()->getSocialBookmarks(PAGE_URL.'/'.$this->entry->getURL(), $this->entry->subject);
+		}
+
 		WCF::getTPL()->assign(array(
 			'templateName' => $this->templateName,
 			'metaDescription' => $this->entry->teaser,
@@ -253,7 +258,7 @@ class NewsEntryPage extends MultipleLinkPage {
 			'attachments' => $this->attachments,
 			'polls' => $this->polls,
 			'rating' => $this->rating,
-			'socialBookmarks' => SocialBookmarks::getInstance()->getSocialBookmarks(PAGE_URL.'/'.$this->entry->getURL(), $this->entry->subject),
+			'socialBookmarks' => $socialBookmarks,
 			'allowSpidersToIndexThisPage' => true
 		));
 	}

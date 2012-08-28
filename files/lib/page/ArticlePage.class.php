@@ -234,6 +234,11 @@ class ArticlePage extends MultipleLinkPage {
 			}
 		}
 
+		$socialBookmarks = '';
+		if (MODULE_SOCIAL_BOOKMARK) {
+			$socialBookmarks = SocialBookmarks::getInstance()->getSocialBookmarks(PAGE_URL.'/'.$this->article->getURL(), $this->article->subject);
+		}
+
 		WCF::getTPL()->assign(array(
 			'templateName' => $this->templateName,
 			'metaDescription' => $this->article->teaser,
@@ -248,7 +253,7 @@ class ArticlePage extends MultipleLinkPage {
 			'tags' => $this->tags,
 			'attachments' => $this->attachments,
 			'rating' => $this->rating,
-			'socialBookmarks' => SocialBookmarks::getInstance()->getSocialBookmarks(PAGE_URL.'/'.$this->article->getURL(), $this->article->subject),
+			'socialBookmarks' => $socialBookmarks,
 			'allowSpidersToIndexThisPage' => true
 		));
 	}
