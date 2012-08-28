@@ -265,7 +265,7 @@
 		</div>
 		<div class="formElement" style="margin-top: 10px">
 			<p class="formFieldLabel"></p>
-			<p class="formField">Copyright &copy; 2009-2011 wcfsolutions.com.</p>
+			<p class="formField">Copyright &copy; 2009-2012 wcfsolutions.com.</p>
 		</div>
 	</div>
 </div>
