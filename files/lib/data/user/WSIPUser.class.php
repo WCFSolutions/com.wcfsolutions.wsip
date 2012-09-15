@@ -13,12 +13,11 @@ require_once(WCF_DIR.'lib/data/user/UserProfile.class.php');
  * @category	Infinite Portal
  */
 class WSIPUser extends UserProfile {
-	protected $avatar = null;
-
 	/**
 	 * @see UserProfile::__construct()
 	 */
 	public function __construct($userID = null, $row = null, $username = null, $email = null) {
+		$this->sqlSelects .= 'wsip_user.*,';
 		$this->sqlJoins .= ' LEFT JOIN wsip'.WSIP_N.'_user wsip_user ON (wsip_user.userID = user.userID) ';
 		parent::__construct($userID, $row, $username, $email);
 	}
